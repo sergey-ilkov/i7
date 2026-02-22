@@ -22,3 +22,4 @@ wp-includes/
 .sass-cache/
 *.zip
 *.tar.gz
+.info/
