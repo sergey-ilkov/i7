@@ -5,7 +5,17 @@ Template Name: Digital Page
 ?>
 
 
-<?php get_header(); ?>
+<?php
+
+add_filter('body_class', function ($classes) {
+    $classes[] = 'page-digital';
+    return $classes;
+});
+
+
+get_header();
+
+?>
 
 <main>
 

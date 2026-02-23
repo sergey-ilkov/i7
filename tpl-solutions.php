@@ -5,7 +5,17 @@ Template Name: Solutions Page
 ?>
 
 
-<?php get_header(); ?>
+<?php
+
+add_filter('body_class', function ($classes) {
+    $classes[] = 'page-solutions';
+    return $classes;
+});
+
+
+get_header();
+
+?>
 
 <main>
 

@@ -5,7 +5,17 @@ Template Name: Contacts Page
 ?>
 
 
-<?php get_header(); ?>
+<?php
+
+add_filter('body_class', function ($classes) {
+    $classes[] = 'page-contacts';
+    return $classes;
+});
+
+
+get_header();
+
+?>
 
 <main>
 

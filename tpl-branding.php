@@ -5,7 +5,16 @@ Template Name: Branding Page
 ?>
 
 
-<?php get_header(); ?>
+<?php
+
+add_filter('body_class', function ($classes) {
+    $classes[] = 'page-branding';
+    return $classes;
+});
+
+get_header();
+
+?>
 
 <main>
 

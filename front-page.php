@@ -1,4 +1,16 @@
-<?php get_header(); ?>
+<?php
+
+
+add_filter('body_class', function ($classes) {
+    $classes[] = 'page-home';
+    return $classes;
+});
+
+
+get_header();
+
+
+?>
 
 
 

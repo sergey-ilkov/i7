@@ -40,3 +40,18 @@ function my_theme_scripts()
 
 // Привязываем функцию к "крючку" wp_enqueue_scripts
 add_action('wp_enqueue_scripts', 'my_theme_scripts');
+
+
+function add_defer_attribute($tag, $handle)
+{
+    // Список скриптов, которым нужен defer
+    $scripts_to_defer = array('gsap', 'scroll-trigger', 'scroll-to', 'split-text', 'motion-path', 'lenis', 'swiper', 'lottie', 'main-js');
+
+    foreach ($scripts_to_defer as $defer_script) {
+        if ($defer_script === $handle) {
+            return str_replace(' src', ' defer src', $tag);
+        }
+    }
+    return $tag;
+}
+add_filter('script_loader_tag', 'add_defer_attribute', 10, 2);
