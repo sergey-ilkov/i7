@@ -15,7 +15,7 @@ Template Name: Equipment Page
     <div class="equipment-pin-wrap section-bg" style="--section-bg: #0088ff;">
 
         <div class="video-sticky-wrap">
-            <video id="equipment-video" class="equipment-video" playsinline webkit-playsinline muted poster="./images/hero-bg/equipment-bg.jpg" data-src="./animations/equipment.mp4"></video>
+            <video id="equipment-video" class="equipment-video" playsinline webkit-playsinline muted poster="<?php echo get_template_directory_uri(); ?>/assets/images/hero-bg/equipment-bg.jpg" data-src="<?php echo get_template_directory_uri(); ?>/assets/animations/equipment.mp4"></video>
         </div>
 
         <div class="container-max">
@@ -285,8 +285,8 @@ Template Name: Equipment Page
                     <div class="swiper-slide">
                         <div class="appointment-slide">
                             <div class="appointment-slide-images">
-                                <img width="290" height="290" class="appointment-slide__img" src="./images/appointment/01.png" alt="">
-                                <img width="290" height="290" class="appointment-slide__img-face" src="./images/appointment/01-face.png" alt="">
+                                <img width="290" height="290" class="appointment-slide__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/01.png" alt="">
+                                <img width="290" height="290" class="appointment-slide__img-face" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/01-face.png" alt="">
                             </div>
                             <a class="appointment-slide__link" href="#">App, Web, CRM, Брендинг</a>
                         </div>
@@ -294,8 +294,8 @@ Template Name: Equipment Page
                     <div class="swiper-slide">
                         <div class="appointment-slide">
                             <div class="appointment-slide-images">
-                                <img width="290" height="290" class="appointment-slide__img" src="./images/appointment/02.png" alt="">
-                                <img width="290" height="290" class="appointment-slide__img-face" src="./images/appointment/02-face.png" alt="">
+                                <img width="290" height="290" class="appointment-slide__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/02.png" alt="">
+                                <img width="290" height="290" class="appointment-slide__img-face" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/02-face.png" alt="">
                             </div>
                             <a class="appointment-slide__link" href="#">Поставка оборудовани</a>
                         </div>
@@ -303,8 +303,8 @@ Template Name: Equipment Page
                     <div class="swiper-slide">
                         <div class="appointment-slide">
                             <div class="appointment-slide-images">
-                                <img width="290" height="290" class="appointment-slide__img" src="./images/appointment/03.png" alt="">
-                                <img width="290" height="290" class="appointment-slide__img-face" src="./images/appointment/03-face.png" alt="">
+                                <img width="290" height="290" class="appointment-slide__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/03.png" alt="">
+                                <img width="290" height="290" class="appointment-slide__img-face" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/03-face.png" alt="">
                             </div>
                             <a class="appointment-slide__link" href="#">Вакансия</a>
                         </div>

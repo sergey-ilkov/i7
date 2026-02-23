@@ -46,8 +46,8 @@ Template Name: Contacts Page
                         <div class="swiper-slide">
                             <div class="contacts-slide image-right" style="--color-contacts: #0088ff;" data-direction="1">
                                 <div class="contacts-slide-images">
-                                    <img width="290" height="290" class="contacts-slide__img" src="./images/appointment/01.png" alt="">
-                                    <img width="290" height="290" class="contacts-slide__img-face" src="./images/appointment/01-face.png" alt="">
+                                    <img width="290" height="290" class="contacts-slide__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/01.png" alt="">
+                                    <img width="290" height="290" class="contacts-slide__img-face" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/01-face.png" alt="">
                                 </div>
                                 <span class="contacts-slide__title">App, Web, CRM, Брендинг</span>
                             </div>
@@ -55,8 +55,8 @@ Template Name: Contacts Page
                         <div class="swiper-slide">
                             <div class="contacts-slide active" style="--color-contacts: #e5c100;" data-direction="2">
                                 <div class="contacts-slide-images">
-                                    <img width="290" height="290" class="contacts-slide__img" src="./images/appointment/02.png" alt="">
-                                    <img width="290" height="290" class="contacts-slide__img-face" src="./images/appointment/02-face.png" alt="">
+                                    <img width="290" height="290" class="contacts-slide__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/02.png" alt="">
+                                    <img width="290" height="290" class="contacts-slide__img-face" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/02-face.png" alt="">
                                 </div>
                                 <span class="contacts-slide__title">Поставка оборудовани</span>
                             </div>
@@ -64,8 +64,8 @@ Template Name: Contacts Page
                         <div class="swiper-slide">
                             <div class="contacts-slide image-left" style="--color-contacts: #8e5aac;" data-direction="3">
                                 <div class="contacts-slide-images">
-                                    <img width="290" height="290" class="contacts-slide__img" src="./images/appointment/03.png" alt="">
-                                    <img width="290" height="290" class="contacts-slide__img-face" src="./images/appointment/03-face.png" alt="">
+                                    <img width="290" height="290" class="contacts-slide__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/03.png" alt="">
+                                    <img width="290" height="290" class="contacts-slide__img-face" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/03-face.png" alt="">
                                 </div>
                                 <span class="contacts-slide__title">Вакансия</span>
                             </div>

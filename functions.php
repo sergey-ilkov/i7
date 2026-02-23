@@ -1,2 +1,42 @@
 <?php
-// ?
+
+/**
+ * Функции и настройки темы
+ */
+
+function my_theme_scripts()
+{
+    // 1. Подключаем стили
+    // get_template_directory_uri() выдает путь до папки твоей темы
+
+    wp_enqueue_style('swiper-style', get_template_directory_uri() . '/assets/libs/swiper-bundle.min.css', array(), '12.1.2');
+
+    wp_enqueue_style('main-style', get_template_directory_uri() . '/assets/css/main.css', array('swiper-style'), '1.0.0');
+
+    // 2. Подключаем сторонние библиотеки (libs)
+    // Важно: указываем 'gsap' как имя, чтобы потом использовать его как зависимость
+    wp_enqueue_script('gsap', get_template_directory_uri() . '/assets/libs/gsap.min.js', array(), null, true);
+    wp_enqueue_script('scroll-trigger', get_template_directory_uri() . '/assets/libs/ScrollTrigger.min.js', array('gsap'), null, true);
+    wp_enqueue_script('scroll-to', get_template_directory_uri() . '/assets/libs/ScrollToPlugin.min.js', array('gsap'), null, true);
+    wp_enqueue_script('split-text', get_template_directory_uri() . '/assets/libs/SplitText.min.js', array('gsap'), null, true);
+    wp_enqueue_script('motion-path', get_template_directory_uri() . '/assets/libs/MotionPathPlugin.min.js', array('gsap'), null, true);
+
+
+    wp_enqueue_script('lenis', get_template_directory_uri() . '/assets/libs/lenis.min.js', array('gsap'), null, true);
+
+    // Если есть Swiper или другие
+    wp_enqueue_script('swiper', get_template_directory_uri() . '/assets/libs/swiper-bundle.min.js', array(), null, true);
+
+    wp_enqueue_script('lottie', get_template_directory_uri() . '/assets/libs/lottie.min.js', array(), null, true);
+
+    // 3. Твой основной файл скриптов (main.js)
+    // В массиве array('gsap', 'lenis') мы говорим: "Не загружай этот файл, пока не загрузятся GSAP и Lenis"
+    wp_enqueue_script('main-js', get_template_directory_uri() . '/assets/js/main.js', array('gsap', 'scroll-trigger', 'scroll-to', 'split-text', 'motion-path', 'lenis', 'swiper', 'lottie'), '1.0.0', true);
+
+    wp_localize_script('main-js', 'themeData', array(
+        'templateUrl' => get_template_directory_uri()
+    ));
+}
+
+// Привязываем функцию к "крючку" wp_enqueue_scripts
+add_action('wp_enqueue_scripts', 'my_theme_scripts');

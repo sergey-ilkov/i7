@@ -47,7 +47,7 @@ Template Name: Digital Page
 
             <div class="hero-digital-sticky">
 
-                <video id="mainVideo" class="main-video track-visibility" playsinline muted autoplay loop poster="./images/hero-bg/digital-bg.jpg" data-src="./video/digital.mp4"></video>
+                <video id="mainVideo" class="main-video track-visibility" playsinline muted autoplay loop poster="<?php echo get_template_directory_uri(); ?>/assets/images/hero-bg/digital-bg.jpg" data-src="<?php echo get_template_directory_uri(); ?>/assets/video/digital.mp4"></video>
 
                 <div class="hero-message-box">
                     <div class="hero-message">
@@ -91,16 +91,16 @@ Template Name: Digital Page
                                 <div class="swiper-slide">
                                     <div class="portfolio-slide">
                                         <picture>
-                                            <source media="(max-width: 500px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="./images/digital/sliders/01/01-min.png" />
-                                            <img width="1920" height="1080" class="lazy portfolio-slide__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/01/01.png" alt="" />
+                                            <source media="(max-width: 500px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/01/01-min.png" />
+                                            <img width="1920" height="1080" class="lazy portfolio-slide__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/01/01.png" alt="" />
                                         </picture>
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="portfolio-slide">
                                         <picture>
-                                            <source media="(max-width: 500px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="./images/digital/sliders/01/02-min.png" />
-                                            <img width="1920" height="1080" class="lazy portfolio-slide__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/01/02.png" alt="" />
+                                            <source media="(max-width: 500px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/01/02-min.png" />
+                                            <img width="1920" height="1080" class="lazy portfolio-slide__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/01/02.png" alt="" />
                                         </picture>
                                     </div>
                                 </div>
@@ -135,7 +135,7 @@ Template Name: Digital Page
                                     <span class="portfolio-link-icon-light"></span>
                                     <span class="portfolio-link-icon-dark"></span>
                                 </span>
-                                <img width="180" height="180" class="lazy portfolio-slider-qr" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/01/qr-ios.png" alt="" />
+                                <img width="180" height="180" class="lazy portfolio-slider-qr" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/01/qr-ios.png" alt="" />
                             </a>
 
                             <a class="portfolio-slider-link" href="#">
@@ -148,7 +148,7 @@ Template Name: Digital Page
                                     <span class="portfolio-link-icon-light"></span>
                                     <span class="portfolio-link-icon-dark"></span>
                                 </span>
-                                <img width="180" height="180" class="lazy portfolio-slider-qr" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/01/qr-android.png" alt="" />
+                                <img width="180" height="180" class="lazy portfolio-slider-qr" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/01/qr-android.png" alt="" />
                             </a>
                         </div>
                     </div>
@@ -159,16 +159,16 @@ Template Name: Digital Page
                                 <div class="swiper-slide">
                                     <div class="portfolio-slide">
                                         <picture>
-                                            <source media="(max-width: 500px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="./images/digital/sliders/02/01-min.png" />
-                                            <img width="1920" height="1080" class="lazy portfolio-slide__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/02/01.png" alt="" />
+                                            <source media="(max-width: 500px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/02/01-min.png" />
+                                            <img width="1920" height="1080" class="lazy portfolio-slide__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/02/01.png" alt="" />
                                         </picture>
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="portfolio-slide">
                                         <picture>
-                                            <source media="(max-width: 500px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="./images/digital/sliders/02/02-min.png" />
-                                            <img width="1920" height="1080" class="lazy portfolio-slide__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/02/02.png" alt="" />
+                                            <source media="(max-width: 500px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/02/02-min.png" />
+                                            <img width="1920" height="1080" class="lazy portfolio-slide__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/02/02.png" alt="" />
                                         </picture>
                                     </div>
                                 </div>
@@ -201,7 +201,7 @@ Template Name: Digital Page
                                     <span class="portfolio-link-icon-light"></span>
                                     <span class="portfolio-link-icon-dark"></span>
                                 </span>
-                                <img width="180" height="180" class="lazy portfolio-slider-qr" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/02/qr-ios.png" alt="" />
+                                <img width="180" height="180" class="lazy portfolio-slider-qr" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/02/qr-ios.png" alt="" />
                             </a>
 
                             <a class="portfolio-slider-link" href="#">
@@ -214,7 +214,7 @@ Template Name: Digital Page
                                     <span class="portfolio-link-icon-light"></span>
                                     <span class="portfolio-link-icon-dark"></span>
                                 </span>
-                                <img width="180" height="180" class="lazy portfolio-slider-qr" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/02/qr-android.png" alt="" />
+                                <img width="180" height="180" class="lazy portfolio-slider-qr" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/02/qr-android.png" alt="" />
                             </a>
                         </div>
                     </div>
@@ -225,16 +225,16 @@ Template Name: Digital Page
                                 <div class="swiper-slide">
                                     <div class="portfolio-slide">
                                         <picture>
-                                            <source media="(max-width: 500px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="./images/digital/sliders/03/01-min.png" />
-                                            <img width="1920" height="1080" class="lazy portfolio-slide__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/03/01.png" alt="" />
+                                            <source media="(max-width: 500px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/03/01-min.png" />
+                                            <img width="1920" height="1080" class="lazy portfolio-slide__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/03/01.png" alt="" />
                                         </picture>
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="portfolio-slide">
                                         <picture>
-                                            <source media="(max-width: 500px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="./images/digital/sliders/03/02-min.png" />
-                                            <img width="1920" height="1080" class="lazy portfolio-slide__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/03/02.png" alt="" />
+                                            <source media="(max-width: 500px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/03/02-min.png" />
+                                            <img width="1920" height="1080" class="lazy portfolio-slide__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/03/02.png" alt="" />
                                         </picture>
                                     </div>
                                 </div>
@@ -269,7 +269,7 @@ Template Name: Digital Page
                                     <span class="portfolio-link-icon-light"></span>
                                     <span class="portfolio-link-icon-dark"></span>
                                 </span>
-                                <img width="180" height="180" class="lazy portfolio-slider-qr" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/03/qr-ios.png" alt="" />
+                                <img width="180" height="180" class="lazy portfolio-slider-qr" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/03/qr-ios.png" alt="" />
                             </a>
 
                             <a class="portfolio-slider-link" href="#">
@@ -282,7 +282,7 @@ Template Name: Digital Page
                                     <span class="portfolio-link-icon-light"></span>
                                     <span class="portfolio-link-icon-dark"></span>
                                 </span>
-                                <img width="180" height="180" class="lazy portfolio-slider-qr" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/03/qr-android.png" alt="" />
+                                <img width="180" height="180" class="lazy portfolio-slider-qr" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/03/qr-android.png" alt="" />
                             </a>
                         </div>
                     </div>
@@ -293,16 +293,16 @@ Template Name: Digital Page
                                 <div class="swiper-slide">
                                     <div class="portfolio-slide">
                                         <picture>
-                                            <source media="(max-width: 500px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="./images/digital/sliders/04/01-min.png" />
-                                            <img width="1920" height="1080" class="lazy portfolio-slide__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/04/01.png" alt="" />
+                                            <source media="(max-width: 500px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/04/01-min.png" />
+                                            <img width="1920" height="1080" class="lazy portfolio-slide__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/04/01.png" alt="" />
                                         </picture>
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="portfolio-slide">
                                         <picture>
-                                            <source media="(max-width: 500px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="./images/digital/sliders/04/02-min.png" />
-                                            <img width="1920" height="1080" class="lazy portfolio-slide__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/04/02.png" alt="" />
+                                            <source media="(max-width: 500px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/04/02-min.png" />
+                                            <img width="1920" height="1080" class="lazy portfolio-slide__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/04/02.png" alt="" />
                                         </picture>
                                     </div>
                                 </div>
@@ -335,7 +335,7 @@ Template Name: Digital Page
                                     <span class="portfolio-link-icon-light"></span>
                                     <span class="portfolio-link-icon-dark"></span>
                                 </span>
-                                <img width="180" height="180" class="lazy portfolio-slider-qr" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/04/qr-ios.png" alt="" />
+                                <img width="180" height="180" class="lazy portfolio-slider-qr" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/04/qr-ios.png" alt="" />
                             </a>
 
                             <a class="portfolio-slider-link" href="#">
@@ -348,7 +348,7 @@ Template Name: Digital Page
                                     <span class="portfolio-link-icon-light"></span>
                                     <span class="portfolio-link-icon-dark"></span>
                                 </span>
-                                <img width="180" height="180" class="lazy portfolio-slider-qr" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/04/qr-android.png" alt="" />
+                                <img width="180" height="180" class="lazy portfolio-slider-qr" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/04/qr-android.png" alt="" />
                             </a>
                         </div>
                     </div>
@@ -359,16 +359,16 @@ Template Name: Digital Page
                                 <div class="swiper-slide">
                                     <div class="portfolio-slide">
                                         <picture>
-                                            <source media="(max-width: 500px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="./images/digital/sliders/05/01-min.png" />
-                                            <img width="1920" height="1080" class="lazy portfolio-slide__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/05/01.png" alt="" />
+                                            <source media="(max-width: 500px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/05/01-min.png" />
+                                            <img width="1920" height="1080" class="lazy portfolio-slide__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/05/01.png" alt="" />
                                         </picture>
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="portfolio-slide">
                                         <picture>
-                                            <source media="(max-width: 500px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="./images/digital/sliders/05/02-min.png" />
-                                            <img width="1920" height="1080" class="lazy portfolio-slide__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/05/02.png" alt="" />
+                                            <source media="(max-width: 500px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/05/02-min.png" />
+                                            <img width="1920" height="1080" class="lazy portfolio-slide__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/05/02.png" alt="" />
                                         </picture>
                                     </div>
                                 </div>
@@ -401,7 +401,7 @@ Template Name: Digital Page
                                     <span class="portfolio-link-icon-light"></span>
                                     <span class="portfolio-link-icon-dark"></span>
                                 </span>
-                                <img width="180" height="180" class="lazy portfolio-slider-qr" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/05/qr-ios.png" alt="" />
+                                <img width="180" height="180" class="lazy portfolio-slider-qr" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/05/qr-ios.png" alt="" />
                             </a>
 
                             <a class="portfolio-slider-link" href="#">
@@ -414,7 +414,7 @@ Template Name: Digital Page
                                     <span class="portfolio-link-icon-light"></span>
                                     <span class="portfolio-link-icon-dark"></span>
                                 </span>
-                                <img width="180" height="180" class="lazy portfolio-slider-qr" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/05/qr-android.png" alt="" />
+                                <img width="180" height="180" class="lazy portfolio-slider-qr" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/05/qr-android.png" alt="" />
                             </a>
                         </div>
 
@@ -426,16 +426,16 @@ Template Name: Digital Page
                                 <div class="swiper-slide">
                                     <div class="portfolio-slide">
                                         <picture>
-                                            <source media="(max-width: 500px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="./images/digital/sliders/06/01-min.png" />
-                                            <img width="1920" height="1080" class="lazy portfolio-slide__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/06/01.png" alt="" />
+                                            <source media="(max-width: 500px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/06/01-min.png" />
+                                            <img width="1920" height="1080" class="lazy portfolio-slide__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/06/01.png" alt="" />
                                         </picture>
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="portfolio-slide">
                                         <picture>
-                                            <source media="(max-width: 500px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="./images/digital/sliders/06/02-min.png" />
-                                            <img width="1920" height="1080" class="lazy portfolio-slide__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/06/02.png" alt="" />
+                                            <source media="(max-width: 500px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/06/02-min.png" />
+                                            <img width="1920" height="1080" class="lazy portfolio-slide__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/06/02.png" alt="" />
                                         </picture>
                                     </div>
                                 </div>
@@ -468,7 +468,7 @@ Template Name: Digital Page
                                     <span class="portfolio-link-icon-light"></span>
                                     <span class="portfolio-link-icon-dark"></span>
                                 </span>
-                                <img width="180" height="180" class="lazy portfolio-slider-qr" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/06/qr-ios.png" alt="" />
+                                <img width="180" height="180" class="lazy portfolio-slider-qr" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/06/qr-ios.png" alt="" />
                             </a>
 
                             <a class="portfolio-slider-link" href="#">
@@ -481,7 +481,7 @@ Template Name: Digital Page
                                     <span class="portfolio-link-icon-light"></span>
                                     <span class="portfolio-link-icon-dark"></span>
                                 </span>
-                                <img width="180" height="180" class="lazy portfolio-slider-qr" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/06/qr-android.png" alt="" />
+                                <img width="180" height="180" class="lazy portfolio-slider-qr" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/06/qr-android.png" alt="" />
                             </a>
                         </div>
                     </div>
@@ -492,16 +492,16 @@ Template Name: Digital Page
                                 <div class="swiper-slide">
                                     <div class="portfolio-slide">
                                         <picture>
-                                            <source media="(max-width: 500px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="./images/digital/sliders/07/01-min.png" />
-                                            <img width="1920" height="1080" class="lazy portfolio-slide__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/07/01.png" alt="" />
+                                            <source media="(max-width: 500px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/07/01-min.png" />
+                                            <img width="1920" height="1080" class="lazy portfolio-slide__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/07/01.png" alt="" />
                                         </picture>
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="portfolio-slide">
                                         <picture>
-                                            <source media="(max-width: 500px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="./images/digital/sliders/07/02-min.png" />
-                                            <img width="1920" height="1080" class="lazy portfolio-slide__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/07/02.png" alt="" />
+                                            <source media="(max-width: 500px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/07/02-min.png" />
+                                            <img width="1920" height="1080" class="lazy portfolio-slide__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/07/02.png" alt="" />
                                         </picture>
                                     </div>
                                 </div>
@@ -534,7 +534,7 @@ Template Name: Digital Page
                                     <span class="portfolio-link-icon-light"></span>
                                     <span class="portfolio-link-icon-dark"></span>
                                 </span>
-                                <img width="180" height="180" class="lazy portfolio-slider-qr" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/07/qr-ios.png" alt="" />
+                                <img width="180" height="180" class="lazy portfolio-slider-qr" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/07/qr-ios.png" alt="" />
                             </a>
 
                             <a class="portfolio-slider-link" href="#">
@@ -547,7 +547,7 @@ Template Name: Digital Page
                                     <span class="portfolio-link-icon-light"></span>
                                     <span class="portfolio-link-icon-dark"></span>
                                 </span>
-                                <img width="180" height="180" class="lazy portfolio-slider-qr" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/07/qr-android.png" alt="" />
+                                <img width="180" height="180" class="lazy portfolio-slider-qr" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/07/qr-android.png" alt="" />
                             </a>
                         </div>
                     </div>
@@ -558,16 +558,16 @@ Template Name: Digital Page
                                 <div class="swiper-slide">
                                     <div class="portfolio-slide">
                                         <picture>
-                                            <source media="(max-width: 500px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="./images/digital/sliders/08/01-min.png" />
-                                            <img width="1920" height="1080" class="lazy portfolio-slide__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/08/01.png" alt="" />
+                                            <source media="(max-width: 500px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/08/01-min.png" />
+                                            <img width="1920" height="1080" class="lazy portfolio-slide__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/08/01.png" alt="" />
                                         </picture>
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="portfolio-slide">
                                         <picture>
-                                            <source media="(max-width: 500px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="./images/digital/sliders/08/02-min.png" />
-                                            <img width="1920" height="1080" class="lazy portfolio-slide__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/08/02.png" alt="" />
+                                            <source media="(max-width: 500px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/08/02-min.png" />
+                                            <img width="1920" height="1080" class="lazy portfolio-slide__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/08/02.png" alt="" />
                                         </picture>
                                     </div>
                                 </div>
@@ -600,7 +600,7 @@ Template Name: Digital Page
                                     <span class="portfolio-link-icon-light"></span>
                                     <span class="portfolio-link-icon-dark"></span>
                                 </span>
-                                <img width="180" height="180" class="lazy portfolio-slider-qr" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/08/qr-ios.png" alt="" />
+                                <img width="180" height="180" class="lazy portfolio-slider-qr" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/08/qr-ios.png" alt="" />
                             </a>
 
                             <a class="portfolio-slider-link" href="#">
@@ -613,7 +613,7 @@ Template Name: Digital Page
                                     <span class="portfolio-link-icon-light"></span>
                                     <span class="portfolio-link-icon-dark"></span>
                                 </span>
-                                <img width="180" height="180" class="lazy portfolio-slider-qr" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/08/qr-android.png" alt="" />
+                                <img width="180" height="180" class="lazy portfolio-slider-qr" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/08/qr-android.png" alt="" />
                             </a>
                         </div>
                     </div>
@@ -809,55 +809,55 @@ Template Name: Digital Page
 
                             <div class="swiper-slide">
                                 <div class="portfolio-menu-btn" data-index="0">
-                                    <img width="218" height="74" class="lazy portfolio-menu-btn-image" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/01.png" alt="">
-                                    <img width="218" height="74" class="lazy portfolio-menu-btn-image-dark" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/01-dark.png" alt="">
+                                    <img width="218" height="74" class="lazy portfolio-menu-btn-image" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/01.png" alt="">
+                                    <img width="218" height="74" class="lazy portfolio-menu-btn-image-dark" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/01-dark.png" alt="">
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="portfolio-menu-btn" data-index="1">
-                                    <img width="218" height="74" class="lazy portfolio-menu-btn-image" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/02.png" alt="">
-                                    <img width="218" height="74" class="lazy portfolio-menu-btn-image-dark" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/02-dark.png" alt="">
+                                    <img width="218" height="74" class="lazy portfolio-menu-btn-image" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/02.png" alt="">
+                                    <img width="218" height="74" class="lazy portfolio-menu-btn-image-dark" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/02-dark.png" alt="">
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="portfolio-menu-btn" data-index="2">
 
-                                    <img width="218" height="74" class="lazy portfolio-menu-btn-image" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/03.png" alt="">
-                                    <img width="218" height="74" class="lazy portfolio-menu-btn-image-dark" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/03-dark.png" alt="">
+                                    <img width="218" height="74" class="lazy portfolio-menu-btn-image" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/03.png" alt="">
+                                    <img width="218" height="74" class="lazy portfolio-menu-btn-image-dark" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/03-dark.png" alt="">
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="portfolio-menu-btn" data-index="3">
-                                    <img width="218" height="74" class="lazy portfolio-menu-btn-image" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/04.png" alt="">
-                                    <img width="218" height="74" class="lazy portfolio-menu-btn-image-dark" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/04-dark.png" alt="">
+                                    <img width="218" height="74" class="lazy portfolio-menu-btn-image" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/04.png" alt="">
+                                    <img width="218" height="74" class="lazy portfolio-menu-btn-image-dark" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/04-dark.png" alt="">
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="portfolio-menu-btn" data-index="4">
 
-                                    <img width="218" height="74" class="lazy portfolio-menu-btn-image" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/05.png" alt="">
-                                    <img width="218" height="74" class="lazy portfolio-menu-btn-image-dark" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/05-dark.png" alt="">
+                                    <img width="218" height="74" class="lazy portfolio-menu-btn-image" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/05.png" alt="">
+                                    <img width="218" height="74" class="lazy portfolio-menu-btn-image-dark" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/05-dark.png" alt="">
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="portfolio-menu-btn" data-index="5">
 
-                                    <img width="218" height="74" class="lazy portfolio-menu-btn-image" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/06.png" alt="">
-                                    <img width="218" height="74" class="lazy portfolio-menu-btn-image-dark" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/06-dark.png" alt="">
+                                    <img width="218" height="74" class="lazy portfolio-menu-btn-image" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/06.png" alt="">
+                                    <img width="218" height="74" class="lazy portfolio-menu-btn-image-dark" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/06-dark.png" alt="">
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="portfolio-menu-btn" data-index="6">
 
-                                    <img width="218" height="74" class="lazy portfolio-menu-btn-image" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/07.png" alt="">
-                                    <img width="218" height="74" class="lazy portfolio-menu-btn-image-dark" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/07-dark.png" alt="">
+                                    <img width="218" height="74" class="lazy portfolio-menu-btn-image" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/07.png" alt="">
+                                    <img width="218" height="74" class="lazy portfolio-menu-btn-image-dark" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/07-dark.png" alt="">
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="portfolio-menu-btn" data-index="7">
 
-                                    <img width="218" height="74" class="lazy portfolio-menu-btn-image" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/08.png" alt="">
-                                    <img width="218" height="74" class="lazy portfolio-menu-btn-image-dark" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/digital/sliders/08-dark.png" alt="">
+                                    <img width="218" height="74" class="lazy portfolio-menu-btn-image" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/08.png" alt="">
+                                    <img width="218" height="74" class="lazy portfolio-menu-btn-image-dark" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/digital/sliders/08-dark.png" alt="">
                                 </div>
                             </div>
 
@@ -917,8 +917,8 @@ Template Name: Digital Page
                     <div class="swiper-slide">
                         <div class="appointment-slide">
                             <div class="appointment-slide-images">
-                                <img width="290" height="290" class="appointment-slide__img" src="./images/appointment/01.png" alt="">
-                                <img width="290" height="290" class="appointment-slide__img-face" src="./images/appointment/01-face.png" alt="">
+                                <img width="290" height="290" class="appointment-slide__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/01.png" alt="">
+                                <img width="290" height="290" class="appointment-slide__img-face" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/01-face.png" alt="">
                             </div>
                             <a class="appointment-slide__link" href="#">App, Web, CRM, Брендинг</a>
                         </div>
@@ -926,8 +926,8 @@ Template Name: Digital Page
                     <div class="swiper-slide">
                         <div class="appointment-slide">
                             <div class="appointment-slide-images">
-                                <img width="290" height="290" class="appointment-slide__img" src="./images/appointment/02.png" alt="">
-                                <img width="290" height="290" class="appointment-slide__img-face" src="./images/appointment/02-face.png" alt="">
+                                <img width="290" height="290" class="appointment-slide__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/02.png" alt="">
+                                <img width="290" height="290" class="appointment-slide__img-face" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/02-face.png" alt="">
                             </div>
                             <a class="appointment-slide__link" href="#">Поставка оборудовани</a>
                         </div>
@@ -935,8 +935,8 @@ Template Name: Digital Page
                     <div class="swiper-slide">
                         <div class="appointment-slide">
                             <div class="appointment-slide-images">
-                                <img width="290" height="290" class="appointment-slide__img" src="./images/appointment/03.png" alt="">
-                                <img width="290" height="290" class="appointment-slide__img-face" src="./images/appointment/03-face.png" alt="">
+                                <img width="290" height="290" class="appointment-slide__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/03.png" alt="">
+                                <img width="290" height="290" class="appointment-slide__img-face" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/03-face.png" alt="">
                             </div>
                             <a class="appointment-slide__link" href="#">Вакансия</a>
                         </div>

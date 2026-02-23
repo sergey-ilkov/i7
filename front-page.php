@@ -8,7 +8,10 @@
 
     <section class="hero">
 
-        <video id="mainVideo" class="main-video track-visibility" playsinline muted autoplay loop poster="./images/hero-bg/hero-bg.jpg" data-src="./video/hero.mp4"></video>
+
+
+
+        <video id="mainVideo" class="main-video track-visibility" playsinline muted autoplay loop poster="<?php echo get_template_directory_uri(); ?>/assets/images/hero-bg/hero-bg.jpg" data-src="<?php echo get_template_directory_uri(); ?>/assets/video/hero.mp4"></video>
 
 
         <div class="container-max">
@@ -36,17 +39,17 @@
                 <div class="hero-thumbs-wrap">
 
                     <div id="hero-thumbs" class="hero-thumbs" role="list">
-                        <a class="hero-thumb" href="#" data-video="./video/digital.mp4" data-poster="./images/hero-bg/digital-bg.jpg">
-                            <img width="130" height="130" src="./images/home/thumb/digital.webp" alt="digital">
+                        <a class="hero-thumb" href="#" data-video="<?php echo get_template_directory_uri(); ?>/assets/video/digital.mp4" data-poster="<?php echo get_template_directory_uri(); ?>/assets/images/hero-bg/digital-bg.jpg">
+                            <img width="130" height="130" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/thumb/digital.webp" alt="digital">
                         </a>
-                        <a class="hero-thumb" href="#" data-video="./video/branding.mp4" data-poster="./images/hero-bg/branding-bg.jpg">
-                            <img width="130" height="130" src="./images/home/thumb/branding.webp" alt="branding">
+                        <a class="hero-thumb" href="#" data-video="<?php echo get_template_directory_uri(); ?>/assets/video/branding.mp4" data-poster="<?php echo get_template_directory_uri(); ?>/assets/images/hero-bg/branding-bg.jpg">
+                            <img width="130" height="130" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/thumb/branding.webp" alt="branding">
                         </a>
-                        <a class="hero-thumb" href="#" data-video="./video/engineering.mp4" data-poster="./images/hero-bg/engineering-bg.jpg">
-                            <img width="130" height="130" src="./images/home/thumb/engineering.webp" alt="engineering">
+                        <a class="hero-thumb" href="#" data-video="<?php echo get_template_directory_uri(); ?>/assets/video/engineering.mp4" data-poster="<?php echo get_template_directory_uri(); ?>/assets/images/hero-bg/engineering-bg.jpg">
+                            <img width="130" height="130" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/thumb/engineering.webp" alt="engineering">
                         </a>
-                        <a class="hero-thumb" href="#" data-video="./video/equipment.mp4" data-poster="./images/hero-bg/equipment-bg.jpg">
-                            <img width="130" height="130" src="./images/home/thumb/equipment.webp" alt="equipment">
+                        <a class="hero-thumb" href="#" data-video="<?php echo get_template_directory_uri(); ?>/assets/video/equipment.mp4" data-poster="<?php echo get_template_directory_uri(); ?>/assets/images/hero-bg/equipment-bg.jpg">
+                            <img width="130" height="130" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/thumb/equipment.webp" alt="equipment">
                         </a>
 
                     </div>
@@ -160,8 +163,8 @@
                         <div class="recommendations-card-image">
 
                             <picture>
-                                <source media="(max-width: 800px)" srcset="./images/home/card-mob.png" />
-                                <img width="466" height="300" class="recommendations-card__img" src="./images/home/card.webp" alt="" />
+                                <source media="(max-width: 800px)" srcset="<?php echo get_template_directory_uri(); ?>/assets/images/home/card-mob.png" />
+                                <img width="466" height="300" class="recommendations-card__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/card.webp" alt="" />
                             </picture>
                         </div>
 
@@ -194,8 +197,8 @@
                         <div class="recommendations-card-image">
 
                             <picture>
-                                <source media="(max-width: 800px)" srcset="./images/home/card-mob.png" />
-                                <img width="466" height="300" class="recommendations-card__img" src="./images/home/card.webp" alt="" />
+                                <source media="(max-width: 800px)" srcset="<?php echo get_template_directory_uri(); ?>/assets/images/home/card-mob.png" />
+                                <img width="466" height="300" class="recommendations-card__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/card.webp" alt="" />
                             </picture>
                         </div>
 
@@ -229,8 +232,8 @@
                         <div class="recommendations-card-image">
 
                             <picture>
-                                <source media="(max-width: 800px)" srcset="./images/home/card-mob.png" />
-                                <img width="466" height="300" class="recommendations-card__img" src="./images/home/card.webp" alt="" />
+                                <source media="(max-width: 800px)" srcset="<?php echo get_template_directory_uri(); ?>/assets/images/home/card-mob.png" />
+                                <img width="466" height="300" class="recommendations-card__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/card.webp" alt="" />
                             </picture>
                         </div>
 
@@ -344,7 +347,7 @@
                                 <div class="swiper-slide">
                                     <div class="home-portfolio__slide">
                                         <a class="home-portfolio__link" href="./digital.html" data-slider-id="0">
-                                            <img width="445" height="445" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/home/portfolio/1.png" alt="">
+                                            <img width="445" height="445" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/home/portfolio/1.png" alt="">
                                         </a>
                                     </div>
 
@@ -353,7 +356,7 @@
                                     <div class="home-portfolio__slide">
                                         <a class="home-portfolio__link" href="./digital.html" data-slider-id="1">
 
-                                            <img width="445" height="445" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/home/portfolio/2.png" alt="">
+                                            <img width="445" height="445" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/home/portfolio/2.png" alt="">
                                         </a>
                                     </div>
                                 </div>
@@ -361,7 +364,7 @@
                                     <div class="home-portfolio__slide">
                                         <a class="home-portfolio__link" href="./digital.html" data-slider-id="2">
 
-                                            <img width="445" height="445" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/home/portfolio/3.png" alt="">
+                                            <img width="445" height="445" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/home/portfolio/3.png" alt="">
                                         </a>
                                     </div>
                                 </div>
@@ -369,7 +372,7 @@
                                     <div class="home-portfolio__slide">
                                         <a class="home-portfolio__link" href="./digital.html" data-slider-id="3">
 
-                                            <img width="445" height="445" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/home/portfolio/4.png" alt="">
+                                            <img width="445" height="445" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/home/portfolio/4.png" alt="">
                                         </a>
                                     </div>
                                 </div>
@@ -377,7 +380,7 @@
                                     <div class="home-portfolio__slide">
                                         <a class="home-portfolio__link" href="./digital.html" data-slider-id="4">
 
-                                            <img width="445" height="445" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/home/portfolio/5.png" alt="">
+                                            <img width="445" height="445" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/home/portfolio/5.png" alt="">
                                         </a>
                                     </div>
                                 </div>
@@ -385,7 +388,7 @@
 
                                     <div class="home-portfolio__slide">
                                         <a class="home-portfolio__link" href="./digital.html" data-slider-id="5">
-                                            <img width="445" height="445" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/home/portfolio/6.png" alt="">
+                                            <img width="445" height="445" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/home/portfolio/6.png" alt="">
                                         </a>
                                     </div>
                                 </div>
@@ -393,14 +396,14 @@
                                     <div class="home-portfolio__slide">
                                         <a class="home-portfolio__link" href="./digital.html" data-slider-id="6">
 
-                                            <img width="445" height="445" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/home/portfolio/7.png" alt="">
+                                            <img width="445" height="445" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/home/portfolio/7.png" alt="">
                                         </a>
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="home-portfolio__slide">
                                         <a class="home-portfolio__link" href="./digital.html" data-slider-id="7">
-                                            <img width="445" height="445" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/home/portfolio/8.png" alt="">
+                                            <img width="445" height="445" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/home/portfolio/8.png" alt="">
                                         </a>
                                     </div>
                                 </div>
@@ -477,8 +480,8 @@
                     <div class="swiper-slide">
                         <div class="appointment-slide">
                             <div class="appointment-slide-images">
-                                <img width="290" height="290" class="appointment-slide__img" src="./images/appointment/01.png" alt="">
-                                <img width="290" height="290" class="appointment-slide__img-face" src="./images/appointment/01-face.png" alt="">
+                                <img width="290" height="290" class="appointment-slide__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/01.png" alt="">
+                                <img width="290" height="290" class="appointment-slide__img-face" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/01-face.png" alt="">
                             </div>
                             <a class="appointment-slide__link" href="./contacts.html?direction=1">App, Web, CRM, Брендинг</a>
                         </div>
@@ -486,8 +489,8 @@
                     <div class="swiper-slide">
                         <div class="appointment-slide">
                             <div class="appointment-slide-images">
-                                <img width="290" height="290" class="appointment-slide__img" src="./images/appointment/02.png" alt="">
-                                <img width="290" height="290" class="appointment-slide__img-face" src="./images/appointment/02-face.png" alt="">
+                                <img width="290" height="290" class="appointment-slide__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/02.png" alt="">
+                                <img width="290" height="290" class="appointment-slide__img-face" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/02-face.png" alt="">
                             </div>
                             <a class="appointment-slide__link" href="./contacts.html?direction=2">Поставка оборудовани</a>
                         </div>
@@ -495,8 +498,8 @@
                     <div class="swiper-slide">
                         <div class="appointment-slide">
                             <div class="appointment-slide-images">
-                                <img width="290" height="290" class="appointment-slide__img" src="./images/appointment/03.png" alt="">
-                                <img width="290" height="290" class="appointment-slide__img-face" src="./images/appointment/03-face.png" alt="">
+                                <img width="290" height="290" class="appointment-slide__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/03.png" alt="">
+                                <img width="290" height="290" class="appointment-slide__img-face" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/03-face.png" alt="">
                             </div>
                             <a class="appointment-slide__link" href="./contacts.html?direction=3">Вакансия</a>
                         </div>

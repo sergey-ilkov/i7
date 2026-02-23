@@ -13,7 +13,7 @@ Template Name: Branding Page
 
     <section id="hero-branding" class="hero-branding section-bg" style="--section-bg: #0088ff;">
 
-        <video id="mainVideo" class="main-video track-visibility" playsinline muted autoplay loop poster="./images/hero-bg/branding-bg.jpg" data-src="./video/branding.mp4"></video>
+        <video id="mainVideo" class="main-video track-visibility" playsinline muted autoplay loop poster="<?php echo get_template_directory_uri(); ?>/assets/images/hero-bg/branding-bg.jpg" data-src="<?php echo get_template_directory_uri(); ?>/assets/video/branding.mp4"></video>
 
 
 
@@ -176,8 +176,8 @@ Template Name: Branding Page
                     <div class="swiper-slide">
                         <div class="appointment-slide">
                             <div class="appointment-slide-images">
-                                <img width="290" height="290" class="appointment-slide__img" src="./images/appointment/01.png" alt="">
-                                <img width="290" height="290" class="appointment-slide__img-face" src="./images/appointment/01-face.png" alt="">
+                                <img width="290" height="290" class="appointment-slide__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/01.png" alt="">
+                                <img width="290" height="290" class="appointment-slide__img-face" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/01-face.png" alt="">
                             </div>
                             <a class="appointment-slide__link" href="#">App, Web, CRM, Брендинг</a>
                         </div>
@@ -185,8 +185,8 @@ Template Name: Branding Page
                     <div class="swiper-slide">
                         <div class="appointment-slide">
                             <div class="appointment-slide-images">
-                                <img width="290" height="290" class="appointment-slide__img" src="./images/appointment/02.png" alt="">
-                                <img width="290" height="290" class="appointment-slide__img-face" src="./images/appointment/02-face.png" alt="">
+                                <img width="290" height="290" class="appointment-slide__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/02.png" alt="">
+                                <img width="290" height="290" class="appointment-slide__img-face" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/02-face.png" alt="">
                             </div>
                             <a class="appointment-slide__link" href="#">Поставка оборудовани</a>
                         </div>
@@ -194,8 +194,8 @@ Template Name: Branding Page
                     <div class="swiper-slide">
                         <div class="appointment-slide">
                             <div class="appointment-slide-images">
-                                <img width="290" height="290" class="appointment-slide__img" src="./images/appointment/03.png" alt="">
-                                <img width="290" height="290" class="appointment-slide__img-face" src="./images/appointment/03-face.png" alt="">
+                                <img width="290" height="290" class="appointment-slide__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/03.png" alt="">
+                                <img width="290" height="290" class="appointment-slide__img-face" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/03-face.png" alt="">
                             </div>
                             <a class="appointment-slide__link" href="#">Вакансия</a>
                         </div>

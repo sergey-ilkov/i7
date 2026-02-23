@@ -10,7 +10,10 @@ if (window.visualViewport) {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-    gsap.registerPlugin(MotionPathPlugin, ScrollTrigger, ScrollToPlugin, SplitText)
+    gsap.registerPlugin(MotionPathPlugin, ScrollTrigger, ScrollToPlugin, SplitText);
+
+
+
 
 });
 
@@ -87,6 +90,7 @@ function enableLenisIfDesktop() {
 
 window.addEventListener('load', () => {
 
+
     initLenis();
 
 
@@ -96,8 +100,12 @@ window.addEventListener('load', () => {
     // ? init general
     initGeneralScript();
 
+
+
     // ? home page js
     const homePage = document.querySelector('.page-home');
+
+
     if (homePage) {
         initHomeScript();
     }
@@ -3441,10 +3449,10 @@ function initBrandingScript() {
         // return;
 
         const psths = [
-            './animations/branding-01.json',
-            './animations/branding-02.json',
-            './animations/branding-03.json',
-            './animations/branding-04.json',
+            themeData.templateUrl + '/assets/animations/branding-01.json',
+            themeData.templateUrl + '/assets/animations/branding-02.json',
+            themeData.templateUrl + '/assets/animations/branding-03.json',
+            themeData.templateUrl + '/assets/animations/branding-04.json',
         ];
 
         sections.forEach((section, index) => {
@@ -3597,7 +3605,7 @@ function initSolutionsScript() {
             let loadedImages = 0;
             for (let i = 0; i < frameCount; i++) {
                 const img = new Image();
-                img.src = `./animations/camera/${i}.webp`;
+                img.src = `${themeData.templateUrl}/assets/animations/camera/${i}.webp`;
                 img.onload = () => {
                     loadedImages++;
                     let progress = Math.round((loadedImages / frameCount) * 100);
@@ -3747,7 +3755,7 @@ function initSolutionsScript() {
         if (!solutionsNetworkLines) return;
 
 
-        const path = './animations/network.json';
+        const path = themeData.templateUrl + '/assets/animations/network.json';
         if (!path) return;
 
 
@@ -4423,7 +4431,7 @@ function initSolutionsScript() {
         const automationLottie = document.querySelector('.solutions-automation-lottie');
         if (!btnStart || !automationLottie) return;
 
-        const path = './animations/automation.json';
+        const path = themeData.templateUrl + '/assets/animations/automation.json';
         if (!path) return;
 
 
@@ -4827,7 +4835,7 @@ function initEquipmentScript() {
 
         const slides = heroEquipment.querySelectorAll('.equipment-slide');
 
-        const scanSound = new Audio('./animations/scanning.mp3');
+        const scanSound = new Audio(themeData.templateUrl + '/assets/animations/scanning.mp3');
         scanSound.load(); // Предзагрузка
 
         let indexActive = 0;
@@ -5127,7 +5135,7 @@ function initEquipmentScript() {
 
 
 
-        const receiptSound = new Audio('./animations/receipt.mp3');
+        const receiptSound = new Audio(themeData.templateUrl + '/assets/animations/receipt.mp3');
         receiptSound.load();
 
         let receiptHeights = [];

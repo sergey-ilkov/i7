@@ -130,8 +130,8 @@
                                         <div class="swiper-slide">
                                             <div class="appointment-slide">
                                                 <div class="appointment-slide-images">
-                                                    <img width="290" height="290" class="appointment-slide__img" src="./images/appointment/01.png" alt="">
-                                                    <img width="290" height="290" class="appointment-slide__img-face" src="./images/appointment/01-face.png" alt="">
+                                                    <img width="290" height="290" class="appointment-slide__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/01.png" alt="">
+                                                    <img width="290" height="290" class="appointment-slide__img-face" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/01-face.png" alt="">
                                                 </div>
                                                 <a class="appointment-slide__link" href="./contacts.html?direction=1">App, Web, CRM, Брендинг</a>
                                             </div>
@@ -139,8 +139,8 @@
                                         <div class="swiper-slide">
                                             <div class="appointment-slide">
                                                 <div class="appointment-slide-images">
-                                                    <img width="290" height="290" class="appointment-slide__img" src="./images/appointment/02.png" alt="">
-                                                    <img width="290" height="290" class="appointment-slide__img-face" src="./images/appointment/02-face.png" alt="">
+                                                    <img width="290" height="290" class="appointment-slide__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/02.png" alt="">
+                                                    <img width="290" height="290" class="appointment-slide__img-face" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/02-face.png" alt="">
                                                 </div>
                                                 <a class="appointment-slide__link" href="./contacts.html?direction=2">Поставка оборудовани</a>
                                             </div>
@@ -148,8 +148,8 @@
                                         <div class="swiper-slide">
                                             <div class="appointment-slide">
                                                 <div class="appointment-slide-images">
-                                                    <img width="290" height="290" class="appointment-slide__img" src="./images/appointment/03.png" alt="">
-                                                    <img width="290" height="290" class="appointment-slide__img-face" src="./images/appointment/03-face.png" alt="">
+                                                    <img width="290" height="290" class="appointment-slide__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/03.png" alt="">
+                                                    <img width="290" height="290" class="appointment-slide__img-face" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/03-face.png" alt="">
                                                 </div>
                                                 <a class="appointment-slide__link" href="./contacts.html?direction=3">Вакансия</a>
                                             </div>

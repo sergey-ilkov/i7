@@ -12,7 +12,7 @@ Template Name: Solutions Page
 
     <section id="hero-solutions" class="hero-solutions section-bg" style="--section-bg: #0088ff;">
 
-        <video id="mainVideo" class="main-video track-visibility" playsinline muted autoplay loop poster="./images/hero-bg/engineering-bg.jpg" data-src="./video/engineering.mp4"></video>
+        <video id="mainVideo" class="main-video track-visibility" playsinline muted autoplay loop poster="<?php echo get_template_directory_uri(); ?>/assets/images/hero-bg/engineering-bg.jpg" data-src="<?php echo get_template_directory_uri(); ?>/assets/video/engineering.mp4"></video>
 
 
 
@@ -110,7 +110,7 @@ Template Name: Solutions Page
                                     </div>
                                 </div>
                                 <div class="solutions-camera__card-item">
-                                    <img width="270" height="230" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/solutions/card-1.png" alt="">
+                                    <img width="270" height="230" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/solutions/card-1.png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -129,7 +129,7 @@ Template Name: Solutions Page
                                     </div>
                                 </div>
                                 <div class="solutions-camera__card-item">
-                                    <img width="270" height="230" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/solutions/card-2.png" alt="">
+                                    <img width="270" height="230" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/solutions/card-2.png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -147,7 +147,7 @@ Template Name: Solutions Page
                                     </div>
                                 </div>
                                 <div class="solutions-camera__card-item">
-                                    <img width="270" height="230" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/solutions/card-3.png" alt="">
+                                    <img width="270" height="230" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/solutions/card-3.png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -165,7 +165,7 @@ Template Name: Solutions Page
                                     </div>
                                 </div>
                                 <div class="solutions-camera__card-item">
-                                    <img width="270" height="230" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/solutions/card-4.png" alt="">
+                                    <img width="270" height="230" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/solutions/card-4.png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -183,7 +183,7 @@ Template Name: Solutions Page
                                     </div>
                                 </div>
                                 <div class="solutions-camera__card-item">
-                                    <img width="270" height="230" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/solutions/card-5.png" alt="">
+                                    <img width="270" height="230" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/solutions/card-5.png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -358,7 +358,7 @@ Template Name: Solutions Page
 
 
                         <div class="solutions-automation__card-wrap">
-                            <img width="80" height="80" class="solutions-automation__card-icon lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/solutions/icon2.svg" alt="">
+                            <img width="80" height="80" class="solutions-automation__card-icon lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/solutions/icon2.svg" alt="">
 
                             <h2 class="solutions-automation__card-title">
                                 Cистемы контроля и управления доступом
@@ -393,7 +393,7 @@ Template Name: Solutions Page
 
                         <div class="solutions-automation__card-wrap">
 
-                            <img width="80" height="80" class="solutions-automation__card-icon lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/solutions/icon3.svg" alt="">
+                            <img width="80" height="80" class="solutions-automation__card-icon lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/solutions/icon3.svg" alt="">
 
                             <h2 class="solutions-automation__card-title">
                                 Домофония
@@ -426,7 +426,7 @@ Template Name: Solutions Page
 
                         <div class="solutions-automation__card-wrap">
 
-                            <img width="80" height="80" class="solutions-automation__card-icon lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="./images/solutions/icon4.svg" alt="">
+                            <img width="80" height="80" class="solutions-automation__card-icon lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/solutions/icon4.svg" alt="">
 
                             <h2 class="solutions-automation__card-title">
                                 Дверная автоматика
@@ -509,7 +509,7 @@ Template Name: Solutions Page
                 <div class="fire-svg-stage">
 
                     <div id="human" class="fire-human">
-                        <img src="./images/solutions/svg-animation/human.svg" style="width: 100%; height: 100%;" alt="person">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/solutions/svg-animation/human.svg" style="width: 100%; height: 100%;" alt="person">
                     </div>
 
 
@@ -764,8 +764,8 @@ Template Name: Solutions Page
                     <div class="swiper-slide">
                         <div class="appointment-slide">
                             <div class="appointment-slide-images">
-                                <img width="290" height="290" class="appointment-slide__img" src="./images/appointment/01.png" alt="">
-                                <img width="290" height="290" class="appointment-slide__img-face" src="./images/appointment/01-face.png" alt="">
+                                <img width="290" height="290" class="appointment-slide__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/01.png" alt="">
+                                <img width="290" height="290" class="appointment-slide__img-face" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/01-face.png" alt="">
                             </div>
                             <a class="appointment-slide__link" href="#">App, Web, CRM, Брендинг</a>
                         </div>
@@ -773,8 +773,8 @@ Template Name: Solutions Page
                     <div class="swiper-slide">
                         <div class="appointment-slide">
                             <div class="appointment-slide-images">
-                                <img width="290" height="290" class="appointment-slide__img" src="./images/appointment/02.png" alt="">
-                                <img width="290" height="290" class="appointment-slide__img-face" src="./images/appointment/02-face.png" alt="">
+                                <img width="290" height="290" class="appointment-slide__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/02.png" alt="">
+                                <img width="290" height="290" class="appointment-slide__img-face" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/02-face.png" alt="">
                             </div>
                             <a class="appointment-slide__link" href="#">Поставка оборудовани</a>
                         </div>
@@ -782,8 +782,8 @@ Template Name: Solutions Page
                     <div class="swiper-slide">
                         <div class="appointment-slide">
                             <div class="appointment-slide-images">
-                                <img width="290" height="290" class="appointment-slide__img" src="./images/appointment/03.png" alt="">
-                                <img width="290" height="290" class="appointment-slide__img-face" src="./images/appointment/03-face.png" alt="">
+                                <img width="290" height="290" class="appointment-slide__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/03.png" alt="">
+                                <img width="290" height="290" class="appointment-slide__img-face" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/03-face.png" alt="">
                             </div>
                             <a class="appointment-slide__link" href="#">Вакансия</a>
                         </div>

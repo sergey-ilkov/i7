@@ -29,7 +29,7 @@
 
             <div class="footer__items">
                 <div class="footer__item">
-                    <img width="382" height="140" class="footer-logo" src="./images/logo-footer.svg" alt="logo">
+                    <img width="382" height="140" class="footer-logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-footer.svg" alt="logo">
 
 
                     <a class="footer__link-contact" href="#">Есть вопросы? Обращайтесь!</a>
