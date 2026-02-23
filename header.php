@@ -6,13 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preload" href="<?php echo get_template_directory_uri(); ?>/assets/fonts/Gilroy-Regular.woff2" as="font" type="font/woff2" crossorigin>
 
+
+    <style>
+        <?php // Общий критический CSS (сетка, хедер)
+        echo file_get_contents(get_template_directory() . '/assets/css/critical-common.css');
+
+        // Специфический критический CSS для страницы
+        if (is_front_page()) {
+            echo file_get_contents(get_template_directory() . '/assets/css/critical-home.css');
+        }
+
+        // elseif (is_page_template('tpl-digital.php')) {
+        //     echo file_get_contents(get_template_directory() . '/assets/css/critical-digital.css');
+        // }
+        if (is_page_template('page-templates/tpl-digital.php')) {
+            echo file_get_contents(get_template_directory() . '/assets/css/critical-digital.css');
+        }
+
+
+        ?>
+    </style>
+
+
     <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
 
-    <!-- <div class="preloader"></div> -->
+
 
     <!-- <div id="preloader" class="preloader">
         <div class="preloader-logo">

@@ -21,7 +21,7 @@ get_header();
 
 
 
-    <section class="contacts">
+    <section class="contacts section-bg" style="--section-bg: #fff;">
 
         <span class="contacts-decor-1"></span>
         <span class="contacts-decor-2"></span>

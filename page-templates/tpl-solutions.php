@@ -219,7 +219,7 @@ get_header();
 
         <div class="solutions-network-coordinate-wrap">
             <!-- ? video -->
-            <video id="solutions-network-video" class="solutions-network-video" playsinline webkit-playsinline muted data-src="./animations/network.mp4"></video>
+            <video id="solutions-network-video" class="solutions-network-video" playsinline webkit-playsinline muted data-src="<?php echo get_template_directory_uri(); ?>/assets/animations/network.mp4"></video>
             <!-- ? lottie -->
             <div id="solutions-network-lottie" class="solutions-network-lottie"></div>
 

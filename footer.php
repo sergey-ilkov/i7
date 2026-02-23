@@ -130,6 +130,15 @@
 
 </div>
 
+<?php if (is_page_template(array('page-templates/tpl-solutions.php'))): ?>
+
+<div id="custom-cursor" class="custom-cursor" aria-hidden="true">
+    <img width="190" hidden="190" src="<?php echo get_template_directory_uri(); ?>/assets/images/solutions/cursor.png" alt="">
+</div>
+
+<?php endif; ?>
+
+
 <?php wp_footer(); ?>
 
 </body>

@@ -10,7 +10,8 @@ if (window.visualViewport) {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-    gsap.registerPlugin(MotionPathPlugin, ScrollTrigger, ScrollToPlugin, SplitText);
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, SplitText);
+    // gsap.registerPlugin(MotionPathPlugin, ScrollTrigger, ScrollToPlugin, SplitText);
 
 
 
@@ -122,6 +123,7 @@ window.addEventListener('load', () => {
     // ? solutions page js
     const solutionsPage = document.querySelector('.page-solutions');
     if (solutionsPage) {
+        gsap.registerPlugin(MotionPathPlugin);
         initSolutionsScript();
     }
     // ? equipment page js

@@ -1143,18 +1143,6 @@ body.fixed {
     }
 }
 
-/* ? main video */
-.main-video {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    pointer-events: none;
-    z-index: 1;
-}
-
 /* ? hero card  hero-message-box*/
 .hero-card-wrap {
     position: absolute;
@@ -3044,6 +3032,7 @@ body.fixed {
     line-height: 80%;
     text-align: center;
     width: 100%;
+    user-select: none;
 }
 
 .solutions-camera__card {
