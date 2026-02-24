@@ -82,3 +82,24 @@ add_filter('script_loader_tag', 'add_defer_attribute', 10, 2);
 remove_action('wp_head', 'wp_shortlink_wp_head');
 // ? remove head meta generator
 remove_action('wp_head', 'wp_generator');
+
+
+// ? Custom Post Type Hero sliders
+function register_hero_slides_cpt()
+{
+    $labels = array(
+        'name' => 'Слайды Hero',
+        'singular_name' => 'Слайд (hero_slides)',
+        'add_new' => 'Добавить слайд',
+    );
+
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'has_archive' => false,
+        'menu_icon' => 'dashicons-images-alt2', // Иконка в меню
+        'supports' => array('title'), // Нам нужно только название для удобства
+    );
+    register_post_type('hero_slides', $args);
+}
+add_action('init', 'register_hero_slides_cpt');

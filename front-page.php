@@ -1,5 +1,6 @@
 <?php
 
+// use \WP_Query;
 
 add_filter('body_class', function ($classes) {
     $classes[] = 'page-home';
@@ -16,6 +17,22 @@ get_header();
 
 <main>
 
+    <?php
+
+    $hero_title = get_field('hero_title');
+    $hero_desc = get_field('hero_desc');
+    $hero_poster = get_field('hero_poster');
+    $hero_video  = get_field('hero_video');
+
+    // Запрашиваем слайды
+    $slides_query = new \WP_Query(array(
+        'post_type' => 'hero_slides',
+        'posts_per_page' => 4, // Ограничим четырьмя
+        'order' => 'ASC'
+    ));
+
+
+    ?>
 
 
     <section class="hero">
@@ -23,7 +40,7 @@ get_header();
 
 
 
-        <video id="mainVideo" class="main-video track-visibility" playsinline muted autoplay loop poster="<?php echo get_template_directory_uri(); ?>/assets/images/hero-bg/hero-bg.jpg" data-src="<?php echo get_template_directory_uri(); ?>/assets/video/hero.mp4"></video>
+        <video id="mainVideo" class="main-video track-visibility" playsinline muted autoplay loop poster="<?php echo esc_url($hero_poster); ?>" data-src="<?php echo esc_url($hero_video); ?>"></video>
 
 
         <div class="container-max">
@@ -39,10 +56,14 @@ get_header();
 
                     <div class="hero-content">
                         <h1 class="hero__title">
-                            Добро пожаловать в beam студию
+
+                            <?php echo esc_html($hero_title); ?>
+
                         </h1>
                         <p class="hero__desc">
-                            цифровизация вашего бизнеса
+
+                            <?php echo esc_html($hero_desc); ?>
+
                         </p>
                     </div>
 
@@ -51,23 +72,33 @@ get_header();
                 <div class="hero-thumbs-wrap">
 
                     <div id="hero-thumbs" class="hero-thumbs" role="list">
-                        <a class="hero-thumb" href="#" data-video="<?php echo get_template_directory_uri(); ?>/assets/video/digital.mp4" data-poster="<?php echo get_template_directory_uri(); ?>/assets/images/hero-bg/digital-bg.jpg">
-                            <img width="130" height="130" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/thumb/digital.webp" alt="digital">
+
+
+                        <?php if ($slides_query->have_posts()) : while ($slides_query->have_posts()) : $slides_query->the_post();
+                                $link_url = get_field('slide_link');
+                                $slide_thumb = get_field('slide_thumb');
+                                $slide_video = get_field('slide_video');
+                                $slide_poster = get_field('slide_poster');
+                        ?>
+
+
+                        <a class="hero-thumb" href="<?php echo esc_url($link_url); ?>" data-video="<?php echo esc_url($slide_video); ?>" data-poster="<?php echo esc_url($slide_poster); ?>">
+                            <img width="130" height="130" src="<?php echo esc_url($slide_thumb); ?>" alt="digital">
                         </a>
-                        <a class="hero-thumb" href="#" data-video="<?php echo get_template_directory_uri(); ?>/assets/video/branding.mp4" data-poster="<?php echo get_template_directory_uri(); ?>/assets/images/hero-bg/branding-bg.jpg">
-                            <img width="130" height="130" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/thumb/branding.webp" alt="branding">
-                        </a>
-                        <a class="hero-thumb" href="#" data-video="<?php echo get_template_directory_uri(); ?>/assets/video/engineering.mp4" data-poster="<?php echo get_template_directory_uri(); ?>/assets/images/hero-bg/engineering-bg.jpg">
-                            <img width="130" height="130" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/thumb/engineering.webp" alt="engineering">
-                        </a>
-                        <a class="hero-thumb" href="#" data-video="<?php echo get_template_directory_uri(); ?>/assets/video/equipment.mp4" data-poster="<?php echo get_template_directory_uri(); ?>/assets/images/hero-bg/equipment-bg.jpg">
-                            <img width="130" height="130" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/thumb/equipment.webp" alt="equipment">
-                        </a>
+
+
+                        <?php endwhile;
+                            wp_reset_postdata();
+                        endif; ?>
+
+
 
                     </div>
 
-
                 </div>
+
+
+
             </div>
 
 
@@ -88,55 +119,36 @@ get_header();
 
 
             <div class="hero-slider-wrapper">
+
+
+                <?php if ($slides_query->have_posts()) : while ($slides_query->have_posts()) : $slides_query->the_post();
+
+                        $slide_title = get_field('slide_title');
+                        $slide_desc = get_field('slide_desc');
+                ?>
+
+
                 <div class="hero-slide">
                     <div class="hero-slide-video" aria-hidden="true"></div>
 
                     <div class="hero-slide-content">
                         <h2 class="hero-slide__title">
-                            Цифровые продукты
+                            <?php echo esc_html($slide_title); ?>
                         </h2>
                         <p class="hero-slide__desc">
-                            мы гарантируем бесперебойную работу вашего сайта — от первого клика до конверсии.
+                            <?php echo esc_html($slide_desc); ?>
                         </p>
                     </div>
                 </div>
 
-                <div class="hero-slide">
-                    <div class="hero-slide-video" aria-hidden="true"></div>
-                    <div class="hero-slide-content">
-                        <h2 class="hero-slide__title">
-                            Брендинг
-                        </h2>
-                        <p class="hero-slide__desc">
-                            Мы разрабатываем уникальный дизайн, который отражает ваш бренд, создает узнаваемость и укрепляет доверие.
-                        </p>
-                    </div>
-                </div>
+                <?php endwhile;
+                    wp_reset_postdata();
+                endif; ?>
 
-                <div class="hero-slide">
-                    <div class="hero-slide-video" aria-hidden="true"></div>
-                    <div class="hero-slide-content">
-                        <h2 class="hero-slide__title">
-                            Инженерные решения
-                        </h2>
-                        <p class="hero-slide__desc">
-                            мы упрощаем работу управляющих объектами и помогаем им экономить на расходах на электроэнергию
-                        </p>
-                    </div>
-                </div>
 
-                <div class="hero-slide">
-                    <div class="hero-slide-video" aria-hidden="true"></div>
-                    <div class="hero-slide-content">
-                        <h2 class="hero-slide__title">
-                            Поставка оборудования
-                        </h2>
-                        <p class="hero-slide__desc">
-                            Комплексные решения — от принтеров до систем видеоконференций, всё в одном месте.
-                        </p>
-                    </div>
-                </div>
+
             </div>
+
 
         </div>
 
@@ -161,7 +173,17 @@ get_header();
 
 
 
+
+        <?php
+
+        $card1 = get_field('card_1'); // array or null
+        $card2 = get_field('card_2'); // array or null
+        $card3 = get_field('card_3'); // array or null
+
+        ?>
+
         <!-- ? recommendations -->
+
 
         <div class="recommendations">
 
@@ -175,15 +197,19 @@ get_header();
                         <div class="recommendations-card-image">
 
                             <picture>
-                                <source media="(max-width: 800px)" srcset="<?php echo get_template_directory_uri(); ?>/assets/images/home/card-mob.png" />
-                                <img width="466" height="300" class="recommendations-card__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/card.webp" alt="" />
+                                <source media="(max-width: 800px)" srcset="<?php echo $card1 ? esc_url($card1['image_mobile']) : ''; ?>" />
+                                <img width="466" height="300" class="recommendations-card__img lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo $card1 ? esc_url($card1['image_desktop']) : ''; ?>" alt="Card image" />
                             </picture>
+
                         </div>
 
 
                         <p class="recommendations-card__text">
-                            Превращай идеи в реальные действия и добивайся ощутимых результатов.
+
+                            <?php echo $card1 ? esc_html($card1['desc']) : ''; ?>
+
                         </p>
+
                     </div>
 
                     <div class="recommendations-card-btn">
@@ -197,7 +223,11 @@ get_header();
                         </div>
                         <div class="recommendations-card__btn-wrap">
 
-                            <div class="recommendations-card__btn-text">Будь практичным</div>
+                            <div class="recommendations-card__btn-text">
+
+                                <?php echo $card1 ? esc_html($card1['title']) : ''; ?>
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -208,16 +238,20 @@ get_header();
                     <div class="recommendations-card-content">
                         <div class="recommendations-card-image">
 
+
+
                             <picture>
-                                <source media="(max-width: 800px)" srcset="<?php echo get_template_directory_uri(); ?>/assets/images/home/card-mob.png" />
-                                <img width="466" height="300" class="recommendations-card__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/card.webp" alt="" />
+                                <source media="(max-width: 800px)" srcset="<?php echo $card2 ? esc_url($card2['image_mobile']) : ''; ?>" />
+                                <img width="466" height="300" class="recommendations-card__img lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo $card2 ? esc_url($card2['image_desktop']) : ''; ?>" alt="Card image" />
                             </picture>
                         </div>
 
 
 
                         <p class="recommendations-card__text">
-                            Упакуй свой бренд чтобы быть на голову выше своих конкурентов
+
+                            <?php echo $card1 ? esc_html($card1['desc']) : ''; ?>
+
                         </p>
                     </div>
 
@@ -231,7 +265,11 @@ get_header();
                             </svg>
                         </div>
                         <div class="recommendations-card__btn-wrap">
-                            <div class="recommendations-card__btn-text">Будь лучшим</div>
+                            <div class="recommendations-card__btn-text">
+
+                                <?php echo $card2 ? esc_html($card2['title']) : ''; ?>
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -244,13 +282,15 @@ get_header();
                         <div class="recommendations-card-image">
 
                             <picture>
-                                <source media="(max-width: 800px)" srcset="<?php echo get_template_directory_uri(); ?>/assets/images/home/card-mob.png" />
-                                <img width="466" height="300" class="recommendations-card__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/home/card.webp" alt="" />
+                                <source media="(max-width: 800px)" srcset="<?php echo $card3 ? esc_url($card3['image_mobile']) : ''; ?>" />
+                                <img width="466" height="300" class="recommendations-card__img lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo $card3 ? esc_url($card3['image_desktop']) : ''; ?>" alt="Card image" />
                             </picture>
                         </div>
 
                         <p class="recommendations-card__text">
-                            Поддерживай бренд, чтобы он работал на тебя всегда.
+
+                            <?php echo $card1 ? esc_html($card1['desc']) : ''; ?>
+
                         </p>
                     </div>
 
@@ -265,7 +305,11 @@ get_header();
                         </div>
                         <div class="recommendations-card__btn-wrap">
 
-                            <div class="recommendations-card__btn-text">Будь надёжным</div>
+                            <div class="recommendations-card__btn-text">
+
+                                <?php echo $card3 ? esc_html($card3['title']) : ''; ?>
+
+                            </div>
                         </div>
                     </div>
                 </div>

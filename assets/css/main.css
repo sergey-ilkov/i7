@@ -1310,6 +1310,7 @@ body.fixed {
         font-size: calc(16px + 4 * (100vw - 375px) / 1545);
     }
 }
+
 @media (max-width: 1024px) {
     .hero-branding,
     .hero-digital {
@@ -2829,6 +2830,18 @@ body.fixed {
         padding-left: calc(20px + 20 * (100vw - 375px) / 1545);
         padding-right: calc(20px + 20 * (100vw - 375px) / 1545);
         padding-bottom: calc(20px + 20 * (100vw - 375px) / 1545);
+    }
+}
+@media (max-width: 1200px) {
+    .hero-branding .hero-card-wrap {
+        position: relative;
+        top: unset;
+        right: unset;
+        align-self: flex-end;
+    }
+    .hero-branding {
+        padding-top: calc(60px + 20 * (100vw - 375px) / 425);
+        justify-content: space-between;
     }
 }
 @media (max-width: 1024px) {
