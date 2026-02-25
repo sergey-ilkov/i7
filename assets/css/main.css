@@ -967,17 +967,9 @@ body.fixed {
     font-weight: 500;
     font-size: 24px;
     line-height: 110%;
+    color: var(--contact-color);
 }
 
-.appointment__item:nth-child(1) {
-    color: var(--color-blue);
-}
-.appointment__item:nth-child(2) {
-    color: var(--color-yellow);
-}
-.appointment__item:nth-child(3) {
-    color: var(--color-violet);
-}
 /* ? appointment-slider */
 .appointment-slider {
     margin: 0;
@@ -1001,15 +993,7 @@ body.fixed {
     text-decoration-skip-ink: none;
     text-align: center;
     display: none;
-}
-.swiper-slide:nth-child(1) .appointment-slide__link {
-    color: var(--color-blue);
-}
-.swiper-slide:nth-child(2) .appointment-slide__link {
-    color: var(--color-yellow);
-}
-.swiper-slide:nth-child(3) .appointment-slide__link {
-    color: var(--color-violet);
+    color: var(--contact-color);
 }
 
 .appointment-slide-images {
@@ -1050,7 +1034,7 @@ body.fixed {
         max-width: calc(320px + 460 * (100vw - 375px) / 1545);
     }
 }
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
     .appointment__list {
         display: none;
     }
@@ -1756,7 +1740,7 @@ body.fixed {
     align-items: center;
 }
 
-.home-portfolio-desc {
+.home-portfolio__desc {
     position: absolute;
     bottom: 80px;
     font-weight: 400;
@@ -1784,7 +1768,7 @@ body.fixed {
     .services-wrap-title {
         font-size: calc(24px + 41 * (100vw - 375px) / 1545);
     }
-    .home-portfolio-desc {
+    .home-portfolio__desc {
         font-size: calc(16px + 8 * (100vw - 375px) / 1545);
 
         max-width: calc(400px + 240 * (100vw - 375px) / 1545);
@@ -1831,7 +1815,7 @@ body.fixed {
     }
 }
 @media (max-width: 1000px) {
-    .home-portfolio-desc {
+    .home-portfolio__desc {
         bottom: 0;
     }
 
@@ -2606,6 +2590,9 @@ body.fixed {
 .swiper-pagination-bullet-active {
     opacity: 1;
 }
+.portfolio-control-menu {
+    right: 40px;
+}
 @media (max-width: 1920px) {
     .portfolio-content-wrap {
         left: calc(20px + 20 * (100vw - 375px) / 1545);
@@ -2614,7 +2601,6 @@ body.fixed {
     }
     .portfolio-control-menu {
         right: calc(20px + 20 * (100vw - 375px) / 1545);
-        width: calc(100px + 120 * (100vw - 375px) / 1545);
     }
 
     .portfolio-slider-control {
@@ -2694,7 +2680,7 @@ body.fixed {
     }
     .portfolio-control-menu {
         position: absolute;
-        right: 40px;
+        /* right: 40px; */
         top: 50%;
         transform: translateY(-50%);
 
@@ -5269,7 +5255,7 @@ body.fixed {
     text-decoration-skip-ink: none;
     text-align: center;
 
-    color: var(--color-contacts);
+    color: var(--contact-color);
 }
 .contacts-slide.active .contacts-slide__title {
     text-decoration: underline;

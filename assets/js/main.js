@@ -1425,7 +1425,7 @@ function initHomeScript() {
         const servicesItems = Array.from(services.querySelectorAll('.services__item'));
 
         const portfolioTitle = services.querySelector('.home-portfolio__title');
-        const portfolioDesc = services.querySelector('.home-portfolio-desc');
+        const portfolioDesc = services.querySelector('.home-portfolio__desc');
         const portfolioCircle = services.querySelector('.home-portfolio-title-circle');
         const portfolioItems = document.querySelectorAll('.home-portfolio__item');
 
@@ -5394,7 +5394,7 @@ function initContactsScript() {
                 }
             })
 
-            const bgColor = slides[activeIndex].style.getPropertyValue('--color-contacts').trim();;
+            const bgColor = slides[activeIndex].style.getPropertyValue('--contact-color').trim();;
 
             if (bgColor) {
                 form.style.setProperty('--form-bg', bgColor);

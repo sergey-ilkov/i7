@@ -32,6 +32,7 @@ get_header();
     ));
 
 
+
     ?>
 
 
@@ -82,9 +83,9 @@ get_header();
                         ?>
 
 
-                        <a class="hero-thumb" href="<?php echo esc_url($link_url); ?>" data-video="<?php echo esc_url($slide_video); ?>" data-poster="<?php echo esc_url($slide_poster); ?>">
-                            <img width="130" height="130" src="<?php echo esc_url($slide_thumb); ?>" alt="digital">
-                        </a>
+                                <a class="hero-thumb" href="<?php echo esc_url($link_url); ?>" data-video="<?php echo esc_url($slide_video); ?>" data-poster="<?php echo esc_url($slide_poster); ?>">
+                                    <img width="130" height="130" src="<?php echo esc_url($slide_thumb); ?>" alt="digital">
+                                </a>
 
 
                         <?php endwhile;
@@ -128,18 +129,18 @@ get_header();
                 ?>
 
 
-                <div class="hero-slide">
-                    <div class="hero-slide-video" aria-hidden="true"></div>
+                        <div class="hero-slide">
+                            <div class="hero-slide-video" aria-hidden="true"></div>
 
-                    <div class="hero-slide-content">
-                        <h2 class="hero-slide__title">
-                            <?php echo esc_html($slide_title); ?>
-                        </h2>
-                        <p class="hero-slide__desc">
-                            <?php echo esc_html($slide_desc); ?>
-                        </p>
-                    </div>
-                </div>
+                            <div class="hero-slide-content">
+                                <h2 class="hero-slide__title">
+                                    <?php echo esc_html($slide_title); ?>
+                                </h2>
+                                <p class="hero-slide__desc">
+                                    <?php echo esc_html($slide_desc); ?>
+                                </p>
+                            </div>
+                        </div>
 
                 <?php endwhile;
                     wp_reset_postdata();
@@ -183,8 +184,6 @@ get_header();
         ?>
 
         <!-- ? recommendations -->
-
-
         <div class="recommendations">
 
 
@@ -326,47 +325,84 @@ get_header();
 
 
 
+        <?php
 
+        $service1 = get_field('service_1');
+        $service2 = get_field('service_2');
+        $service3 = get_field('service_3');
+        $service4 = get_field('service_4');
 
+        $portfolio_title = get_field('portfolio_title');
+        $portfolio_desc = get_field('portfolio_desc');
+
+        ?>
 
 
         <!-- ? GSAP Pin -->
-
         <div class="services-portfolio-wrap">
 
 
             <div class="home-portfolio">
 
 
+
                 <div class="services container">
 
                     <div class="services__items">
                         <div class="services__item">
-                            <h3 class="services__item-title">IT</h3>
+                            <h3 class="services__item-title">
+
+                                <?php echo $service1 ? esc_html($service1['title']) : ''; ?>
+
+                            </h3>
+
                             <p class="services__item-desc">
-                                Мы гарантируем бесперебойную работу вашего сайта — от первого клика до конверсии.
+
+                                <?php echo $service1 ? esc_html($service1['desc']) : ''; ?>
+
                             </p>
+                        </div>
+                        <div class="services__item">
+                            <h3 class="services__item-title">
+
+                                <?php echo $service2 ? esc_html($service2['title']) : ''; ?>
+
+                            </h3>
+
+                            <p class="services__item-desc">
+
+                                <?php echo $service2 ? esc_html($service2['desc']) : ''; ?>
+
+                            </p>
+                        </div>
+                        <div class="services__item">
+                            <h3 class="services__item-title">
+
+                                <?php echo $service3 ? esc_html($service3['title']) : ''; ?>
+
+                            </h3>
+
+                            <p class="services__item-desc">
+
+                                <?php echo $service3 ? esc_html($service3['desc']) : ''; ?>
+
+                            </p>
+                        </div>
+                        <div class="services__item">
+                            <h3 class="services__item-title">
+
+                                <?php echo $service4 ? esc_html($service4['title']) : ''; ?>
+
+                            </h3>
+
+                            <p class="services__item-desc">
+
+                                <?php echo $service4 ? esc_html($service4['desc']) : ''; ?>
+
+                            </p>
+                        </div>
 
 
-                        </div>
-                        <div class="services__item">
-                            <h3 class="services__item-title">Branding</h3>
-                            <p class="services__item-desc">
-                                Мы разрабатываем уникальный дизайн, который отражает ваш бренд, создает узнаваемость и укрепляет доверие.
-                            </p>
-                        </div>
-                        <div class="services__item">
-                            <h3 class="services__item-title">инженерные решения</h3>
-                            <p class="services__item-desc">
-                                Мы упрощаем работу управляющих объектами и помогаем им экономить на расходах на электроэнергию
-                            </p>
-                        </div>
-                        <div class="services__item">
-                            <h3 class="services__item-title">поставка оборудования</h3>
-                            <p class="services__item-desc">
-                                Комплексные решения — от принтеров до систем видеоконференций, всё в одном месте.
-                            </p>
-                        </div>
                     </div>
 
 
@@ -375,11 +411,18 @@ get_header();
                         <span class="home-portfolio-title-circle"></span>
 
                         <div class="home-portfolio-circle-content">
-                            <h2 class="home-portfolio__title">Наш успех</h2>
+                            <h2 class="home-portfolio__title">
 
-                            <p class="home-portfolio-desc">
-                                Превратите свое видение в выдающийся
-                                бренд, веб-сайт или мобильное приложение
+                                <?php echo esc_html($portfolio_title); ?>
+
+                            </h2>
+
+                            <p class="home-portfolio__desc">
+
+                                <?php echo esc_html($portfolio_desc); ?>
+
+
+
                             </p>
                         </div>
 
@@ -504,71 +547,11 @@ get_header();
     </section>
 
 
+    <!-- ? appointment  section-->
 
-
-
-    <!-- ? appointment -->
     <section class="appointment section-bg" style="--section-bg: #fff;">
 
-        <!-- ? container / container-max -->
-
-
-        <div class="appointment-box">
-            <div class="appointment-content">
-                <h2 class="appointment__title">Запишитесь на прием</h2>
-                <ul class="appointment__list">
-                    <li class="appointment__item">
-                        <a class="appointment__link" href="./contacts.html?direction=1">App, Web, CRM</a>
-                    </li>
-                    <li class="appointment__item">
-                        <a class="appointment__link" href="./contacts.html?direction=2">Поставка оборудования</a>
-                    </li>
-                    <li class="appointment__item">
-                        <a class="appointment__link" href="./contacts.html?direction=3">Вакансия</a>
-                    </li>
-                </ul>
-            </div>
-
-
-            <div class="swiper appointment-slider">
-                <div class="swiper-wrapper">
-
-                    <div class="swiper-slide">
-                        <div class="appointment-slide">
-                            <div class="appointment-slide-images">
-                                <img width="290" height="290" class="appointment-slide__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/01.png" alt="">
-                                <img width="290" height="290" class="appointment-slide__img-face" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/01-face.png" alt="">
-                            </div>
-                            <a class="appointment-slide__link" href="./contacts.html?direction=1">App, Web, CRM, Брендинг</a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="appointment-slide">
-                            <div class="appointment-slide-images">
-                                <img width="290" height="290" class="appointment-slide__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/02.png" alt="">
-                                <img width="290" height="290" class="appointment-slide__img-face" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/02-face.png" alt="">
-                            </div>
-                            <a class="appointment-slide__link" href="./contacts.html?direction=2">Поставка оборудовани</a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="appointment-slide">
-                            <div class="appointment-slide-images">
-                                <img width="290" height="290" class="appointment-slide__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/03.png" alt="">
-                                <img width="290" height="290" class="appointment-slide__img-face" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/03-face.png" alt="">
-                            </div>
-                            <a class="appointment-slide__link" href="./contacts.html?direction=3">Вакансия</a>
-                        </div>
-                    </div>
-
-
-
-                </div>
-
-            </div>
-
-        </div>
-
+        <?php get_template_part('template-parts/section', 'specialists'); ?>
 
     </section>
 

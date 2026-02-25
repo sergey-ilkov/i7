@@ -53,8 +53,84 @@ get_header();
                 <div id="contacts-slider" class="swiper contacts-slider">
                     <div class="swiper-wrapper">
 
+
+                        <?php
+
+                        // Запрашиваем слайды
+                        $slides = new \WP_Query(array(
+                            'post_type' => 'specialist_slides',
+                            'posts_per_page' => 4,
+                            'order' => 'ASC'
+                        ));
+
+                        $direction = 3; // дефолт
+
+                        if ($slides->have_posts()): while ($slides->have_posts()): $slides->the_post();
+                                $photo_left_id = get_field('photo_left'); // Это теперь ID (число), а не ссылка
+                                $photo_front_id = get_field('photo_front'); // Это теперь ID (число), а не ссылка
+
+                                $direction_id = intval(get_field('direction_id'));
+                                $direction_text = get_field('direction_text');
+                                $color = get_field('color');
+
+
+                                static $matched = false;
+
+                                if ($direction === $direction_id) {
+                                    $class = 'active';
+                                    $matched = true;
+                                } else {
+
+                                    if ($matched) {
+                                        $class = 'image-left';
+                                    } else {
+                                        $class = 'image-right';
+                                    }
+                                }
+
+                        ?>
+
                         <div class="swiper-slide">
-                            <div class="contacts-slide image-right" style="--color-contacts: #0088ff;" data-direction="1">
+                            <div class="contacts-slide <?php echo esc_attr($class); ?>" style="--contact-color:  <?php echo $color ? esc_attr($color) : '#0088ff'; ?>" data-direction="<?php echo $direction_id ? esc_attr($direction_id) : $direction; ?>">
+                                <div class="contacts-slide-images">
+
+                                    <?php
+
+                                            if ($photo_left_id) {
+                                                echo wp_get_attachment_image($photo_left_id, 'full', false, array(
+                                                    'class' => 'contacts-slide__img',
+                                                    'loading' => 'lazy'
+                                                ));
+                                            }
+                                            if ($photo_front_id) {
+                                                echo wp_get_attachment_image($photo_front_id, 'full', false, array(
+                                                    'class' => 'contacts-slide__img-face',
+                                                    'loading' => 'lazy'
+                                                ));
+                                            }
+
+
+                                            ?>
+
+                                </div>
+
+                                <span class="contacts-slide__title">
+
+                                    <?php echo  $direction_text ? esc_html($direction_text) : ''; ?>
+
+                                </span>
+                            </div>
+                        </div>
+
+                        <?php endwhile;
+                            wp_reset_postdata();
+
+
+                        endif; ?>
+
+
+                        <!-- <div class="swiper-slide">
+                            <div class="contacts-slide image-right" style="--contact-color: #0088ff;" data-direction="1">
                                 <div class="contacts-slide-images">
                                     <img width="290" height="290" class="contacts-slide__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/01.png" alt="">
                                     <img width="290" height="290" class="contacts-slide__img-face" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/01-face.png" alt="">
@@ -63,7 +139,7 @@ get_header();
                             </div>
                         </div>
                         <div class="swiper-slide">
-                            <div class="contacts-slide active" style="--color-contacts: #e5c100;" data-direction="2">
+                            <div class="contacts-slide active" style="--contact-color: #e5c100;" data-direction="2">
                                 <div class="contacts-slide-images">
                                     <img width="290" height="290" class="contacts-slide__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/02.png" alt="">
                                     <img width="290" height="290" class="contacts-slide__img-face" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/02-face.png" alt="">
@@ -72,14 +148,14 @@ get_header();
                             </div>
                         </div>
                         <div class="swiper-slide">
-                            <div class="contacts-slide image-left" style="--color-contacts: #8e5aac;" data-direction="3">
+                            <div class="contacts-slide image-left" style="--contact-color: #8e5aac;" data-direction="3">
                                 <div class="contacts-slide-images">
                                     <img width="290" height="290" class="contacts-slide__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/03.png" alt="">
                                     <img width="290" height="290" class="contacts-slide__img-face" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/03-face.png" alt="">
                                 </div>
                                 <span class="contacts-slide__title">Вакансия</span>
                             </div>
-                        </div>
+                        </div> -->
 
 
 

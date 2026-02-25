@@ -8,23 +8,23 @@
 
 
     <style>
-        <?php // Общий критический CSS (сетка, хедер)
-        echo file_get_contents(get_template_directory() . '/assets/css/critical-common.css');
+    <?php // Общий критический CSS (сетка, хедер)
+    echo file_get_contents(get_template_directory() . '/assets/css/critical-common.css');
 
-        // Специфический критический CSS для страницы
-        if (is_front_page()) {
-            echo file_get_contents(get_template_directory() . '/assets/css/critical-home.css');
-        }
+    // Специфический критический CSS для страницы
+    if (is_front_page()) {
+        echo file_get_contents(get_template_directory() . '/assets/css/critical-home.css');
+    }
 
-        // elseif (is_page_template('tpl-digital.php')) {
-        //     echo file_get_contents(get_template_directory() . '/assets/css/critical-digital.css');
-        // }
-        if (is_page_template('page-templates/tpl-digital.php')) {
-            echo file_get_contents(get_template_directory() . '/assets/css/critical-digital.css');
-        }
+    // elseif (is_page_template('tpl-digital.php')) {
+    //     echo file_get_contents(get_template_directory() . '/assets/css/critical-digital.css');
+    // }
+    if (is_page_template('page-templates/tpl-digital.php')) {
+        echo file_get_contents(get_template_directory() . '/assets/css/critical-digital.css');
+    }
 
 
-        ?>
+    ?>
     </style>
 
 
@@ -130,18 +130,24 @@
 
 
 
+                            <?php get_template_part('template-parts/section', 'specialists'); ?>
+
+
+
+
+                            <!-- 
 
                             <div class="appointment-box">
                                 <div class="appointment-content">
                                     <h2 class="appointment__title">Запишитесь на прием</h2>
                                     <ul class="appointment__list">
-                                        <li class="appointment__item">
+                                        <li class="appointment__item" style="--contact-color: #0088ff">
                                             <a class="appointment__link" href="./contacts.html?direction=1">App, Web, CRM</a>
                                         </li>
-                                        <li class="appointment__item">
+                                        <li class="appointment__item" style="--contact-color: #e5c100;">
                                             <a class="appointment__link" href="./contacts.html?direction=2">Поставка оборудования</a>
                                         </li>
-                                        <li class="appointment__item">
+                                        <li class="appointment__item" style="--contact-color: #8e5aac;">
                                             <a class="appointment__link" href="./contacts.html?direction=3">Вакансия</a>
                                         </li>
                                     </ul>
@@ -152,7 +158,7 @@
                                     <div class="swiper-wrapper">
 
                                         <div class="swiper-slide">
-                                            <div class="appointment-slide">
+                                            <div class="appointment-slide" style="--contact-color: #0088ff">
                                                 <div class="appointment-slide-images">
                                                     <img width="290" height="290" class="appointment-slide__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/01.png" alt="">
                                                     <img width="290" height="290" class="appointment-slide__img-face" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/01-face.png" alt="">
@@ -161,7 +167,7 @@
                                             </div>
                                         </div>
                                         <div class="swiper-slide">
-                                            <div class="appointment-slide">
+                                            <div class="appointment-slide" style="--contact-color: #e5c100;">
                                                 <div class="appointment-slide-images">
                                                     <img width="290" height="290" class="appointment-slide__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/02.png" alt="">
                                                     <img width="290" height="290" class="appointment-slide__img-face" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/02-face.png" alt="">
@@ -170,7 +176,7 @@
                                             </div>
                                         </div>
                                         <div class="swiper-slide">
-                                            <div class="appointment-slide">
+                                            <div class="appointment-slide" style="--contact-color: #8e5aac;">
                                                 <div class="appointment-slide-images">
                                                     <img width="290" height="290" class="appointment-slide__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/03.png" alt="">
                                                     <img width="290" height="290" class="appointment-slide__img-face" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/03-face.png" alt="">
@@ -188,7 +194,7 @@
                             </div>
 
 
-
+ -->
 
                         </div>
 
