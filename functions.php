@@ -169,7 +169,6 @@ add_filter('acf/validate_value/name=direction_id', 'validate_unique_direction_id
 function register_site_settings_cpt()
 {
 
-
     $labels = array(
         'name' => 'Настройки сайта',
         'singular_name' => 'Настройки сайта',
@@ -185,7 +184,7 @@ function register_site_settings_cpt()
         'show_in_nav_menus'  => false, // И нельзя добавить в меню
         'show_ui' => true,      // Показать в админке
         'has_archive' => false,
-        'menu_position' => 20,
+        'menu_position' => 24,
         'menu_icon' => 'dashicons-admin-generic',
         'supports' => array('title'), // Нам нужно только поле заголовка
         'show_in_rest' => false,
@@ -387,3 +386,45 @@ function get_url_by_page_template($template_slug)
     set_transient($cache_key, $url, HOUR_IN_SECONDS);
     return $url;
 }
+
+// ? Menu 
+function my_theme_menus()
+{
+    register_nav_menus(array(
+        'header_menu' => 'Меню в шапке',
+        // 'footer_menu' => 'Меню в подвале',
+
+        'footer_company'  => 'Футер: Компания',
+        'footer_services' => 'Футер: Услуги',
+        'footer_legal'    => 'Футер: Юридическая инфа (низ)',
+    ));
+}
+add_action('after_setup_theme', 'my_theme_menus');
+
+
+add_filter('wp_nav_menu_objects', function ($items) {
+    foreach ($items as $item) {
+        $item->classes[] = 'header-menu__item';
+        // if (strpos($item->url, '#') !== false) {
+        // }
+    }
+    return $items;
+});
+
+
+add_filter('nav_menu_link_attributes', function ($atts, $item) {
+    $atts['class'] = 'header-menu__link';
+
+    // Проверяем, является ли ссылка якорной (содержит #)
+    if (strpos($item->url, '#') !== false) {
+        // Получаем домашний URL для текущего языка (или обычный, если плагин отключен)
+        $home_url = function_exists('pll_home_url') ? pll_home_url() : home_url('/');
+
+        // Очищаем ссылку от лишних слешей и склеиваем
+        // rtrim убирает слеш у home_url, а ltrim у ссылки, чтобы не было //
+        $anchor = ltrim($item->url, '/');
+        $atts['href'] = rtrim($home_url, '/') . '/' . $anchor;
+    }
+
+    return $atts;
+}, 10, 2);

@@ -16,8 +16,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-
 });
 
 let lenis = null;
@@ -254,101 +252,47 @@ if (burgerMenu && headerMenu) {
     })
 }
 
-// const anchorLinks = document.querySelectorAll('.link-anchor');
-// if (anchorLinks.length) {
-//     anchorLinks.forEach(link => {
-//         link.addEventListener('click', (e) => {
-
-//             if (headerMenu.classList.contains('open')) {
-//                 headerMenu.classList.remove('open');
-//                 toggleFixedBody();
-//             }
-
-
-//             const a = e.target.closest('a[href*="#home-portfolio"]');
-
-//             if (!a) return;
-
-//             e.preventDefault();
-
-//             const url = new URL(a.href, location.origin);
-//             const samePage = url.pathname === location.pathname;
-
-//             if (samePage) {
-
-//                 if (url.hash === '#home-portfolio') {
-//                     smoothToHomePortfolio();
-//                 }
-
-//                 history.pushState(null, '', url.hash);
-//             } else {
-//                 sessionStorage.setItem('scrollToSection', url.hash);
-
-//                 location.href = url.pathname + url.search;
-//             }
-
-//         })
-//     })
-// }
-
-const hashPortfolioSection = (location.hash === '#home-portfolio' ? '#home-portfolio' : null);
-// console.log('hashPortfolioSection ', hashPortfolioSection);
-if (hashPortfolioSection) {
-
-    history.replaceState(null, '', location.pathname + location.search);
-
-    // sessionStorage.removeItem('scrollToSection');
-    // Даём время на layout и расчёт пинов, затем скроллим
-    // небольшой таймаут + ScrollTrigger.refresh()
-    setTimeout(() => {
-        smoothToHomePortfolio();
-    }, 200); // 60–200ms в зависимости от тяжести страницы; при SPA можно замерить готовность
-}
-
-function initSmoothToHomePortfolioHash() {
-
-    const links = document.querySelectorAll('.header-menu__link');
-    links.forEach(link => {
+const anchorLinks = document.querySelectorAll('.link-anchor');
+if (anchorLinks.length) {
+    anchorLinks.forEach(link => {
         link.addEventListener('click', (e) => {
+
             if (headerMenu.classList.contains('open')) {
                 headerMenu.classList.remove('open');
                 toggleFixedBody();
             }
 
-            const a = link.closest('[href*="#home-portfolio"]');
-            if (a) {
 
-                e.preventDefault();
-                const url = new URL(a.href, location.origin);
-                const samePage = url.pathname === location.pathname;
+            const a = e.target.closest('a[href*="#home-portfolio"]');
 
+            if (!a) return;
 
+            e.preventDefault();
 
-                if (samePage) {
+            const url = new URL(a.href, location.origin);
+            const samePage = url.pathname === location.pathname;
 
-                    if (url.hash === '#home-portfolio') {
-                        smoothToHomePortfolio();
-                    }
+            if (samePage) {
 
-                    history.pushState(null, '', url.hash);
-                } else {
-                    sessionStorage.setItem('scrollToSection', url.hash);
-
-                    location.href = url.pathname + url.search;
+                if (url.hash === '#home-portfolio') {
+                    smoothToHomePortfolio();
                 }
 
+                history.pushState(null, '', url.hash);
+            } else {
+                sessionStorage.setItem('scrollToSection', url.hash);
+
+                location.href = url.pathname + url.search;
             }
+
         })
     })
+}
 
+function initSmoothToHomePortfolioHash() {
+    const scrollToHomePortfolio = sessionStorage.getItem('scrollToSection') || (location.hash === '#home-portfolio' ? '#home-portfolio' : null);
 
-
-    const scrollToSection = sessionStorage.getItem('scrollToSection');
-    // const scrollToSection = sessionStorage.getItem('scrollToSection') || (location.hash === '#home-portfolio' ? '#home-portfolio' : null);
-    // console.log('scrollToSection ', scrollToSection);
-    if (scrollToSection) {
-
-        // history.replaceState(null, '', location.pathname + location.search);
+    if (scrollToHomePortfolio) {
 
         sessionStorage.removeItem('scrollToSection');
         // Даём время на layout и расчёт пинов, затем скроллим
@@ -362,8 +306,6 @@ function initSmoothToHomePortfolioHash() {
 // ? scrollToPlugin smoothToHomePortfolio()
 function smoothToHomePortfolio() {
     const target = document.querySelector('#home-portfolio');
-
-
     if (!target) return;
     // обновляем расчёты перед прокруткой
     ScrollTrigger.refresh();

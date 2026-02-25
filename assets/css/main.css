@@ -263,6 +263,8 @@ body.fixed {
     pointer-events: none;
 }
 .header-logo {
+    display: flex;
+    align-items: center;
     pointer-events: all;
 }
 .header-logo-svg {
