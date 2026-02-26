@@ -402,29 +402,116 @@ function my_theme_menus()
 add_action('after_setup_theme', 'my_theme_menus');
 
 
-add_filter('wp_nav_menu_objects', function ($items) {
+add_filter('wp_nav_menu_objects', function ($items, $args) {
     foreach ($items as $item) {
-        $item->classes[] = 'header-menu__item';
-        // if (strpos($item->url, '#') !== false) {
+
+
+
+        // if (isset($args->theme_location) && $args->theme_location === 'header_menu') {
+
+        //     $item->classes[] = 'header-menu__item';
         // }
+
+        if (isset($args->theme_location)) {
+
+            if ($args->theme_location === 'header_menu') {
+                $item->classes[] = 'header-menu__item';
+            } elseif ($args->theme_location === 'footer_company' || $args->theme_location === 'footer_services') {
+                $item->classes[] = 'footer-list__item';
+            }
+        }
     }
+
+
     return $items;
-});
+}, 10, 2);
 
 
-add_filter('nav_menu_link_attributes', function ($atts, $item) {
-    $atts['class'] = 'header-menu__link';
+add_filter('nav_menu_link_attributes', function ($atts, $item, $args) {
 
-    // Проверяем, является ли ссылка якорной (содержит #)
-    if (strpos($item->url, '#') !== false) {
-        // Получаем домашний URL для текущего языка (или обычный, если плагин отключен)
-        $home_url = function_exists('pll_home_url') ? pll_home_url() : home_url('/');
+    if (!isset($args->theme_location)) return $atts;
 
-        // Очищаем ссылку от лишних слешей и склеиваем
-        // rtrim убирает слеш у home_url, а ltrim у ссылки, чтобы не было //
-        $anchor = ltrim($item->url, '/');
-        $atts['href'] = rtrim($home_url, '/') . '/' . $anchor;
+
+    if ($args->theme_location === 'header_menu') {
+        $atts['class'] = 'header-menu__link';
+        if (strpos($item->url, '#') !== false) {
+            // Получаем домашний URL для текущего языка (или обычный, если плагин отключен)
+            $home_url = function_exists('pll_home_url') ? pll_home_url() : home_url('/');
+
+            // Очищаем ссылку от лишних слешей и склеиваем
+            // rtrim убирает слеш у home_url, а ltrim у ссылки, чтобы не было //
+
+            $anchor = ltrim($item->url, '/');
+            $atts['href'] = rtrim($home_url, '/') . '/' . $anchor;
+        }
+    } elseif ($args->theme_location === 'footer_company') {
+        $atts['class'] = 'footer-list__item-link';
+
+        if ($item->object === 'page' && $item->object_id) {
+            $post = get_post((int) $item->object_id);
+            if ($post) {
+                $template = get_page_template_slug($post); // возвращает имя файла шаблона или пусто
+
+                if ($template === 'page-templates/tpl-digital.php') {
+                    $atts['data-slider-id'] = '0';
+                }
+            }
+        }
+    } elseif ($args->theme_location === 'footer_services') {
+        $atts['class'] = 'footer-list__item-link';
     }
+
+
+
+
 
     return $atts;
-}, 10, 2);
+}, 10, 3);
+
+
+
+
+
+
+
+
+
+// Заменяем стандартный вывод пункта на чистую ссылку или обёртку
+// add_filter('walker_nav_menu_start_el', function ($item_output, $item, $depth, $args) {
+//     if (isset($args->theme_location) && $args->theme_location === 'footer_legal') {
+//         // если нужно только <a>
+//         // return '<a class="footer-list__item-link" href="' . esc_url($item->url) . '">' . esc_html($item->title) . '</a>';
+
+//         // если нужно обернуть в div
+//         return '<div class="footer-bottom__item"><a class="footer-list__item-link" href="' . esc_url($item->url) . '"'
+//             . (isset($item->attr_title) && $item->attr_title ? ' data-slider-id="' . esc_attr($item->attr_title) . '"' : '')
+//             . '>' . esc_html($item->title) . '</a></div>';
+//     }
+//     return $item_output;
+// }, 10, 4);
+
+
+class Walker_No_LI extends \Walker_Nav_Menu
+{
+    public function start_lvl(&$output, $depth = 0, $args = array())
+    { /* ничего */
+    }
+    public function end_lvl(&$output, $depth = 0, $args = array())
+    { /* ничего */
+    }
+
+    public function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0)
+    {
+        // формируем ссылку/обёртку без <li>
+        $title = apply_filters('the_title', $item->title, $item->ID);
+        $url   = $item->url ? esc_url($item->url) : '';
+        $atts  = ' class="footer-bottom__link"';
+
+        $link = '<a href="' . $url . '"' . $atts . '>' . esc_html($title) . '</a>';
+        $output .= '<div class="footer-bottom__item">' . $link . '</div>';
+    }
+
+    public function end_el(&$output, $item, $depth = 0, $args = array())
+    { /* ничего */
+    }
+}

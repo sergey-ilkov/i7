@@ -83,9 +83,9 @@ get_header();
                         ?>
 
 
-                                <a class="hero-thumb" href="<?php echo esc_url($link_url); ?>" data-video="<?php echo esc_url($slide_video); ?>" data-poster="<?php echo esc_url($slide_poster); ?>">
-                                    <img width="130" height="130" src="<?php echo esc_url($slide_thumb); ?>" alt="digital">
-                                </a>
+                        <a class="hero-thumb" href="<?php echo esc_url($link_url); ?>" data-video="<?php echo esc_url($slide_video); ?>" data-poster="<?php echo esc_url($slide_poster); ?>">
+                            <img width="130" height="130" src="<?php echo esc_url($slide_thumb); ?>" alt="digital">
+                        </a>
 
 
                         <?php endwhile;
@@ -129,18 +129,18 @@ get_header();
                 ?>
 
 
-                        <div class="hero-slide">
-                            <div class="hero-slide-video" aria-hidden="true"></div>
+                <div class="hero-slide">
+                    <div class="hero-slide-video" aria-hidden="true"></div>
 
-                            <div class="hero-slide-content">
-                                <h2 class="hero-slide__title">
-                                    <?php echo esc_html($slide_title); ?>
-                                </h2>
-                                <p class="hero-slide__desc">
-                                    <?php echo esc_html($slide_desc); ?>
-                                </p>
-                            </div>
-                        </div>
+                    <div class="hero-slide-content">
+                        <h2 class="hero-slide__title">
+                            <?php echo esc_html($slide_title); ?>
+                        </h2>
+                        <p class="hero-slide__desc">
+                            <?php echo esc_html($slide_desc); ?>
+                        </p>
+                    </div>
+                </div>
 
                 <?php endwhile;
                     wp_reset_postdata();

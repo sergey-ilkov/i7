@@ -26,60 +26,102 @@
             </svg>
 
 
+            <?php
+
+
+            $settings_id = get_site_settings_id();
+            if ($settings_id) {
+                $section = get_field('footer', $settings_id);
+                if (is_array($section)) {
+
+                    $footer_logo = $section['footer_logo'];
+                    $contacts_link_text = $section['contacts_link_text'];
+                    $btn_up = $section['btn_up'];
+                    $copyright = $section['copyright'];
+
+                    $footer_title_company = $section['footer_title_company'];
+                    $footer_title_services = $section['footer_title_services'];
+
+                    $footer_title_contacts = $section['footer_title_contacts'];
+                    $phone_text = $section['phone_text'];
+                    $phone = $section['phone'];
+                    $email = $section['email'];
+                }
+            }
+
+            $contacts_url = get_url_by_page_template('tpl-contacts.php');
+            if (!$contacts_url) {
+                $contacts_url = home_url('/');
+            }
+
+            ?>
 
             <div class="footer__items">
                 <div class="footer__item">
 
-                    <img width="382" height="140" class="footer-logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-footer.svg" alt="logo">
+                    <img width="380" height="140" class="footer-logo" src="<?php echo $footer_logo ? esc_url($footer_logo) : ''; ?>" alt="logo">
 
 
-                    <a class="footer__link-contact" href="#">Есть вопросы? Обращайтесь!</a>
+                    <a class="footer__link-contact" href="<?php echo esc_url($contacts_url); ?>">
+                        <?php echo $contacts_link_text ? esc_html($contacts_link_text) : '';  ?>
+                    </a>
                 </div>
 
                 <div class="footer__item">
-                    <h3 class="footer-list__item-title">Компания</h3>
-                    <ul class="footer-list">
+                    <h3 class="footer-list__item-title">
+                        <?php echo $footer_title_company ? esc_html($footer_title_company) : '';  ?>
+                    </h3>
 
-                        <li class="footer-list__item">
-                            <a class="footer-list__item-link" href="#">О нас</a>
-                        </li>
-                        <li class="footer-list__item">
-                            <a class="footer-list__item-link" href="#">Наши работы</a>
-                        </li>
+                    <?php
+                    wp_nav_menu(array(
+                        'theme_location' => 'footer_company',
+                        'container'      => false,
+                        'menu_class'     => 'footer-list',
+                        'fallback_cb'    => false
+                    ));
 
-                    </ul>
+                    ?>
+
+
                 </div>
 
                 <div class="footer__item">
-                    <h3 class="footer-list__item-title">услуги</h3>
-                    <ul class="footer-list">
+                    <h3 class="footer-list__item-title">
+                        <?php echo $footer_title_services ? esc_html($footer_title_services) : '';  ?>
+                    </h3>
 
-                        <li class="footer-list__item">
-                            <a class="footer-list__item-link" href="#">IT</a>
-                        </li>
-                        <li class="footer-list__item">
-                            <a class="footer-list__item-link" href="#">Брендинг</a>
-                        </li>
-                        <li class="footer-list__item">
-                            <a class="footer-list__item-link" href="#">Инженерные решения</a>
-                        </li>
-                        <li class="footer-list__item">
-                            <a class="footer-list__item-link" href="#">Поставка оборудования</a>
-                        </li>
 
-                    </ul>
+                    <?php
+                    wp_nav_menu(array(
+                        'theme_location' => 'footer_services',
+                        'container'      => false,
+                        'menu_class'     => 'footer-list',
+                        'fallback_cb'    => false
+                    ));
+
+                    ?>
+
+
+
                 </div>
+
 
                 <div class="footer__item">
 
-                    <h3 class="footer-list__item-title">контакты</h3>
+                    <h3 class="footer-list__item-title">
+                        <?php echo $footer_title_contacts ? esc_html($footer_title_contacts) : '';  ?>
+                    </h3>
                     <ul class="footer-list">
 
                         <li class="footer-list__item">
-                            <a class="footer-list__item-link" href="tel:996700126646">+996 700 126646</a>
+                            <a class="footer-list__item-link" href="tel:<?php echo $phone ? esc_attr($phone) : '';  ?>">
+                                <?php echo $phone_text  ? esc_html($phone_text) : '';  ?>
+                            </a>
                         </li>
                         <li class="footer-list__item">
-                            <a class="footer-list__item-link" href="mailto:info@i7.kg">info@i7.kg</a>
+                            <a class="footer-list__item-link" href="mailto:<?php echo $email ? esc_attr($email) : '';  ?>">
+                                <?php echo $email ? esc_html($email) : '';  ?>
+                            </a>
                         </li>
 
                     </ul>
@@ -100,21 +142,29 @@
                                 </linearGradient>
                             </defs>
                         </svg>
-                        <span>На верх</span>
+                        <span>
+                            <?php echo $btn_up ? esc_html($btn_up) : '';  ?>
+                        </span>
                     </button>
 
                 </div>
+
+                <?php
+
+                wp_nav_menu([
+                    'theme_location' => 'footer_legal',
+                    'container'      => false,
+                    'items_wrap'     => '%3$s',
+                    'fallback_cb'    => false,
+                    'walker'         => new \Walker_No_LI(),
+                ]);
+
+                ?>
+
+
                 <div class="footer-bottom__item">
 
-                    <a class="footer-bottom__link" href="#">Impressum</a>
-                </div>
-                <div class="footer-bottom__item">
-                    <a class="footer-bottom__link" href="#">Privacy</a>
-
-                </div>
-                <div class="footer-bottom__item">
-
-                    <span class="copyright">© beam 2024</span>
+                    <span class="copyright">© <?php echo $copyright ? esc_html($copyright) : '';  ?></span>
                 </div>
             </div>
 

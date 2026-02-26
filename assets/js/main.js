@@ -2294,8 +2294,14 @@ function initHomeScript() {
 
         })
 
-        // ? set sessionStorage id slider
-        const portfolioLinks = homeportfolioSlider.querySelectorAll('.home-portfolio__link');
+
+    }
+
+    function initSmoothToDigitalPortfolio() {
+
+        const portfolioLinks = document.querySelectorAll('a[data-slider-id]');
+
+        console.log('portfolioLinks ', portfolioLinks);
         if (!portfolioLinks.length) return;
 
         portfolioLinks.forEach(link => {
@@ -2314,6 +2320,7 @@ function initHomeScript() {
         })
     }
 
+    initSmoothToDigitalPortfolio();
 
 
     // ? init script
