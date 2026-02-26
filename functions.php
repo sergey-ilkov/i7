@@ -84,6 +84,23 @@ remove_action('wp_head', 'wp_shortlink_wp_head');
 remove_action('wp_head', 'wp_generator');
 
 
+// ? acf-json
+add_filter('acf/settings/save_json', function ($path) {
+    if (defined('WP_ENV') && WP_ENV === 'production') {
+        // не сохранять JSON на проде — вернуть дефолтный путь или существующий
+        return $path;
+    }
+    return get_stylesheet_directory() . '/acf-json';
+});
+
+add_filter('acf/settings/load_json', function ($paths) {
+    $paths[] = get_stylesheet_directory() . '/acf-json';
+    return $paths;
+});
+
+
+
+
 // ? Custom Post Type Hero sliders
 function register_hero_slides_cpt()
 {

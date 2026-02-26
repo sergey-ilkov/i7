@@ -18,11 +18,27 @@ get_header();
 
 <main>
 
+    <?php
+
+    $branding_title = get_field('branding_title');
+    $branding_desc = get_field('branding_desc');
+    $branding_poster = get_field('branding_poster');
+    $branding_video  = get_field('branding_video');
+
+
+
+
+
+    ?>
 
 
     <section id="hero-branding" class="hero-branding section-bg" style="--section-bg: #0088ff;">
 
-        <video id="mainVideo" class="main-video track-visibility" playsinline muted autoplay loop poster="<?php echo get_template_directory_uri(); ?>/assets/images/hero-bg/branding-bg.jpg" data-src="<?php echo get_template_directory_uri(); ?>/assets/video/branding.mp4"></video>
+
+
+
+
+        <video id="mainVideo" class="main-video track-visibility" playsinline muted autoplay loop poster="<?php echo $branding_poster ? esc_url($branding_poster) : ''; ?>" data-src="<?php echo $branding_video ? esc_url($branding_video) : '';  ?>"></video>
 
 
 
@@ -30,18 +46,15 @@ get_header();
             <div class="hero-card-box">
                 <div class="hero-card-content">
                     <h1 class="hero-card__title">
-                        Брендинг и цифровой дизайн
+
+                        <?php echo $branding_title ?  esc_html($branding_title) : ''; ?>
+
                     </h1>
                     <div class="hero-card-desc">
-                        <p>
-                            Мы помогаем компаниям проектировать, разрабатывать и позиционировать свою продукцию как впечатляющие решения, которые вдохновляют.
-                        </p>
-                        <p>
-                            Тщательно отобранная команда экспертов, движимая стремлением решать проблемы и глубоко укоренившимся презрением к посредственности.
-                        </p>
-                        <p>
-                            Мы сочетаем стратегические идеи с безграничной креативностью, чтобы раскрыть уникальную суть вашего бренда и подчеркнуть то, что делает его особенным. Мы расширяем границы и всегда ищем способы сделать всё лучше.
-                        </p>
+
+                        <?php echo $branding_desc ?  wp_kses_post($branding_desc) : ''; ?>
+
+
                     </div>
                 </div>
 
@@ -58,26 +71,44 @@ get_header();
 
 
 
-        <div class="hero-message-box">
-            <div class="hero-message">
-                <span class="hero-message__icon"></span>
-                <span class="hero-message__text">Здравствуйте ))</span>
-            </div>
-            <div class="hero-message">
-                <span class="hero-message__icon"></span>
-                <span class="hero-message__text">Приветствую)), чем могу помочь</span>
-            </div>
-            <div class="hero-message">
-                <span class="hero-message__icon"></span>
-                <span class="hero-message__text">Хотел бы проконсультироваться</span>
-            </div>
+        <?php get_template_part('template-parts/hero', 'messages'); ?>
 
 
-        </div>
 
     </section>
 
 
+
+    <?php
+
+    $branding_cards = get_field('branding_cards');
+
+    $branding_card_1 = null;
+    $branding_card_2 = null;
+    $branding_card_3 = null;
+
+    if (is_array($branding_cards)) {
+        $branding_card_1['title'] = $branding_cards['card_1_title'];
+        $branding_card_1['desc'] = $branding_cards['card_1_desc'];
+
+        $branding_card_2['title'] = $branding_cards['card_2_title'];
+        $branding_card_2['desc'] = $branding_cards['card_2_desc'];
+
+        $branding_card_3['title'] = $branding_cards['card_3_title'];
+        $branding_card_3['desc'] = $branding_cards['card_3_desc'];
+
+        $branding_card_4['title'] = $branding_cards['card_4_title'];
+        $branding_card_4['desc'] = $branding_cards['card_4_desc'];
+    }
+
+
+
+
+
+
+
+
+    ?>
 
 
 
@@ -92,10 +123,14 @@ get_header();
 
                     <div class="branding-content">
                         <h2 class="branding-content__title">
-                            Время работает на вас
+
+                            <?php echo $branding_card_1 ? esc_html($branding_card_1['title']) : '';  ?>
+
                         </h2>
                         <p class="branding-content__text">
-                            Наша команда обеспечит бесперебойную работу: от разработки фирменного стиля до электронных писем, лендингов, сценографии, видеороликов и даже публикации печатных материалов.
+
+                            <?php echo $branding_card_1 ?  esc_html($branding_card_1['desc']) : ''; ?>
+
                         </p>
 
                     </div>
@@ -105,10 +140,14 @@ get_header();
                     <div class="branding-lottie"></div>
                     <div class="branding-content">
                         <h2 class="branding-content__title">
-                            Создание цифрового бренда
+
+                            <?php echo $branding_card_2 ? esc_html($branding_card_2['title']) : '';  ?>
+
                         </h2>
                         <p class="branding-content__text">
-                            Мы разрабатываем готовые веб-сайты и веб-приложения, которые преобразуют и усиливают послания бренда.
+
+                            <?php echo $branding_card_2 ?  esc_html($branding_card_2['desc']) : ''; ?>
+
                         </p>
 
                     </div>
@@ -118,10 +157,14 @@ get_header();
                     <div class="branding-lottie"></div>
                     <div class="branding-content">
                         <h2 class="branding-content__title">
-                            Индивидуальный подход
+
+                            <?php echo $branding_card_3 ? esc_html($branding_card_3['title']) : '';  ?>
+
                         </h2>
                         <p class="branding-content__text">
-                            Мы объединяем стратегию, креативность и цифровые технологии, чтобы воплотить ваше видение, поддержать ваш успех и максимизировать его влияние.
+
+                            <?php echo $branding_card_3 ?  esc_html($branding_card_3['desc']) : ''; ?>
+
                         </p>
 
                     </div>
@@ -131,10 +174,14 @@ get_header();
                     <div class="branding-lottie"></div>
                     <div class="branding-content">
                         <h2 class="branding-content__title">
-                            Брендинг с вашими целями развития
+
+                            <?php echo $branding_card_4 ? esc_html($branding_card_4['title']) : '';  ?>
+
                         </h2>
                         <p class="branding-content__text">
-                            Каждый бизнес уникален, но все они развиваются постепенно. Наши решения адаптируются к этапу вашего развития, чтобы бережно поддерживать ваши амбиции.
+
+                            <?php echo $branding_card_4 ?  esc_html($branding_card_4['desc']) : ''; ?>
+
                         </p>
 
                     </div>

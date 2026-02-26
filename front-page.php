@@ -332,8 +332,8 @@ get_header();
         $service3 = get_field('service_3');
         $service4 = get_field('service_4');
 
-        $portfolio_title = get_field('portfolio_title');
-        $portfolio_desc = get_field('portfolio_desc');
+        $home_portfolio_title = get_field('home_portfolio_title');
+        $home_portfolio_desc = get_field('home_portfolio_desc');
 
         ?>
 
@@ -413,13 +413,13 @@ get_header();
                         <div class="home-portfolio-circle-content">
                             <h2 class="home-portfolio__title">
 
-                                <?php echo esc_html($portfolio_title); ?>
+                                <?php echo esc_html($home_portfolio_title); ?>
 
                             </h2>
 
                             <p class="home-portfolio__desc">
 
-                                <?php echo esc_html($portfolio_desc); ?>
+                                <?php echo esc_html($home_portfolio_desc); ?>
 
 
 

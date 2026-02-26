@@ -56,22 +56,9 @@ get_header();
 
 
 
-        <div class="hero-message-box">
-            <div class="hero-message">
-                <span class="hero-message__icon"></span>
-                <span class="hero-message__text">Здравствуйте ))</span>
-            </div>
-            <div class="hero-message">
-                <span class="hero-message__icon"></span>
-                <span class="hero-message__text">Приветствую)), чем могу помочь</span>
-            </div>
-            <div class="hero-message">
-                <span class="hero-message__icon"></span>
-                <span class="hero-message__text">Хотел бы проконсультироваться</span>
-            </div>
+        <?php get_template_part('template-parts/hero', 'messages'); ?>
 
 
-        </div>
 
     </section>
 

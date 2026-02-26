@@ -19,6 +19,19 @@ get_header();
 
 <main>
 
+    <?php
+
+    $digital_title = get_field('digital_title');
+    $digital_desc = get_field('digital_desc');
+    $scroll_text  = get_field('scroll_text');
+    $digital_poster = get_field('digital_poster');
+    $digital_video  = get_field('digital_video');
+
+
+    $portfolio_title  = get_field('portfolio_title');
+
+
+    ?>
 
 
     <div id="digital-pin-wrap" class="digital-pin-wrap">
@@ -30,17 +43,29 @@ get_header();
             <div class="hero-card-wrap">
                 <div class="hero-card-box">
                     <div class="hero-card-content">
-                        <h1 class="hero-card__title">Цифровые продукты</h1>
+                        <h1 class="hero-card__title">
+
+                            <?php echo $digital_title ?  esc_html($digital_title) : ''; ?>
+
+                        </h1>
                         <div class="hero-card-desc">
                             <p>
-                                Наши услуги по цифровому продукту сочетают инновации и креативность для создания ориентированных на пользователей решений, которые выводят ваш бренд на новый уровень и привлекают вашу аудиторию.
+
+
+
+                                <?php echo $digital_desc ?  wp_kses_post($digital_desc) : ''; ?>
+
                             </p>
                         </div>
                     </div>
 
                     <div id="hero-card-scroll-wrap" class="hero-card-scroll-wrap">
                         <div class="hero-card-scroll-content">
-                            <span class="hero-card-scroll-item">WEB DESIGN APP CRM</span>
+                            <span class="hero-card-scroll-item">
+
+                                <?php echo $scroll_text ?  esc_html($scroll_text) : ''; ?>
+
+                            </span>
                         </div>
                     </div>
 
@@ -57,22 +82,16 @@ get_header();
 
             <div class="hero-digital-sticky">
 
-                <video id="mainVideo" class="main-video track-visibility" playsinline muted autoplay loop poster="<?php echo get_template_directory_uri(); ?>/assets/images/hero-bg/digital-bg.jpg" data-src="<?php echo get_template_directory_uri(); ?>/assets/video/digital.mp4"></video>
 
-                <div class="hero-message-box">
-                    <div class="hero-message">
-                        <span class="hero-message__icon"></span>
-                        <span class="hero-message__text">Здравствуйте ))</span>
-                    </div>
-                    <div class="hero-message">
-                        <span class="hero-message__icon"></span>
-                        <span class="hero-message__text">Приветствую)), чем могу помочь</span>
-                    </div>
-                    <div class="hero-message">
-                        <span class="hero-message__icon"></span>
-                        <span class="hero-message__text">Хотел бы проконсультироваться</span>
-                    </div>
-                </div>
+                <video id="mainVideo" class="main-video track-visibility" playsinline muted autoplay loop poster="<?php echo $digital_poster ? esc_url($digital_poster) : ''; ?>" data-src="<?php echo $digital_video ? esc_url($digital_video) : '';  ?>"></video>
+
+
+
+
+
+                <?php get_template_part('template-parts/hero', 'messages'); ?>
+
+
             </div>
         </div>
 
@@ -86,7 +105,11 @@ get_header();
             <div class="trigger-point" style="position: absolute; top: 50%; height: 1px; width: 100%;"></div>
 
             <div class="portfolio-preloader-wrap">
-                <h2 class="portfolio__title">[ Наши работы ]</h2>
+                <h2 class="portfolio__title">
+
+                    <?php echo $portfolio_title ?  esc_html($portfolio_title) : ''; ?>
+
+                </h2>
                 <div class="portfolio-preloader-bg"></div>
             </div>
 
