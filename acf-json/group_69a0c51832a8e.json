@@ -1,11 +1,61 @@
 {
-    "key": "group_69a02c9cc45ea",
-    "title": "Digital - первый экран",
+    "key": "group_69a0c51832a8e",
+    "title": "Контент слайда (project_slides)",
     "fields": [
         {
-            "key": "field_69a02c9dcea08",
-            "label": "Заголовок",
-            "name": "digital_title",
+            "key": "field_69a0c518ffbc6",
+            "label": "Принадлежит проекту",
+            "name": "parent_project",
+            "aria-label": "",
+            "type": "post_object",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "projects"
+            ],
+            "post_status": "",
+            "taxonomy": "",
+            "return_format": "id",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "bidirectional": 0,
+            "ui": 1,
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_69a1b4ad41bb5",
+            "label": "Порядок сортировки",
+            "name": "slide_sort",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_69a0c5c1ffbc7",
+            "label": "Заголовок слайда",
+            "name": "slide_title",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -24,9 +74,9 @@
             "append": ""
         },
         {
-            "key": "field_69a02d34cea09",
-            "label": "Описание",
-            "name": "digital_desc",
+            "key": "field_69a0c7b9ffbc8",
+            "label": "Описание слайда",
+            "name": "slide_desc",
             "aria-label": "",
             "type": "textarea",
             "instructions": "",
@@ -42,54 +92,12 @@
             "allow_in_bindings": 0,
             "rows": "",
             "placeholder": "",
-            "new_lines": "wpautop"
+            "new_lines": ""
         },
         {
-            "key": "field_69a02eec1b445",
-            "label": "Текст для бегущей строки",
-            "name": "scroll_text",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_69a02d53cea0a",
-            "label": "Видео",
-            "name": "digital_video",
-            "aria-label": "",
-            "type": "file",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "url",
-            "library": "all",
-            "min_size": "",
-            "max_size": "",
-            "mime_types": "mp4, webm",
-            "allow_in_bindings": 0
-        },
-        {
-            "key": "field_69a02d85cea0b",
-            "label": "Постер к видео (первый кадр видео)",
-            "name": "digital_poster",
+            "key": "field_69a0c7e0ffbc9",
+            "label": "Изображение Desktop",
+            "name": "image_desktop",
             "aria-label": "",
             "type": "image",
             "instructions": "",
@@ -100,7 +108,33 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "url",
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "jpg, jpeg, png, gif, webp, avif",
+            "allow_in_bindings": 0,
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_69a0fa72e4841",
+            "label": "Изображение Mobile",
+            "name": "image_mobile",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
             "library": "all",
             "min_width": "",
             "min_height": "",
@@ -116,13 +150,13 @@
     "location": [
         [
             {
-                "param": "page_template",
+                "param": "post_type",
                 "operator": "==",
-                "value": "page-templates\/tpl-digital.php"
+                "value": "project_slides"
             }
         ]
     ],
-    "menu_order": 5,
+    "menu_order": 8,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
@@ -132,5 +166,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1772141670
+    "modified": 1772205267
 }

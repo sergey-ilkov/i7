@@ -58,11 +58,11 @@ get_header();
                     </div>
                 </div>
 
-                <div id="hero-card-scroll-wrap" class="hero-card-scroll-wrap">
+                <!-- <div id="hero-card-scroll-wrap" class="hero-card-scroll-wrap">
                     <div class="hero-card-scroll-content">
                         <span class="hero-card-scroll-item">WEB DESIGN APP CRM</span>
                     </div>
-                </div>
+                </div> -->
 
             </div>
 

@@ -36,13 +36,9 @@
 
 
 
-    <!-- ? Preloader -->
-    <!-- ? Preloader -->
-    <!-- ? Preloader -->
-    <!-- <?php get_template_part('template-parts/header', 'preloader'); ?> -->
-    <!-- ? Preloader -->
-    <!-- ? Preloader -->
-    <!-- ? Preloader -->
+
+    <?php get_template_part('template-parts/header', 'preloader'); ?>
+
 
 
 

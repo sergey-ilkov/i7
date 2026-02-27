@@ -17,37 +17,68 @@ get_header();
 
 ?>
 
+<?php
+
+$solutions_title = get_field('solutions_title');
+$solutions_desc = get_field('solutions_desc');
+$solutions_poster = get_field('solutions_poster');
+$solutions_video  = get_field('solutions_video');
+
+
+
+
+
+global $post;
+$post_id = $post->ID;
+$fields = get_fields($post_id); // вернёт ассоц. массив полей ACF для указанного поста
+
+?>
+
+
+<section class="query" style="color:#000;">
+
+    <?php
+
+    echo '<br><br>';
+    echo '<pre>';
+
+    var_dump($fields);
+
+    echo '</pre>';
+    echo '<br><br>';
+
+    ?>
+
+</section>
+
 <main>
+
+
 
 
     <section id="hero-solutions" class="hero-solutions section-bg" style="--section-bg: #0088ff;">
 
-        <video id="mainVideo" class="main-video track-visibility" playsinline muted autoplay loop poster="<?php echo get_template_directory_uri(); ?>/assets/images/hero-bg/engineering-bg.jpg" data-src="<?php echo get_template_directory_uri(); ?>/assets/video/engineering.mp4"></video>
 
-
+        <video id="mainVideo" class="main-video track-visibility" playsinline muted autoplay loop poster="<?php echo  $fields['solutions_poster'] ? esc_url($fields['solutions_poster']) : ''; ?>" data-src="<?php echo $fields['solutions_video'] ? esc_url($fields['solutions_video']) : '';  ?>"></video>
 
         <div class="hero-card-wrap">
             <div class="hero-card-box">
                 <div class="hero-card-content">
                     <h1 class="hero-card__title">
-                        Инженерные решения
+
+                        <?php echo $fields['solutions_title'] ?  esc_html($fields['solutions_title']) : ''; ?>
+
+
                     </h1>
                     <div class="hero-card-desc">
-                        <p>
-                            Благодаря такой консолидации мы обеспечиваем единую точку доступа ко всем системам управления, включая мониторинг сигнализации, видеонаблюдение, аварийное реагирование, пожарную безопасность, энергоснабжение здания и коммунальные системы. 
-                        </p>
-                        <p>
-                            Отображая данные со всех этих систем, мы упрощаем работу управляющих объектами и помогаем им экономить на расходах на электроэнергию и коммунальные услуги, сокращать штат сотрудников, повышать безопасность, эффективнее реагировать на чрезвычайные ситуации и повышать комфорт жильцов.
-                        </p>
+
+                        <?php echo $fields['solutions_desc'] ?  wp_kses_post($fields['solutions_desc']) : ''; ?>
+
 
                     </div>
                 </div>
 
-                <div id="hero-card-scroll-wrap" class="hero-card-scroll-wrap">
-                    <div class="hero-card-scroll-content">
-                        <span class="hero-card-scroll-item">WEB DESIGN APP CRM</span>
-                    </div>
-                </div>
+
 
             </div>
 

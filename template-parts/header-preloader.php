@@ -1,5 +1,8 @@
 <?php
 
+
+return;
+
 $settings_id = get_site_settings_id();
 if ($settings_id) {
     $section = get_field('preloader', $settings_id);

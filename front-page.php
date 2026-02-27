@@ -15,6 +15,35 @@ get_header();
 
 
 
+<!-- // ?  TEST   -->
+<!-- // ?  TEST   -->
+<!-- // ?  TEST   -->
+
+<?php
+
+
+global $post;
+$post_id = $post->ID;
+$fields = get_fields($post_id); // вернёт ассоц. массив полей ACF для указанного поста
+echo '<br><br>';
+echo '<pre>';
+
+var_dump($fields);
+
+echo '</pre>';
+echo '<br><br>';
+
+
+?>
+<!-- // ?  TEST   -->
+<!-- // ?  TEST   -->
+<!-- // ?  TEST   -->
+
+
+
+
+
+
 <main>
 
     <?php
@@ -77,14 +106,31 @@ get_header();
 
                         <?php if ($slides_query->have_posts()) : while ($slides_query->have_posts()) : $slides_query->the_post();
                                 $link_url = get_field('slide_link');
-                                $slide_thumb = get_field('slide_thumb');
                                 $slide_video = get_field('slide_video');
                                 $slide_poster = get_field('slide_poster');
+
+                                $slide_thumb_id = get_field('slide_thumb');
+
+                                $image_url = null;
+                                $width = 130;
+                                $height = 130;
+                                $image_alt = null;
+
+                                if ($slide_thumb_id) {
+                                    $image_url = wp_get_attachment_url($slide_thumb_id);
+                                    $image_alt = get_post_meta($slide_thumb_id, '_wp_attachment_image_alt', true);
+
+                                    $image_meta = wp_get_attachment_metadata($slide_thumb_id);
+                                    $width  = isset($image_meta['width']) ? $image_meta['width'] : null;
+                                    $height = isset($image_meta['height']) ? $image_meta['height'] : null;
+                                }
+
+
                         ?>
 
 
                         <a class="hero-thumb" href="<?php echo esc_url($link_url); ?>" data-video="<?php echo esc_url($slide_video); ?>" data-poster="<?php echo esc_url($slide_poster); ?>">
-                            <img width="130" height="130" src="<?php echo esc_url($slide_thumb); ?>" alt="digital">
+                            <img width="<?php echo esc_attr($width); ?>" height="<?php echo esc_attr($height); ?>" src="<?php echo  $image_url ? esc_url($image_url) : ''; ?>" alt="<?php echo $image_alt ? esc_attr($image_alt) : ''; ?>">
                         </a>
 
 
@@ -181,6 +227,72 @@ get_header();
         $card2 = get_field('card_2'); // array or null
         $card3 = get_field('card_3'); // array or null
 
+
+        $card1_image_desktop_url = null;
+        $card1_image_mobile_url = null;
+        $card1_width = 466;
+        $card1_height = 300;
+        $card1_image_alt = null;
+
+        $card1_image_desktop_id = $card1 ? $card1['image_desktop'] : null;
+        $card1_image_mobile_id = $card1 ? $card1['image_mobile'] : null;
+
+        if ($card1_image_desktop_id) {
+            $card1_image_desktop_url = wp_get_attachment_url($card1_image_desktop_id);
+            $card1_image_alt = get_post_meta($card1_image_desktop_id, '_wp_attachment_image_alt', true);
+
+            $card1_image_meta = wp_get_attachment_metadata($card1_image_desktop_id);
+            $card1_width  = isset($card1_image_meta['width']) ? $card1_image_meta['width'] : null;
+            $card1_height = isset($card1_image_meta['height']) ? $card1_image_meta['height'] : null;
+        }
+        if ($card1_image_mobile_id) {
+            $card1_image_mobile_url = wp_get_attachment_url($card1_image_desktop_id);
+        }
+
+        $card2_image_desktop_url = null;
+        $card2_image_mobile_url = null;
+        $card2_width = 466;
+        $card2_height = 300;
+        $card2_image_alt = null;
+
+        $card2_image_desktop_id = $card2 ? $card2['image_desktop'] : null;
+        $card2_image_mobile_id = $card2 ? $card2['image_mobile'] : null;
+
+        if ($card2_image_desktop_id) {
+            $card2_image_desktop_url = wp_get_attachment_url($card2_image_desktop_id);
+            $card2_image_alt = get_post_meta($card2_image_desktop_id, '_wp_attachment_image_alt', true);
+
+            $card2_image_meta = wp_get_attachment_metadata($card2_image_desktop_id);
+            $card2_width  = isset($card2_image_meta['width']) ? $card2_image_meta['width'] : null;
+            $card2_height = isset($card2_image_meta['height']) ? $card2_image_meta['height'] : null;
+        }
+        if ($card2_image_mobile_id) {
+            $card2_image_mobile_url = wp_get_attachment_url($card2_image_desktop_id);
+        }
+
+        $card3_image_desktop_url = null;
+        $card3_image_mobile_url = null;
+        $card3_width = 466;
+        $card3_height = 300;
+        $card3_image_alt = null;
+
+        $card3_image_desktop_id = $card3 ? $card3['image_desktop'] : null;
+        $card3_image_mobile_id = $card3 ? $card3['image_mobile'] : null;
+
+        if ($card3_image_desktop_id) {
+            $card3_image_desktop_url = wp_get_attachment_url($card3_image_desktop_id);
+            $card3_image_alt = get_post_meta($card3_image_desktop_id, '_wp_attachment_image_alt', true);
+
+            $card3_image_meta = wp_get_attachment_metadata($card3_image_desktop_id);
+            $card3_width  = isset($card3_image_meta['width']) ? $card3_image_meta['width'] : null;
+            $card3_height = isset($card3_image_meta['height']) ? $card3_image_meta['height'] : null;
+        }
+        if ($card3_image_mobile_id) {
+            $card3_image_mobile_url = wp_get_attachment_url($card3_image_desktop_id);
+        }
+
+
+
         ?>
 
         <!-- ? recommendations -->
@@ -196,8 +308,8 @@ get_header();
                         <div class="recommendations-card-image">
 
                             <picture>
-                                <source media="(max-width: 800px)" srcset="<?php echo $card1 ? esc_url($card1['image_mobile']) : ''; ?>" />
-                                <img width="466" height="300" class="recommendations-card__img lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo $card1 ? esc_url($card1['image_desktop']) : ''; ?>" alt="Card image" />
+                                <source media="(max-width: 800px)" srcset="<?php echo  $card1_image_mobile_url ? esc_url($card1_image_mobile_url) : ''; ?>" />
+                                <img width="<?php echo esc_attr($card1_width); ?>" height="<?php echo esc_attr($card1_height); ?>" class="recommendations-card__img lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo  $card1_image_desktop_url ? esc_url($card1_image_desktop_url) : ''; ?>" alt="<?php echo $card1_image_alt ? esc_attr($card1_image_alt) : ''; ?>" />
                             </picture>
 
                         </div>
@@ -240,9 +352,11 @@ get_header();
 
 
                             <picture>
-                                <source media="(max-width: 800px)" srcset="<?php echo $card2 ? esc_url($card2['image_mobile']) : ''; ?>" />
-                                <img width="466" height="300" class="recommendations-card__img lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo $card2 ? esc_url($card2['image_desktop']) : ''; ?>" alt="Card image" />
+                                <source media="(max-width: 800px)" srcset="<?php echo  $card2_image_mobile_url ? esc_url($card2_image_mobile_url) : ''; ?>" />
+                                <img width="<?php echo esc_attr($card2_width); ?>" height="<?php echo esc_attr($card2_height); ?>" class="recommendations-card__img lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo  $card2_image_desktop_url ? esc_url($card2_image_desktop_url) : ''; ?>" alt="<?php echo $card2_image_alt ? esc_attr($card2_image_alt) : ''; ?>" />
                             </picture>
+
+
                         </div>
 
 
@@ -280,10 +394,14 @@ get_header();
                     <div class="recommendations-card-content">
                         <div class="recommendations-card-image">
 
+
+
                             <picture>
-                                <source media="(max-width: 800px)" srcset="<?php echo $card3 ? esc_url($card3['image_mobile']) : ''; ?>" />
-                                <img width="466" height="300" class="recommendations-card__img lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo $card3 ? esc_url($card3['image_desktop']) : ''; ?>" alt="Card image" />
+                                <source media="(max-width: 800px)" srcset="<?php echo  $card3_image_mobile_url ? esc_url($card3_image_mobile_url) : ''; ?>" />
+                                <img width="<?php echo esc_attr($card3_width); ?>" height="<?php echo esc_attr($card3_height); ?>" class="recommendations-card__img lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo  $card3_image_desktop_url ? esc_url($card3_image_desktop_url) : ''; ?>" alt="<?php echo $card3_image_alt ? esc_attr($card3_image_alt) : ''; ?>" />
                             </picture>
+
+
                         </div>
 
                         <p class="recommendations-card__text">
@@ -440,76 +558,119 @@ get_header();
 
                     <div id="home-portfolio" class="home-portfolio-wrap container">
 
+
+
+                        <?php
+                        // ? sliders and slides
+                        // 1. Получаем все проекты
+                        $projects_posts = get_posts([
+                            'post_type'      => 'projects',
+                            'posts_per_page' => -1,
+                            'suppress_filters' => false, // Чтобы Polylang отфильтровал по языку
+
+                            // 'meta_key'       => 'project_sort', // Ключ поля, по которому сортируем
+                            // 'orderby'        => 'meta_value_num', // Сортируем как числа (а не как текст!)
+                            // 'order'          => 'ASC',            // От меньшего к большему (1, 2, 3...)
+
+                            'meta_key'       => 'project_sort', // Ключ поля, по которому сортируем
+                            // Сортируем как числа (а не как текст!)
+                            'orderby'        => [
+                                'meta_value_num' => 'ASC',
+                                'title'          => 'ASC' // Если цифры равны, сортируй по алфавиту
+                            ],
+                            'order'          => 'ASC',            // От меньшего к большему (1, 2, 3...)
+                        ]);
+
+                        // 2. Получаем ВСЕ слайды одним махом
+                        $all_slides_posts = get_posts([
+                            'post_type'      => 'project_slides',
+                            'posts_per_page' => -1,
+                            'suppress_filters' => false,
+                            'meta_key'       => 'slide_sort',
+                            'orderby'        => [
+                                'meta_value_num' => 'ASC',
+                                'title'          => 'ASC' // Если цифры равны, сортируй по алфавиту
+                            ],
+                            'order'          => 'ASC',
+                        ]);
+
+                        // Группируем слайды по ID родительского проекта для быстрого доступа
+                        $slides_by_project = [];
+                        foreach ($all_slides_posts as $slide) {
+                            $parent_id = get_field('parent_project', $slide->ID);
+                            if ($parent_id) {
+                                $slides_by_project[$parent_id][] = $slide;
+                            }
+                        }
+
+                        // 3. Собираем финальный массив только с теми проектами, у которых есть слайды
+                        $prepared_projects = [];
+                        foreach ($projects_posts as $project) {
+                            $p_id = $project->ID;
+
+                            // Проверка: есть ли у этого проекта слайды?
+                            if (isset($slides_by_project[$p_id]) && !empty($slides_by_project[$p_id])) {
+
+                                $slider = get_field('portfolio_slider', $p_id);
+                                $prepared_projects[] = [
+                                    'id'       => $p_id,
+                                    'preview_id'     => $slider['preview'],
+
+                                ];
+                            }
+                        }
+
+
+                        // echo '<pre>';
+                        // var_dump(get_field('project_sort', $projects_posts[0]->ID));
+                        // var_dump($projects_posts);
+                        // var_dump(get_field('portfolio_slider', $projects_posts[0]->ID));
+                        // var_dump($all_slides_posts);
+                        // echo '</pre>';
+
+                        ?>
+
+
                         <div id="home-portfolio-slider" class="swiper home-portfolio-slider">
+
                             <div class="swiper-wrapper">
 
+                                <?php
+                                $i = 0;
+                                foreach ($prepared_projects as $item) :
+
+
+                                    $digital_url = get_url_by_page_template('tpl-digital.php');
+                                    if (!$digital_url) {
+                                        $digital_url = home_url('/');
+                                    }
+
+                                    $image = wp_get_attachment_image($item['preview_id'], 'full', false, array('loading' => 'lazy')) ?? null;
+
+                                    $index = $i;
+                                    $i++;
+                                ?>
+
+
                                 <div class="swiper-slide">
                                     <div class="home-portfolio__slide">
-                                        <a class="home-portfolio__link" href="./digital.html" data-slider-id="0">
-                                            <img width="445" height="445" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/home/portfolio/1.png" alt="">
+                                        <a class="home-portfolio__link" href="<?php echo esc_url($digital_url); ?>" data-slider-id="<?php echo $index; ?>">
+
+                                            <?php echo $image ? $image : '' ?>
+
                                         </a>
                                     </div>
 
                                 </div>
-                                <div class="swiper-slide">
-                                    <div class="home-portfolio__slide">
-                                        <a class="home-portfolio__link" href="./digital.html" data-slider-id="1">
 
-                                            <img width="445" height="445" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/home/portfolio/2.png" alt="">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="home-portfolio__slide">
-                                        <a class="home-portfolio__link" href="./digital.html" data-slider-id="2">
 
-                                            <img width="445" height="445" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/home/portfolio/3.png" alt="">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="home-portfolio__slide">
-                                        <a class="home-portfolio__link" href="./digital.html" data-slider-id="3">
 
-                                            <img width="445" height="445" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/home/portfolio/4.png" alt="">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="home-portfolio__slide">
-                                        <a class="home-portfolio__link" href="./digital.html" data-slider-id="4">
 
-                                            <img width="445" height="445" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/home/portfolio/5.png" alt="">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
+                                <?php endforeach; ?>
 
-                                    <div class="home-portfolio__slide">
-                                        <a class="home-portfolio__link" href="./digital.html" data-slider-id="5">
-                                            <img width="445" height="445" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/home/portfolio/6.png" alt="">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="home-portfolio__slide">
-                                        <a class="home-portfolio__link" href="./digital.html" data-slider-id="6">
 
-                                            <img width="445" height="445" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/home/portfolio/7.png" alt="">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="home-portfolio__slide">
-                                        <a class="home-portfolio__link" href="./digital.html" data-slider-id="7">
-                                            <img width="445" height="445" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/home/portfolio/8.png" alt="">
-                                        </a>
-                                    </div>
-                                </div>
 
                             </div>
-
-
 
                             <div class="home-portfolio-btns-wrap">
                                 <button class="home-portfolio-btn-prev">
@@ -526,6 +687,12 @@ get_header();
                             </div>
 
                         </div>
+
+
+
+
+
+
 
                     </div>
 
@@ -547,7 +714,7 @@ get_header();
     </section>
 
 
-    <!-- ? appointment  section-->
+    // ? appointment section
 
     <section class="appointment section-bg" style="--section-bg: #fff;">
 

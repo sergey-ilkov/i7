@@ -114,14 +114,13 @@ function register_hero_slides_cpt()
         'labels' => $labels,
         'public' => true,
         'has_archive' => false,
-        'menu_position' => 20,
+        'menu_position' => 25,
         'menu_icon' => 'dashicons-images-alt2', // Иконка в меню
         'supports' => array('title'), // Нам нужно только название для удобства
     );
     register_post_type('hero_slides', $args);
 }
 add_action('init', 'register_hero_slides_cpt');
-
 
 
 // ? CPT slider specialist
@@ -137,13 +136,71 @@ function register_specialist_slides_cpt()
         'labels' => $labels,
         'public' => true,
         'has_archive' => false,
-        'menu_position' => 20,
+        'menu_position' => 25,
         'menu_icon' => 'dashicons-groups', // Иконка в меню
         'supports' => array('title'), // Нам нужно только название для удобства
     );
     register_post_type('specialist_slides', $args);
 }
 add_action('init', 'register_specialist_slides_cpt');
+
+
+// ? CPT Portfolio and Portfolio slide
+function register_portfolio_cpt()
+{
+    // 1. Сам Проект (Приложение)
+    register_post_type('projects', array(
+        'labels' => array('name' => 'Портфолио', 'singular_name' => 'Проект (projects)'),
+        'public' => true,
+        'has_archive' => false,
+        'menu_position' => 25,
+        'menu_icon' => 'dashicons-portfolio',
+        'supports' => array('title'),
+    ));
+    // 2. Слайды для проектов
+    register_post_type('project_slides', array(
+        'labels' => array('name' => 'Слайды портфолио', 'singular_name' => 'Слайд (project_slides)'),
+        'public' => true,
+        'has_archive' => false,
+        'menu_position' => 25,
+        'menu_icon' => 'dashicons-images-alt2',
+        'supports' => array('title'),
+    ));
+}
+add_action('init', 'register_portfolio_cpt');
+
+
+
+// ? CPT для глобальных настроек 
+
+function register_site_settings_cpt()
+{
+
+    $labels = array(
+        'name' => 'Настройки сайта',
+        'singular_name' => 'Настройки сайта',
+        'add_new' => 'Добавить настройки',
+    );
+
+    $args = array(
+        'labels' => $labels,
+
+        'public' => true,      // Делаем публичным, чтобы Polylang его увидел
+        'publicly_queryable' => false, // Но нельзя открыть по прямой ссылке
+        'exclude_from_search' => true,  // И не будет в поиске по сайту
+        'show_in_nav_menus'  => false, // И нельзя добавить в меню
+        'show_ui' => true,      // Показать в админке
+        'has_archive' => false,
+        'menu_position' => 25,
+        'menu_icon' => 'dashicons-admin-generic',
+        'supports' => array('title'), // Нам нужно только поле заголовка
+        'show_in_rest' => false,
+    );
+    register_post_type('site_settings', $args);
+}
+add_action('init', 'register_site_settings_cpt');
+
+
 
 // ? unique value direction_id
 function validate_unique_direction_id($valid, $value, $field, $input)
@@ -181,34 +238,7 @@ function validate_unique_direction_id($valid, $value, $field, $input)
 add_filter('acf/validate_value/name=direction_id', 'validate_unique_direction_id', 10, 4);
 
 
-// ? CPT для глобальных настроек 
 
-function register_site_settings_cpt()
-{
-
-    $labels = array(
-        'name' => 'Настройки сайта',
-        'singular_name' => 'Настройки сайта',
-        'add_new' => 'Добавить настройки',
-    );
-
-    $args = array(
-        'labels' => $labels,
-
-        'public' => true,      // Делаем публичным, чтобы Polylang его увидел
-        'publicly_queryable' => false, // Но нельзя открыть по прямой ссылке
-        'exclude_from_search' => true,  // И не будет в поиске по сайту
-        'show_in_nav_menus'  => false, // И нельзя добавить в меню
-        'show_ui' => true,      // Показать в админке
-        'has_archive' => false,
-        'menu_position' => 24,
-        'menu_icon' => 'dashicons-admin-generic',
-        'supports' => array('title'), // Нам нужно только поле заголовка
-        'show_in_rest' => false,
-    );
-    register_post_type('site_settings', $args);
-}
-add_action('init', 'register_site_settings_cpt');
 
 // 1. Удаляем пункт "Добавить" из бокового меню и из верхнего админ-бара
 function remove_site_settings_add_menus()

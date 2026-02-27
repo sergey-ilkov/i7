@@ -97,8 +97,9 @@ window.addEventListener('load', () => {
     initLenis();
 
 
-    //  ? протестировать, можно только на главной странице
+
     initSmoothToHomePortfolioHash();
+    initSmoothToDigitalPortfolio();
 
     // ? init general
     initGeneralScript();
@@ -358,6 +359,32 @@ function initSmoothToHomePortfolioHash() {
         }, 60); // 60–200ms в зависимости от тяжести страницы; при SPA можно замерить готовность
     }
 }
+
+
+function initSmoothToDigitalPortfolio() {
+
+    const portfolioLinks = document.querySelectorAll('a[data-slider-id]');
+
+    console.log('portfolioLinks ', portfolioLinks);
+    if (!portfolioLinks.length) return;
+
+    portfolioLinks.forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+
+            const sliderId = link.dataset.sliderId;
+            if (sliderId) {
+                sessionStorage.setItem('openPortfolioSlider', sliderId);
+            }
+            location.href = link.href;
+
+            console.log(sliderId);
+
+        })
+    })
+}
+
+
 
 // ? scrollToPlugin smoothToHomePortfolio()
 function smoothToHomePortfolio() {
@@ -2144,7 +2171,7 @@ function initHomeScript() {
             let segDuration = 1;
             // Для каждой пары добавляем один сегмент длительностью segDuration
             for (let i = 0; i < cards.length - 1; i++) {
-                console.log(i);
+                // console.log(i);
 
                 const cur = cards[i];
                 const next = cards[i + 1];
@@ -2297,30 +2324,30 @@ function initHomeScript() {
 
     }
 
-    function initSmoothToDigitalPortfolio() {
+    // function initSmoothToDigitalPortfolio() {
 
-        const portfolioLinks = document.querySelectorAll('a[data-slider-id]');
+    //     const portfolioLinks = document.querySelectorAll('a[data-slider-id]');
 
-        console.log('portfolioLinks ', portfolioLinks);
-        if (!portfolioLinks.length) return;
+    //     console.log('portfolioLinks ', portfolioLinks);
+    //     if (!portfolioLinks.length) return;
 
-        portfolioLinks.forEach(link => {
-            link.addEventListener('click', e => {
-                e.preventDefault();
+    //     portfolioLinks.forEach(link => {
+    //         link.addEventListener('click', e => {
+    //             e.preventDefault();
 
-                const sliderId = link.dataset.sliderId;
-                if (sliderId) {
-                    sessionStorage.setItem('openPortfolioSlider', sliderId);
-                }
-                location.href = link.href;
+    //             const sliderId = link.dataset.sliderId;
+    //             if (sliderId) {
+    //                 sessionStorage.setItem('openPortfolioSlider', sliderId);
+    //             }
+    //             location.href = link.href;
 
-                console.log(sliderId);
+    //             console.log(sliderId);
 
-            })
-        })
-    }
+    //         })
+    //     })
+    // }
 
-    initSmoothToDigitalPortfolio();
+    // initSmoothToDigitalPortfolio();
 
 
     // ? init script
@@ -2662,7 +2689,10 @@ function initDigitalScript() {
                 wrap.setAttribute('data-theme', theme);
                 wrap.classList.add(theme);
 
-                slidersContents[i].classList.add(theme);
+                if (slidersContents[i]) {
+
+                    slidersContents[i].classList.add(theme);
+                }
 
                 const sliderEl = wrap.querySelector('.portfolio-slider');
                 // Инициализируем Swiper для каждого блока
@@ -2781,26 +2811,36 @@ function initDigitalScript() {
                 const prevSplitDesc = splitContents[prevIndex][prevSlideIdx].desc;
 
 
-                if (prevSplitTitle.chars.length) {
-                    tlSplitContent.to(prevSplitTitle.chars, {
-                        opacity: 0,
-                        stagger: { each: 0.01, from: "end" },
-                        // duration: 0.3,
-                    });
-                }
                 if (prevSplitDesc.chars.length) {
                     tlSplitContent.to(prevSplitDesc.chars, {
                         opacity: 0,
                         stagger: { each: 0.005, from: "end" },
-                        // duration: 0.3,
-                    }, '<+=0.05');
+
+                    },);
+                }
+                if (prevSplitTitle.chars.length) {
+                    tlSplitContent.to(prevSplitTitle.chars, {
+                        opacity: 0,
+                        stagger: { each: 0.01, from: "end" },
+
+                    }, '-=0.4');
                 }
 
-                // tlSplitContent.to([prevSplitTitle.chars || [], prevSplitDesc.chars || []], {
-                //     opacity: 0,
-                //     stagger: { each: 0.005, from: "end" },
-                //     duration: 0.3,
-                // });
+                // if (prevSplitTitle.chars.length) {
+                //     tlSplitContent.to(prevSplitTitle.chars, {
+                //         opacity: 0,
+                //         stagger: { each: 0.01, from: "end" },
+
+                //     });
+                // }
+                // if (prevSplitDesc.chars.length) {
+                //     tlSplitContent.to(prevSplitDesc.chars, {
+                //         opacity: 0,
+                //         stagger: { each: 0.005, from: "end" },
+
+                //     }, '<+=0.05');
+                // }
+
 
                 const nextSplitTitle = splitContents[nextIndex][nextSlideIdx].title;
                 const nextSplitDesc = splitContents[nextIndex][nextSlideIdx].desc;
@@ -2810,16 +2850,20 @@ function initDigitalScript() {
                 if (nextSplitDesc.chars.length) {
                     gsap.set(nextSplitDesc.chars, { opacity: 0 });
                 }
-                // gsap.set([nextSplitTitle.chars || [], nextSplitDesc.chars || []], { opacity: 0 });
-                // tlContent.fromTo(nextSplitTitle.chars, { opacity: 0 }, { opacity: 1, stagger: 0.02, duration: 0.5, ease: "power2.out" }, "-=0.1");
-                // tlContent.fromTo(nextSplitDesc.chars, { opacity: 0 }, { opacity: 1, stagger: 0.01, duration: 0.4, ease: "power2.out" }, "-=0.3");
+
 
                 if (nextSplitTitle.chars.length) {
-                    tlSplitContent.to(nextSplitTitle.chars || [], { opacity: 1, stagger: 0.02, ease: "power2.out" }, '+=0.1');
+                    tlSplitContent.to(nextSplitTitle.chars || [], { opacity: 1, stagger: 0.02, ease: "power2.out" },);
                 }
                 if (nextSplitDesc.chars.length) {
-                    tlSplitContent.to(nextSplitDesc.chars || [], { opacity: 1, stagger: 0.01, ease: "power2.out" }, '<+=0.2');
+                    tlSplitContent.to(nextSplitDesc.chars || [], { opacity: 1, stagger: 0.01, ease: "power2.out" }, '-=0.4');
                 }
+                // if (nextSplitTitle.chars.length) {
+                //     tlSplitContent.to(nextSplitTitle.chars || [], { opacity: 1, stagger: 0.02, ease: "power2.out" }, '+=0.1');
+                // }
+                // if (nextSplitDesc.chars.length) {
+                //     tlSplitContent.to(nextSplitDesc.chars || [], { opacity: 1, stagger: 0.01, ease: "power2.out" }, '<+=0.2');
+                // }
 
 
                 if (prevSplitTitle.chars.length) {
@@ -2828,7 +2872,6 @@ function initDigitalScript() {
                 if (prevSplitDesc.chars.length) {
                     tlSplitContent.set(prevSplitDesc.chars, { opacity: 0 });
                 }
-                // tlSplitContent.set([prevSplitTitle.chars || [], prevSplitDesc.chars || []], { opacity: 0 });
 
             }
 
