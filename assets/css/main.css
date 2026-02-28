@@ -3930,7 +3930,7 @@ body.fixed {
 .solutions-automation__card:nth-child(1) .solutions-automation__card-content {
     opacity: 1;
 }
-.solutions-automation__card-text {
+.solutions-automation__card-content p {
     font-weight: 400;
     font-size: 20px;
     line-height: 100%;
@@ -3938,7 +3938,7 @@ body.fixed {
 }
 
 .solutions-automation__card:nth-child(1) .solutions-automation__card-title,
-.solutions-automation__card:nth-child(1) .solutions-automation__card-text {
+.solutions-automation__card:nth-child(1) .solutions-automation__card-content p {
     color: var(--color-white);
 }
 
@@ -3953,10 +3953,8 @@ body.fixed {
     .solutions-automation__card-title {
         font-size: calc(32px + 16 * (100vw - 375px) / 1545);
     }
-    .solutions-automation__card-text {
-        font-size: 20px;
-    }
-    .solutions-automation__card-text {
+
+    .solutions-automation__card-content p {
         font-size: calc(12px + 8 * (100vw - 375px) / 1545);
     }
     .solutions-automation__card {

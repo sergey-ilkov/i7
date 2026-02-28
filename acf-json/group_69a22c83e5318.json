@@ -1,11 +1,11 @@
 {
-    "key": "group_69a1dbff2a8e9",
-    "title": "Solutions — Второй экран",
+    "key": "group_69a22c83e5318",
+    "title": "Solutions — Третий экран",
     "fields": [
         {
-            "key": "field_69a1dbff2423b",
+            "key": "field_69a22c840be4d",
             "label": "Заголовок",
-            "name": "solutions_camera_title",
+            "name": "solutions_network_title",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -24,9 +24,30 @@
             "append": ""
         },
         {
-            "key": "field_69a1e3dd2423c",
+            "key": "field_69a22cbb0be4e",
+            "label": "Подзаголовок",
+            "name": "solutions_network_subtitle",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_69a22cf50be4f",
             "label": "Карточка 1",
-            "name": "solutions_camera_card_1",
+            "name": "solutions_network_card_1",
             "aria-label": "",
             "type": "group",
             "instructions": "",
@@ -40,30 +61,7 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_69a1e51b2423f",
-                    "label": "Фон карточки",
-                    "name": "color",
-                    "aria-label": "",
-                    "type": "color_picker",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "enable_opacity": 0,
-                    "return_format": "",
-                    "allow_in_bindings": 0,
-                    "show_custom_palette": 0,
-                    "show_color_wheel": 1,
-                    "custom_palette_source": "",
-                    "palette_colors": ""
-                },
-                {
-                    "key": "field_69a1e42f2423d",
+                    "key": "field_69a22d450be50",
                     "label": "Заголовок",
                     "name": "title",
                     "aria-label": "",
@@ -84,11 +82,11 @@
                     "append": ""
                 },
                 {
-                    "key": "field_69a1e4de2423e",
-                    "label": "Изображение",
-                    "name": "image",
+                    "key": "field_69a22d5a0be51",
+                    "label": "Описание",
+                    "name": "desc",
                     "aria-label": "",
-                    "type": "image",
+                    "type": "textarea",
                     "instructions": "",
                     "required": 1,
                     "conditional_logic": 0,
@@ -97,24 +95,19 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "",
-                    "library": "",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": "jpg, jpeg, png, gif, webp, avif",
+                    "default_value": "",
+                    "maxlength": "",
                     "allow_in_bindings": 0,
-                    "preview_size": "medium"
+                    "rows": "",
+                    "placeholder": "",
+                    "new_lines": ""
                 }
             ]
         },
         {
-            "key": "field_69a1e58d24240",
+            "key": "field_69a22da00be52",
             "label": "Карточка 2",
-            "name": "solutions_camera_card_2",
+            "name": "solutions_network_card_2",
             "aria-label": "",
             "type": "group",
             "instructions": "",
@@ -128,30 +121,7 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_69a1e58d24241",
-                    "label": "Фон карточки",
-                    "name": "color",
-                    "aria-label": "",
-                    "type": "color_picker",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "enable_opacity": 0,
-                    "return_format": "",
-                    "allow_in_bindings": 0,
-                    "show_custom_palette": 0,
-                    "show_color_wheel": 1,
-                    "custom_palette_source": "",
-                    "palette_colors": ""
-                },
-                {
-                    "key": "field_69a1e58d24242",
+                    "key": "field_69a22da00be53",
                     "label": "Заголовок",
                     "name": "title",
                     "aria-label": "",
@@ -172,11 +142,11 @@
                     "append": ""
                 },
                 {
-                    "key": "field_69a1e58d24243",
-                    "label": "Изображение",
-                    "name": "image",
+                    "key": "field_69a22da00be54",
+                    "label": "Описание",
+                    "name": "desc",
                     "aria-label": "",
-                    "type": "image",
+                    "type": "textarea",
                     "instructions": "",
                     "required": 1,
                     "conditional_logic": 0,
@@ -185,24 +155,19 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "",
-                    "library": "",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": "jpg, jpeg, png, gif, webp, avif",
+                    "default_value": "",
+                    "maxlength": "",
                     "allow_in_bindings": 0,
-                    "preview_size": "medium"
+                    "rows": "",
+                    "placeholder": "",
+                    "new_lines": ""
                 }
             ]
         },
         {
-            "key": "field_69a1e5a624244",
+            "key": "field_69a22db10be55",
             "label": "Карточка 3",
-            "name": "solutions_camera_card_3",
+            "name": "solutions_network_card_3",
             "aria-label": "",
             "type": "group",
             "instructions": "",
@@ -216,30 +181,7 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_69a1e5a624245",
-                    "label": "Фон карточки",
-                    "name": "color",
-                    "aria-label": "",
-                    "type": "color_picker",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "enable_opacity": 0,
-                    "return_format": "string",
-                    "allow_in_bindings": 0,
-                    "show_custom_palette": 0,
-                    "show_color_wheel": 1,
-                    "custom_palette_source": "",
-                    "palette_colors": ""
-                },
-                {
-                    "key": "field_69a1e5a624246",
+                    "key": "field_69a22db10be56",
                     "label": "Заголовок",
                     "name": "title",
                     "aria-label": "",
@@ -260,11 +202,11 @@
                     "append": ""
                 },
                 {
-                    "key": "field_69a1e5a624247",
-                    "label": "Изображение",
-                    "name": "image",
+                    "key": "field_69a22db10be57",
+                    "label": "Описание",
+                    "name": "desc",
                     "aria-label": "",
-                    "type": "image",
+                    "type": "textarea",
                     "instructions": "",
                     "required": 1,
                     "conditional_logic": 0,
@@ -273,24 +215,19 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "id",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": "jpg, jpeg, png, gif, webp, avif",
+                    "default_value": "",
+                    "maxlength": "",
                     "allow_in_bindings": 0,
-                    "preview_size": "medium"
+                    "rows": "",
+                    "placeholder": "",
+                    "new_lines": ""
                 }
             ]
         },
         {
-            "key": "field_69a1e5f227fc3",
+            "key": "field_69a22db90be58",
             "label": "Карточка 4",
-            "name": "solutions_camera_card_4",
+            "name": "solutions_network_card_4",
             "aria-label": "",
             "type": "group",
             "instructions": "",
@@ -304,30 +241,7 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_69a1e5f227fc4",
-                    "label": "Фон карточки",
-                    "name": "color",
-                    "aria-label": "",
-                    "type": "color_picker",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "enable_opacity": 0,
-                    "return_format": "",
-                    "allow_in_bindings": 0,
-                    "show_custom_palette": 0,
-                    "show_color_wheel": 1,
-                    "custom_palette_source": "",
-                    "palette_colors": ""
-                },
-                {
-                    "key": "field_69a1e5f227fc5",
+                    "key": "field_69a22db90be59",
                     "label": "Заголовок",
                     "name": "title",
                     "aria-label": "",
@@ -348,11 +262,11 @@
                     "append": ""
                 },
                 {
-                    "key": "field_69a1e5f227fc6",
-                    "label": "Изображение",
-                    "name": "image",
+                    "key": "field_69a22db90be5a",
+                    "label": "Описание",
+                    "name": "desc",
                     "aria-label": "",
-                    "type": "image",
+                    "type": "textarea",
                     "instructions": "",
                     "required": 1,
                     "conditional_logic": 0,
@@ -361,24 +275,19 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "",
-                    "library": "",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": "jpg, jpeg, png, gif, webp, avif",
+                    "default_value": "",
+                    "maxlength": "",
                     "allow_in_bindings": 0,
-                    "preview_size": "medium"
+                    "rows": "",
+                    "placeholder": "",
+                    "new_lines": ""
                 }
             ]
         },
         {
-            "key": "field_69a1e5ff27fc7",
+            "key": "field_69a22dc10be5b",
             "label": "Карточка 5",
-            "name": "solutions_camera_card_5",
+            "name": "solutions_network_card_5",
             "aria-label": "",
             "type": "group",
             "instructions": "",
@@ -392,30 +301,7 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_69a1e5ff27fc8",
-                    "label": "Фон карточки",
-                    "name": "color",
-                    "aria-label": "",
-                    "type": "color_picker",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "enable_opacity": 0,
-                    "return_format": "string",
-                    "allow_in_bindings": 0,
-                    "show_custom_palette": 0,
-                    "show_color_wheel": 1,
-                    "custom_palette_source": "",
-                    "palette_colors": ""
-                },
-                {
-                    "key": "field_69a1e5ff27fc9",
+                    "key": "field_69a22dc10be5c",
                     "label": "Заголовок",
                     "name": "title",
                     "aria-label": "",
@@ -436,11 +322,11 @@
                     "append": ""
                 },
                 {
-                    "key": "field_69a1e5ff27fca",
-                    "label": "Изображение",
-                    "name": "image",
+                    "key": "field_69a22dc10be5d",
+                    "label": "Описание",
+                    "name": "desc",
                     "aria-label": "",
-                    "type": "image",
+                    "type": "textarea",
                     "instructions": "",
                     "required": 1,
                     "conditional_logic": 0,
@@ -449,17 +335,12 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "id",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": "jpg, jpeg, png, gif, webp, avif",
+                    "default_value": "",
+                    "maxlength": "",
                     "allow_in_bindings": 0,
-                    "preview_size": "medium"
+                    "rows": "",
+                    "placeholder": "",
+                    "new_lines": ""
                 }
             ]
         }
@@ -473,7 +354,7 @@
             }
         ]
     ],
-    "menu_order": 12,
+    "menu_order": 13,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
@@ -483,5 +364,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1772234598
+    "modified": 1772236239
 }
