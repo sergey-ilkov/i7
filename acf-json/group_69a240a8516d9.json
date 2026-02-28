@@ -1,11 +1,11 @@
 {
-    "key": "group_69a04204c3ad0",
-    "title": "Branding - Второй экран",
+    "key": "group_69a240a8516d9",
+    "title": "Equipment — Первый экран Слайдер",
     "fields": [
         {
-            "key": "field_69a04205ddbe9",
-            "label": "Карточка 1",
-            "name": "branding_card_1",
+            "key": "field_69a24172fa078",
+            "label": "Общий текст для слайдов",
+            "name": "equipment_general_text",
             "aria-label": "",
             "type": "group",
             "instructions": "",
@@ -19,7 +19,7 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_69a0430cddbea",
+                    "key": "field_69a241edfa079",
                     "label": "Заголовок",
                     "name": "title",
                     "aria-label": "",
@@ -40,9 +40,111 @@
                     "append": ""
                 },
                 {
-                    "key": "field_69a0434addbeb",
-                    "label": "Описание",
-                    "name": "desc",
+                    "key": "field_69a24202fa07a",
+                    "label": "Текст 1",
+                    "name": "text_1",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_69a24226fa07b",
+                    "label": "Текст 2",
+                    "name": "text_2",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_69a24229fa07c",
+                    "label": "Текст 3",
+                    "name": "text_3",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_69a2422efa07d",
+                    "label": "Текст 4",
+                    "name": "text_4",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                }
+            ]
+        },
+        {
+            "key": "field_69a240a8fa076",
+            "label": "Слайд_0",
+            "name": "equipment_slide_0",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_69a2413ffa077",
+                    "label": "Текст",
+                    "name": "text",
                     "aria-label": "",
                     "type": "textarea",
                     "instructions": "",
@@ -63,9 +165,9 @@
             ]
         },
         {
-            "key": "field_69a258693e844",
-            "label": "Карточка 2",
-            "name": "branding_card_2",
+            "key": "field_69a24278fa07e",
+            "label": "Слайд_1",
+            "name": "equipment_slide_1",
             "aria-label": "",
             "type": "group",
             "instructions": "",
@@ -79,30 +181,9 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_69a258693e845",
-                    "label": "Заголовок",
-                    "name": "title",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "allow_in_bindings": 0,
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": ""
-                },
-                {
-                    "key": "field_69a258693e846",
-                    "label": "Описание",
-                    "name": "desc",
+                    "key": "field_69a24278fa07f",
+                    "label": "Текст",
+                    "name": "text",
                     "aria-label": "",
                     "type": "textarea",
                     "instructions": "",
@@ -123,9 +204,9 @@
             ]
         },
         {
-            "key": "field_69a2586e3e847",
-            "label": "Карточка 3",
-            "name": "branding_card_3",
+            "key": "field_69a2427efa080",
+            "label": "Слайд_2",
+            "name": "equipment_slide_2",
             "aria-label": "",
             "type": "group",
             "instructions": "",
@@ -139,30 +220,9 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_69a2586e3e848",
-                    "label": "Заголовок",
-                    "name": "title",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "allow_in_bindings": 0,
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": ""
-                },
-                {
-                    "key": "field_69a2586e3e849",
-                    "label": "Описание",
-                    "name": "desc",
+                    "key": "field_69a2427efa081",
+                    "label": "Текст",
+                    "name": "text",
                     "aria-label": "",
                     "type": "textarea",
                     "instructions": "",
@@ -183,9 +243,9 @@
             ]
         },
         {
-            "key": "field_69a258713e84a",
-            "label": "Карточка 4",
-            "name": "branding_card_4",
+            "key": "field_69a24282fa082",
+            "label": "Слайд_3",
+            "name": "equipment_slide_3",
             "aria-label": "",
             "type": "group",
             "instructions": "",
@@ -199,11 +259,11 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_69a258713e84b",
-                    "label": "Заголовок",
-                    "name": "title",
+                    "key": "field_69a24282fa083",
+                    "label": "Текст",
+                    "name": "text",
                     "aria-label": "",
-                    "type": "text",
+                    "type": "textarea",
                     "instructions": "",
                     "required": 1,
                     "conditional_logic": 0,
@@ -215,14 +275,32 @@
                     "default_value": "",
                     "maxlength": "",
                     "allow_in_bindings": 0,
+                    "rows": "",
                     "placeholder": "",
-                    "prepend": "",
-                    "append": ""
-                },
+                    "new_lines": ""
+                }
+            ]
+        },
+        {
+            "key": "field_69a24287fa084",
+            "label": "Слайд_4",
+            "name": "equipment_slide_4",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
                 {
-                    "key": "field_69a258713e84c",
-                    "label": "Описание",
-                    "name": "desc",
+                    "key": "field_69a24287fa085",
+                    "label": "Текст",
+                    "name": "text",
                     "aria-label": "",
                     "type": "textarea",
                     "instructions": "",
@@ -248,11 +326,11 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "page-templates\/tpl-branding.php"
+                "value": "page-templates\/tpl-equipment.php"
             }
         ]
     ],
-    "menu_order": 10,
+    "menu_order": 16,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
@@ -262,5 +340,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1772247158
+    "modified": 1772241838
 }

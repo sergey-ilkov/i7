@@ -16,20 +16,34 @@ get_header();
 
 ?>
 
-<main>
+
+<!-- 
+// ? All Fields
+<section class="query" style="color:#000;">
 
     <?php
 
-    $branding_title = get_field('branding_title');
-    $branding_desc = get_field('branding_desc');
-    $branding_poster = get_field('branding_poster');
-    $branding_video  = get_field('branding_video');
+    global $post;
+    $post_id = $post->ID;
+    $fields = get_fields($post_id); // вернёт ассоц. массив полей ACF для указанного поста
 
+    echo '<br><br>';
+    echo '<pre>';
 
+    var_dump($fields);
 
-
+    echo '</pre>';
+    echo '<br><br>';
 
     ?>
+
+</section>
+ -->
+
+
+<main>
+
+
 
 
     <section id="hero-branding" class="hero-branding section-bg" style="--section-bg: #0088ff;">
@@ -38,7 +52,7 @@ get_header();
 
 
 
-        <video id="mainVideo" class="main-video track-visibility" playsinline muted autoplay loop poster="<?php echo $branding_poster ? esc_url($branding_poster) : ''; ?>" data-src="<?php echo $branding_video ? esc_url($branding_video) : '';  ?>"></video>
+        <video id="mainVideo" class="main-video track-visibility" playsinline muted autoplay loop poster="<?php echo $fields['branding_poster'] ? esc_url($fields['branding_poster']) : ''; ?>" data-src="<?php echo $fields['branding_video'] ? esc_url($fields['branding_video']) : '';  ?>"></video>
 
 
 
@@ -46,23 +60,17 @@ get_header();
             <div class="hero-card-box">
                 <div class="hero-card-content">
                     <h1 class="hero-card__title">
-
-                        <?php echo $branding_title ?  esc_html($branding_title) : ''; ?>
+                        <?php echo $fields['branding_title'] ?  esc_html($fields['branding_title']) : ''; ?>
 
                     </h1>
                     <div class="hero-card-desc">
-
-                        <?php echo $branding_desc ?  wp_kses_post($branding_desc) : ''; ?>
+                        <?php echo $fields['branding_desc'] ?  wp_kses_post($fields['branding_desc']) : ''; ?>
 
 
                     </div>
                 </div>
 
-                <!-- <div id="hero-card-scroll-wrap" class="hero-card-scroll-wrap">
-                    <div class="hero-card-scroll-content">
-                        <span class="hero-card-scroll-item">WEB DESIGN APP CRM</span>
-                    </div>
-                </div> -->
+
 
             </div>
 
@@ -81,26 +89,12 @@ get_header();
 
     <?php
 
-    $branding_cards = get_field('branding_cards');
 
-    $branding_card_1 = null;
-    $branding_card_2 = null;
-    $branding_card_3 = null;
 
-    if (is_array($branding_cards)) {
-        $branding_card_1['title'] = $branding_cards['card_1_title'];
-        $branding_card_1['desc'] = $branding_cards['card_1_desc'];
-
-        $branding_card_2['title'] = $branding_cards['card_2_title'];
-        $branding_card_2['desc'] = $branding_cards['card_2_desc'];
-
-        $branding_card_3['title'] = $branding_cards['card_3_title'];
-        $branding_card_3['desc'] = $branding_cards['card_3_desc'];
-
-        $branding_card_4['title'] = $branding_cards['card_4_title'];
-        $branding_card_4['desc'] = $branding_cards['card_4_desc'];
-    }
-
+    $branding_card_1 = $fields['branding_card_1'];
+    $branding_card_2 = $fields['branding_card_2'];
+    $branding_card_3 = $fields['branding_card_3'];
+    $branding_card_4 = $fields['branding_card_4'];
 
 
 

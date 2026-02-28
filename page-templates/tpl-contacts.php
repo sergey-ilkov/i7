@@ -17,6 +17,30 @@ get_header();
 
 ?>
 
+<!-- 
+// ? All Fields
+<section class="query" style="color:#000;">
+
+    <?php
+
+    global $post;
+    $post_id = $post->ID;
+    $fields = get_fields($post_id); // вернёт ассоц. массив полей ACF для указанного поста
+
+    echo '<br><br>';
+    echo '<pre>';
+
+    var_dump($fields);
+
+    echo '</pre>';
+    echo '<br><br>';
+
+    ?>
+
+</section>
+ -->
+
+
 <main>
 
 
@@ -33,9 +57,15 @@ get_header();
             <div class="contacts__item">
                 <div class="contacts-content">
 
-                    <h1 class="contacts__title">Есть вопросы? Обращайтесь!</h1>
+                    <h1 class="contacts__title">
+
+                        <?php echo $fields['contacts_title'] ?  esc_html($fields['contacts_title']) : ''; ?>
+
+                    </h1>
                     <p class="contacts__desc">
-                        цифровизация вашего бизнеса
+
+                        <?php echo $fields['contacts_desc'] ?  esc_html($fields['contacts_desc']) : ''; ?>
+
                     </p>
                 </div>
             </div>
@@ -129,35 +159,6 @@ get_header();
                         endif; ?>
 
 
-                        <!-- <div class="swiper-slide">
-                            <div class="contacts-slide image-right" style="--contact-color: #0088ff;" data-direction="1">
-                                <div class="contacts-slide-images">
-                                    <img width="290" height="290" class="contacts-slide__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/01.png" alt="">
-                                    <img width="290" height="290" class="contacts-slide__img-face" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/01-face.png" alt="">
-                                </div>
-                                <span class="contacts-slide__title">App, Web, CRM, Брендинг</span>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="contacts-slide active" style="--contact-color: #e5c100;" data-direction="2">
-                                <div class="contacts-slide-images">
-                                    <img width="290" height="290" class="contacts-slide__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/02.png" alt="">
-                                    <img width="290" height="290" class="contacts-slide__img-face" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/02-face.png" alt="">
-                                </div>
-                                <span class="contacts-slide__title">Поставка оборудовани</span>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="contacts-slide image-left" style="--contact-color: #8e5aac;" data-direction="3">
-                                <div class="contacts-slide-images">
-                                    <img width="290" height="290" class="contacts-slide__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/03.png" alt="">
-                                    <img width="290" height="290" class="contacts-slide__img-face" src="<?php echo get_template_directory_uri(); ?>/assets/images/appointment/03-face.png" alt="">
-                                </div>
-                                <span class="contacts-slide__title">Вакансия</span>
-                            </div>
-                        </div> -->
-
-
 
                     </div>
 
@@ -166,6 +167,11 @@ get_header();
             </div>
             <div class="contacts__item">
 
+                <?php
+
+                $form = $fields['contacts_form'];
+
+                ?>
 
                 <form id="contacts-form" class="contacts-form" action="#" style="--form-bg: #e5c100;">
 
@@ -173,13 +179,13 @@ get_header();
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label class="required-star" for="firstName">Имя</label>
+                            <label class="required-star" for="firstName"><?php echo  $form ? esc_html($form['label_1']) : ''; ?></label>
                             <input type="text" id="firstName" name="firstName" class="field" autocomplete="off" data-required="true" />
                             <span class="error-msg" data-for="firstName"></span>
                         </div>
 
                         <div class="form-group">
-                            <label for="lastName">Фамилия</label>
+                            <label for="lastName"><?php echo  $form ? esc_html($form['label_2']) : ''; ?></label>
                             <input type="text" id="lastName" name="lastName" class="field" autocomplete="off" data-required="false" />
                             <span class="error-msg" data-for="lastName"></span>
                         </div>
@@ -187,12 +193,12 @@ get_header();
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label class="required-star" for="phone">Телефон</label>
+                            <label class="required-star" for="phone"><?php echo  $form ? esc_html($form['label_3']) : ''; ?></label>
                             <input type="tel" id="phone" name="phone" class="field" autocomplete="off" data-required="true" />
                             <span class="error-msg" data-for="phone"></span>
                         </div>
                         <div class="form-group">
-                            <label class="required-star" for="email">Почта</label>
+                            <label class="required-star" for="email"><?php echo  $form ? esc_html($form['label_4']) : ''; ?></label>
                             <input type="email" id="email" name="email" class="field" autocomplete="off" data-required="true" />
                             <span class="error-msg" data-for="email"></span>
                         </div>
@@ -200,7 +206,7 @@ get_header();
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="company">Название компании</label>
+                            <label for="company"><?php echo  $form ? esc_html($form['label_5']) : ''; ?></label>
                             <input type="text" id="company" name="company" class="field" autocomplete="off" data-required="false" />
                             <span class="error-msg" data-for="company"></span>
                         </div>
@@ -208,14 +214,14 @@ get_header();
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label class="required-star" for="message">Сообщение</label>
+                            <label class="required-star" for="message"><?php echo  $form ? esc_html($form['label_6']) : ''; ?></label>
                             <input type="text" id="message" name="message" class="field" autocomplete="off" data-required="true" />
                             <span class="error-msg" data-for="message"></span>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label class="required-star" for="source">Как вы узнали о нас</label>
+                            <label class="required-star" for="source"><?php echo  $form ? esc_html($form['label_7']) : ''; ?></label>
                             <input type="text" id="source" name="source" class="field" autocomplete="off" data-required="true" />
                             <span class="error-msg" data-for="source"></span>
                         </div>
@@ -223,13 +229,17 @@ get_header();
 
                     <div class="form-text">
                         <p>
-                            Студии beam нужны контактные данные, которые вы нам предоставляете, чтобы связаться с вами по поводу наших продуктов и услуг. Вы можете отписаться от этих сообщений в любое время. Для получения информации о том, как отписаться, а также о наших правилах конфиденциальности и обязательствах по защите вашей конфиденциальности, пожалуйста, ознакомьтесь с нашей Политикой конфиденциальности.
+                            <?php echo  $form ? esc_html($form['text']) : ''; ?>
                         </p>
                     </div>
 
 
 
-                    <button id="submitBtn" type="button" class="contacts-form-btn">Отправить</button>
+                    <button id="submitBtn" type="button" class="contacts-form-btn">
+
+                        <?php echo  $form ? esc_html($form['button']) : ''; ?>
+
+                    </button>
 
                 </form>
             </div>

@@ -15,29 +15,29 @@ get_header();
 
 
 
-<!-- // ?  TEST   -->
-<!-- // ?  TEST   -->
-<!-- // ?  TEST   -->
 
-<?php
+<!-- 
+// ? All Fields
+<section class="query" style="color:#000; ">
 
+    <?php
 
-global $post;
-$post_id = $post->ID;
-$fields = get_fields($post_id); // вернёт ассоц. массив полей ACF для указанного поста
-echo '<br><br>';
-echo '<pre>';
+    global $post;
+    $post_id = $post->ID;
+    $fields = get_fields($post_id); // вернёт ассоц. массив полей ACF для указанного поста
 
-var_dump($fields);
+    echo '<br><br>';
+    echo '<pre>';
 
-echo '</pre>';
-echo '<br><br>';
+    var_dump($fields);
 
+    echo '</pre>';
+    echo '<br><br>';
 
-?>
-<!-- // ?  TEST   -->
-<!-- // ?  TEST   -->
-<!-- // ?  TEST   -->
+    ?>
+
+</section>
+ -->
 
 
 
@@ -48,10 +48,6 @@ echo '<br><br>';
 
     <?php
 
-    $hero_title = get_field('hero_title');
-    $hero_desc = get_field('hero_desc');
-    $hero_poster = get_field('hero_poster');
-    $hero_video  = get_field('hero_video');
 
     // Запрашиваем слайды
     $slides_query = new \WP_Query(array(
@@ -69,8 +65,7 @@ echo '<br><br>';
 
 
 
-
-        <video id="mainVideo" class="main-video track-visibility" playsinline muted autoplay loop poster="<?php echo esc_url($hero_poster); ?>" data-src="<?php echo esc_url($hero_video); ?>"></video>
+        <video id="mainVideo" class="main-video track-visibility" playsinline muted autoplay loop poster="<?php echo $fields['hero_poster'] ? esc_url($fields['hero_poster']) : ''; ?>" data-src="<?php echo $fields['hero_video'] ? esc_url($fields['hero_video']) : '';  ?>"></video>
 
 
         <div class="container-max">
@@ -87,12 +82,12 @@ echo '<br><br>';
                     <div class="hero-content">
                         <h1 class="hero__title">
 
-                            <?php echo esc_html($hero_title); ?>
+                            <?php echo $fields['hero_title'] ?  esc_html($fields['hero_title']) : ''; ?>
 
                         </h1>
                         <p class="hero__desc">
 
-                            <?php echo esc_html($hero_desc); ?>
+                            <?php echo $fields['hero_desc'] ?  wp_kses_post($fields['hero_desc']) : ''; ?>
 
                         </p>
                     </div>
@@ -223,9 +218,9 @@ echo '<br><br>';
 
         <?php
 
-        $card1 = get_field('card_1'); // array or null
-        $card2 = get_field('card_2'); // array or null
-        $card3 = get_field('card_3'); // array or null
+        $card1 = $fields['card_1'];
+        $card2 = $fields['card_2'];
+        $card3 = $fields['card_3'];
 
 
         $card1_image_desktop_url = null;
@@ -445,13 +440,13 @@ echo '<br><br>';
 
         <?php
 
-        $service1 = get_field('service_1');
-        $service2 = get_field('service_2');
-        $service3 = get_field('service_3');
-        $service4 = get_field('service_4');
+        $service1 = $fields['service_1'];
+        $service2 = $fields['service_2'];
+        $service3 = $fields['service_3'];
+        $service4 = $fields['service_4'];
 
-        $home_portfolio_title = get_field('home_portfolio_title');
-        $home_portfolio_desc = get_field('home_portfolio_desc');
+        $home_portfolio_title = $fields['home_portfolio_title'];
+        $home_portfolio_desc =  $fields['home_portfolio_desc'];
 
         ?>
 

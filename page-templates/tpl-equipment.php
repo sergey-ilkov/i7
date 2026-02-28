@@ -19,6 +19,38 @@ get_header();
 
 ?>
 
+
+
+
+
+
+
+
+// ? All Fields
+<!-- <section class="query" style="color:#000;">
+
+    <?php
+
+    global $post;
+    $post_id = $post->ID;
+    $fields = get_fields($post_id); // вернёт ассоц. массив полей ACF для указанного поста
+
+    echo '<br><br>';
+    echo '<pre>';
+
+    var_dump($fields);
+
+    echo '</pre>';
+    echo '<br><br>';
+
+    ?>
+
+</section> -->
+
+
+
+
+
 <main>
 
 
@@ -34,6 +66,18 @@ get_header();
 
             <section id="hero-equipment" class="hero-equipment section-bg" style="--section-bg: #0088ff;">
 
+                <?php
+
+                $equipment_general_text = $fields['equipment_general_text'];
+
+                $equipment_slide_0 = $fields['equipment_slide_0'];
+                $equipment_slide_1 = $fields['equipment_slide_1'];
+                $equipment_slide_2 = $fields['equipment_slide_2'];
+                $equipment_slide_3 = $fields['equipment_slide_3'];
+                $equipment_slide_4 = $fields['equipment_slide_4'];
+
+
+                ?>
 
                 <div class="equipment-slider">
 
@@ -44,31 +88,41 @@ get_header();
                             <div class="equipment-slide">
                                 <span class="equipment-slide-num">#00</span>
                                 <p class="equipment-slide-text">
-                                    Комплексные решения — от принтеров до систем видеоконференций, всё в одном месте.
+
+                                    <?php echo $equipment_slide_0 ? esc_html($equipment_slide_0['text']) : ''; ?>
+
                                 </p>
                             </div>
                             <div class="equipment-slide">
                                 <span class="equipment-slide-num">#01</span>
                                 <p class="equipment-slide-text">
-                                    Монитор Digma Overdrive 24P410F сиреневый, диагональ экрана 23.8", разрешение 1920x1080, матрица IPS, матовая, время отклика 2 мс, соотношение сторон 16:9
+
+                                    <?php echo $equipment_slide_1 ? esc_html($equipment_slide_1['text']) : ''; ?>
+
                                 </p>
                             </div>
                             <div class="equipment-slide">
                                 <span class="equipment-slide-num">#02</span>
                                 <p class="equipment-slide-text">
-                                    Игровой компьютер на базе процессора Intel (8 ядер) RX 580 (8GB) ОЗУ (RAM) 32 ГБ SSD 512 Гб. Мощный игровой компьютер – это выбор для геймеров и стримеров! ПК станет лучшим помощником дома и в офисе.
+
+                                    <?php echo $equipment_slide_2 ? esc_html($equipment_slide_2['text']) : ''; ?>
+
                                 </p>
                             </div>
                             <div class="equipment-slide">
                                 <span class="equipment-slide-num">#03</span>
                                 <p class="equipment-slide-text">
-                                    Лазерное МФУ M6500 – универсальный практичный аппарат. Позволит экономить место в офисе и дома, так как объединяет в себе сразу три устройства: принтер, копир и сканер. Устройство может сканировать документы, размер которых не превышает листа A4.
+
+                                    <?php echo $equipment_slide_3 ? esc_html($equipment_slide_3['text']) : ''; ?>
+
                                 </p>
                             </div>
                             <div class="equipment-slide">
                                 <span class="equipment-slide-num">#04</span>
                                 <p class="equipment-slide-text">
-                                    Wi-Fi роутер обеспечивает стабильное подключение к интернету со скоростью до 300 Мбит/с на частоте 2,4 ГГц. Благодаря трём внешним антеннам с коэффициентом усиления 5dBi сигнал остаётся сильным даже на большом расстоянии от роутера.
+
+                                    <?php echo $equipment_slide_4 ? esc_html($equipment_slide_4['text']) : ''; ?>
+
                                 </p>
                             </div>
 
@@ -87,21 +141,21 @@ get_header();
                             </div>
 
 
-                            <span class="equipment-slide-title"> Почему мы?</span>
+                            <span class="equipment-slide-title"><?php echo $equipment_general_text ? esc_html($equipment_general_text['title']) : ''; ?></span>
                             <div class="equipment-slide-row">
-                                <span class="equipment-slide-row-text">Качество</span>
+                                <span class="equipment-slide-row-text"><?php echo $equipment_general_text ? esc_html($equipment_general_text['text_1']) : ''; ?></span>
                                 <span class="equipment-slide-row-text">100%</span>
                             </div>
                             <div class="equipment-slide-row">
-                                <span class="equipment-slide-row-text">Срок поставки</span>
+                                <span class="equipment-slide-row-text"><?php echo $equipment_general_text ? esc_html($equipment_general_text['text_2']) : ''; ?></span>
                                 <span class="equipment-slide-row-text">100%</span>
                             </div>
                             <div class="equipment-slide-row">
-                                <span class="equipment-slide-row-text">гарантия</span>
+                                <span class="equipment-slide-row-text"><?php echo $equipment_general_text ? esc_html($equipment_general_text['text_3']) : ''; ?></span>
                                 <span class="equipment-slide-row-text">100%</span>
                             </div>
                             <div class="equipment-slide-row">
-                                <span class="equipment-slide-row-text">сервис</span>
+                                <span class="equipment-slide-row-text"><?php echo $equipment_general_text ? esc_html($equipment_general_text['text_4']) : ''; ?></span>
                                 <span class="equipment-slide-row-text">100%</span>
                             </div>
 
@@ -127,9 +181,6 @@ get_header();
 
                     <div class="equipment-slider-btns">
                         <button class="equipment-slider-btn-prev">
-                            <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="size-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-                                </svg> -->
 
                             <svg width="69" height="69" viewBox="0 0 69 69" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="34.5" cy="34.5" r="34" fill="white" fill-opacity="0.5" stroke="white" />
@@ -137,9 +188,6 @@ get_header();
                             </svg>
                         </button>
                         <button class="equipment-slider-btn-next">
-                            <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="size-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                </svg> -->
 
                             <svg width="69" height="69" viewBox="0 0 69 69" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="34.5" cy="34.5" r="34" fill="white" fill-opacity="0.5" stroke="white" />
@@ -153,6 +201,21 @@ get_header();
 
 
 
+                <?php
+
+
+
+                $receipt_group_1 = $fields['equipment_receipt_group_1'];
+                $receipt_group_2 = $fields['equipment_receipt_group_2'];
+                $receipt_group_3 = $fields['equipment_receipt_group_3'];
+                $receipt_group_4 = $fields['equipment_receipt_group_4'];
+                $receipt_group_5 = $fields['equipment_receipt_group_5'];
+                $receipt_group_6 = $fields['equipment_receipt_group_6'];
+                $receipt_group_7 = $fields['equipment_receipt_group_7'];
+
+
+
+                ?>
 
 
                 <div class="receipt-wrap">
@@ -162,82 +225,89 @@ get_header();
 
                         <div class="receipt-item">
                             <div class="receipt-item-row dashed">
-                                <span class="receipt-logo">.beam</span>
+                                <span class="receipt-logo"><?php echo $receipt_group_1 ? esc_html($receipt_group_1['text_1']) : ''; ?></span>
                                 <span id="receipt-date" class="receipt-date">10.02.2026</span>
                             </div>
                             <div class="receipt-item-row dashed">
-                                <span class="receipt-text">**поставка оборудования</span>
+                                <span class="receipt-text"><?php echo $receipt_group_1 ? esc_html($receipt_group_1['text_2']) : ''; ?></span>
                             </div>
                         </div>
 
 
                         <div class="receipt-item">
                             <div class="receipt-item-row-product">
-                                <span class="receipt-text">Монитор</span>
-                                <span class="receipt-text">х1</span>
+                                <span class="receipt-text"><?php echo $receipt_group_2 ? esc_html($receipt_group_2['text_1']) : ''; ?></span>
+                                <span class="receipt-text"><?php echo $receipt_group_2 ? esc_html($receipt_group_2['text_2']) : ''; ?></span>
                             </div>
                             <div class="receipt-item-row-code">
-                                <span class="receipt-text">код:</span>
-                                <span class="receipt-text">SH-001</span>
+                                <span class="receipt-text"><?php echo $receipt_group_2 ? esc_html($receipt_group_2['text_3']) : ''; ?></span>
+                                <span class="receipt-text"><?php echo $receipt_group_2 ? esc_html($receipt_group_2['text_4']) : ''; ?></span>
                             </div>
                         </div>
+
 
                         <div class="receipt-item">
                             <div class="receipt-item-row-product">
-                                <span class="receipt-text">системные блоки</span>
-                                <span class="receipt-text">х1</span>
+                                <span class="receipt-text"><?php echo $receipt_group_3 ? esc_html($receipt_group_3['text_1']) : ''; ?></span>
+                                <span class="receipt-text"><?php echo $receipt_group_3 ? esc_html($receipt_group_3['text_2']) : ''; ?></span>
                             </div>
 
                             <div class="receipt-item-row-code">
-                                <span class="receipt-text">код:</span>
-                                <span class="receipt-text">SH-002</span>
+                                <span class="receipt-text"><?php echo $receipt_group_3 ? esc_html($receipt_group_3['text_3']) : ''; ?></span>
+                                <span class="receipt-text"><?php echo $receipt_group_3 ? esc_html($receipt_group_3['text_4']) : ''; ?></span>
                             </div>
                         </div>
+
 
                         <div class="receipt-item">
                             <div class="receipt-item-row-product">
-                                <span class="receipt-text">МФУ принтер</span>
-                                <span class="receipt-text">х1</span>
+                                <span class="receipt-text"><?php echo $receipt_group_4 ? esc_html($receipt_group_4['text_1']) : ''; ?></span>
+                                <span class="receipt-text"><?php echo $receipt_group_4 ? esc_html($receipt_group_4['text_2']) : ''; ?></span>
                             </div>
 
                             <div class="receipt-item-row-code">
-                                <span class="receipt-text">код:</span>
-                                <span class="receipt-text">SH-003</span>
+                                <span class="receipt-text"><?php echo $receipt_group_4 ? esc_html($receipt_group_4['text_3']) : ''; ?></span>
+                                <span class="receipt-text"><?php echo $receipt_group_4 ? esc_html($receipt_group_4['text_4']) : ''; ?></span>
                             </div>
                         </div>
+
 
                         <div class="receipt-item">
                             <div class="receipt-item-row-product">
-                                <span class="receipt-text">tplink роутер</span>
-                                <span class="receipt-text">х12</span>
+                                <span class="receipt-text"><?php echo $receipt_group_5 ? esc_html($receipt_group_5['text_1']) : ''; ?></span>
+                                <span class="receipt-text"><?php echo $receipt_group_5 ? esc_html($receipt_group_5['text_2']) : ''; ?></span>
                             </div>
 
                             <div class="receipt-item-row-code">
-                                <span class="receipt-text">код:</span>
-                                <span class="receipt-text">SH-004</span>
+                                <span class="receipt-text"><?php echo $receipt_group_5 ? esc_html($receipt_group_5['text_3']) : ''; ?></span>
+                                <span class="receipt-text"><?php echo $receipt_group_5 ? esc_html($receipt_group_5['text_4']) : ''; ?></span>
                             </div>
                         </div>
+
+
+
+
 
                         <!-- ? total -->
                         <div class="receipt-item">
                             <div class="receipt-item-total">
-                                <span class="receipt-text">итого:</span>
-                                <span class="receipt-text">*специальная сборка</span>
+                                <span class="receipt-text"><?php echo $receipt_group_6 ? esc_html($receipt_group_6['text_1']) : ''; ?></span>
+                                <span class="receipt-text"><?php echo $receipt_group_6 ? esc_html($receipt_group_6['text_2']) : ''; ?></span>
                                 <span class="receipt-stars"></span>
                                 <span class="receipt-barcode"></span>
-                                <span class="receipt-text">спасибо что выбераете нас</span>
+                                <span class="receipt-text"><?php echo $receipt_group_6 ? esc_html($receipt_group_6['text_3']) : ''; ?></span>
                             </div>
 
                         </div>
                         <!-- ? info -->
                         <div class="receipt-item">
 
-                            <span class="receipt-text">Общие вопросы и новые заказы</span>
+                            <span class="receipt-text"><?php echo $receipt_group_7 ? esc_html($receipt_group_7['text_1']) : ''; ?></span>
                             <div class="receipt-item-info">
-                                <span class="receipt-text">+996 700 126 646</span>
-                                <span class="receipt-text">info@i7.kg</span>
+                                <span class="receipt-text"><?php echo $receipt_group_7 ? esc_html($receipt_group_7['text_2']) : ''; ?></span>
+                                <span class="receipt-text"><?php echo $receipt_group_7 ? esc_html($receipt_group_7['text_3']) : ''; ?></span>
                             </div>
-                            <span class="receipt-text">мы всегда рады новым и постояннымклиентам</span>
+                            <span class="receipt-text"><?php echo $receipt_group_7 ? esc_html($receipt_group_7['text_4']) : ''; ?></span>
 
                         </div>
 

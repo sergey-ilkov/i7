@@ -1,13 +1,13 @@
 {
-    "key": "group_69a04204c3ad0",
-    "title": "Branding - Второй экран",
+    "key": "group_69a2530454077",
+    "title": "Contacts - Первый экран",
     "fields": [
         {
-            "key": "field_69a04205ddbe9",
-            "label": "Карточка 1",
-            "name": "branding_card_1",
+            "key": "field_69a253048a659",
+            "label": "Заголовок",
+            "name": "contacts_title",
             "aria-label": "",
-            "type": "group",
+            "type": "text",
             "instructions": "",
             "required": 1,
             "conditional_logic": 0,
@@ -16,58 +16,19 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_69a0430cddbea",
-                    "label": "Заголовок",
-                    "name": "title",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "allow_in_bindings": 0,
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": ""
-                },
-                {
-                    "key": "field_69a0434addbeb",
-                    "label": "Описание",
-                    "name": "desc",
-                    "aria-label": "",
-                    "type": "textarea",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "allow_in_bindings": 0,
-                    "rows": "",
-                    "placeholder": "",
-                    "new_lines": ""
-                }
-            ]
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         },
         {
-            "key": "field_69a258693e844",
-            "label": "Карточка 2",
-            "name": "branding_card_2",
+            "key": "field_69a2534e8a65a",
+            "label": "Описание",
+            "name": "contacts_desc",
             "aria-label": "",
-            "type": "group",
+            "type": "textarea",
             "instructions": "",
             "required": 1,
             "conditional_logic": 0,
@@ -76,56 +37,17 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_69a258693e845",
-                    "label": "Заголовок",
-                    "name": "title",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "allow_in_bindings": 0,
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": ""
-                },
-                {
-                    "key": "field_69a258693e846",
-                    "label": "Описание",
-                    "name": "desc",
-                    "aria-label": "",
-                    "type": "textarea",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "allow_in_bindings": 0,
-                    "rows": "",
-                    "placeholder": "",
-                    "new_lines": ""
-                }
-            ]
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
         },
         {
-            "key": "field_69a2586e3e847",
-            "label": "Карточка 3",
-            "name": "branding_card_3",
+            "key": "field_69a253a58a65b",
+            "label": "Контактная форма",
+            "name": "contacts_form",
             "aria-label": "",
             "type": "group",
             "instructions": "",
@@ -139,9 +61,9 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_69a2586e3e848",
-                    "label": "Заголовок",
-                    "name": "title",
+                    "key": "field_69a253f58a65c",
+                    "label": "Label 1",
+                    "name": "label_1",
                     "aria-label": "",
                     "type": "text",
                     "instructions": "",
@@ -160,48 +82,9 @@
                     "append": ""
                 },
                 {
-                    "key": "field_69a2586e3e849",
-                    "label": "Описание",
-                    "name": "desc",
-                    "aria-label": "",
-                    "type": "textarea",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "allow_in_bindings": 0,
-                    "rows": "",
-                    "placeholder": "",
-                    "new_lines": ""
-                }
-            ]
-        },
-        {
-            "key": "field_69a258713e84a",
-            "label": "Карточка 4",
-            "name": "branding_card_4",
-            "aria-label": "",
-            "type": "group",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_69a258713e84b",
-                    "label": "Заголовок",
-                    "name": "title",
+                    "key": "field_69a254218a65d",
+                    "label": "Label 2",
+                    "name": "label_2",
                     "aria-label": "",
                     "type": "text",
                     "instructions": "",
@@ -220,9 +103,114 @@
                     "append": ""
                 },
                 {
-                    "key": "field_69a258713e84c",
-                    "label": "Описание",
-                    "name": "desc",
+                    "key": "field_69a254258a65e",
+                    "label": "Label 3",
+                    "name": "label_3",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_69a2542a8a65f",
+                    "label": "Label 4",
+                    "name": "label_4",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_69a2542e8a660",
+                    "label": "Label 5",
+                    "name": "label_5",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_69a254358a661",
+                    "label": "Label 6",
+                    "name": "label_6",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_69a254378a662",
+                    "label": "Label 7",
+                    "name": "label_7",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_69a254528a663",
+                    "label": "Text",
+                    "name": "text",
                     "aria-label": "",
                     "type": "textarea",
                     "instructions": "",
@@ -239,6 +227,27 @@
                     "rows": "",
                     "placeholder": "",
                     "new_lines": ""
+                },
+                {
+                    "key": "field_69a2546e8a664",
+                    "label": "Button",
+                    "name": "button",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
                 }
             ]
         }
@@ -248,11 +257,11 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "page-templates\/tpl-branding.php"
+                "value": "page-templates\/tpl-contacts.php"
             }
         ]
     ],
-    "menu_order": 10,
+    "menu_order": 19,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
@@ -262,5 +271,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1772247158
+    "modified": 1772246173
 }
