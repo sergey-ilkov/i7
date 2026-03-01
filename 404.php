@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <main>
-    <section class="error-404-page">
+    <section class="error-404-page section-bg" style="--section-bg: #fff;">
 
         <div class="container text-center">
             <section class="error-content">
