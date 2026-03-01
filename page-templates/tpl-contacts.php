@@ -78,7 +78,12 @@ get_header();
 
             <div class="contacts__item">
 
+                <?php
 
+                $direction = 2; // дефолт
+                $direction_text = null;
+
+                ?>
 
                 <div id="contacts-slider" class="swiper contacts-slider">
                     <div class="swiper-wrapper">
@@ -93,13 +98,13 @@ get_header();
                             'order' => 'ASC'
                         ));
 
-                        $direction = 3; // дефолт
+
 
                         if ($slides->have_posts()): while ($slides->have_posts()): $slides->the_post();
                                 $photo_left_id = get_field('photo_left'); // Это теперь ID (число), а не ссылка
                                 $photo_front_id = get_field('photo_front'); // Это теперь ID (число), а не ссылка
 
-                                $direction_id = intval(get_field('direction_id'));
+                                $direction_id = intval(get_field('direction_id')) ?? $direction;
                                 $direction_text = get_field('direction_text');
                                 $color = get_field('color');
 
@@ -120,11 +125,11 @@ get_header();
 
                         ?>
 
-                        <div class="swiper-slide">
-                            <div class="contacts-slide <?php echo esc_attr($class); ?>" style="--contact-color:  <?php echo $color ? esc_attr($color) : '#0088ff'; ?>" data-direction="<?php echo $direction_id ? esc_attr($direction_id) : $direction; ?>">
-                                <div class="contacts-slide-images">
+                                <div class="swiper-slide">
+                                    <div class="contacts-slide <?php echo esc_attr($class); ?>" style="--contact-color:  <?php echo $color ? esc_attr($color) : '#0088ff'; ?>" data-direction-id="<?php echo esc_attr($direction_id); ?>" data-direction="<?php echo $direction_text ? esc_attr($direction_text) : ''; ?>">
+                                        <div class="contacts-slide-images">
 
-                                    <?php
+                                            <?php
 
                                             if ($photo_left_id) {
                                                 echo wp_get_attachment_image($photo_left_id, 'full', false, array(
@@ -142,15 +147,15 @@ get_header();
 
                                             ?>
 
+                                        </div>
+
+                                        <span class="contacts-slide__title">
+
+                                            <?php echo  $direction_text ? esc_html($direction_text) : ''; ?>
+
+                                        </span>
+                                    </div>
                                 </div>
-
-                                <span class="contacts-slide__title">
-
-                                    <?php echo  $direction_text ? esc_html($direction_text) : ''; ?>
-
-                                </span>
-                            </div>
-                        </div>
 
                         <?php endwhile;
                             wp_reset_postdata();
@@ -173,75 +178,87 @@ get_header();
 
                 ?>
 
-                <form id="contacts-form" class="contacts-form" action="#" style="--form-bg: #e5c100;">
+                <div class="contacts-form-wrap">
 
-                    <input id="direction_id" type="hidden" name="direction_id" value="2">
+                    <div id="contacts-form-message" class="contacts-form-message"></div>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="required-star" for="firstName"><?php echo  $form ? esc_html($form['label_1']) : ''; ?></label>
-                            <input type="text" id="firstName" name="firstName" class="field" autocomplete="off" data-required="true" />
-                            <span class="error-msg" data-for="firstName"></span>
+                    <form id="contacts-form" class="contacts-form" action="#" style="--form-bg: #e5c100;">
+
+
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="required-star" for="firstName"><?php echo  $form ? esc_html($form['label_1']) : ''; ?></label>
+                                <input type="text" id="firstName" name="firstName" class="field" autocomplete="off" data-required="true" />
+                                <span class="error-msg" data-for="firstName"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lastName"><?php echo  $form ? esc_html($form['label_2']) : ''; ?></label>
+                                <input type="text" id="lastName" name="lastName" class="field" autocomplete="off" data-required="false" />
+                                <span class="error-msg" data-for="lastName"></span>
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="lastName"><?php echo  $form ? esc_html($form['label_2']) : ''; ?></label>
-                            <input type="text" id="lastName" name="lastName" class="field" autocomplete="off" data-required="false" />
-                            <span class="error-msg" data-for="lastName"></span>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="required-star" for="phone"><?php echo  $form ? esc_html($form['label_3']) : ''; ?></label>
+                                <input type="tel" id="phone" name="phone" class="field" autocomplete="off" data-required="true" />
+                                <span class="error-msg" data-for="phone"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="required-star" for="email"><?php echo  $form ? esc_html($form['label_4']) : ''; ?></label>
+                                <input type="email" id="email" name="email" class="field" autocomplete="off" data-required="true" />
+                                <span class="error-msg" data-for="email"></span>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="required-star" for="phone"><?php echo  $form ? esc_html($form['label_3']) : ''; ?></label>
-                            <input type="tel" id="phone" name="phone" class="field" autocomplete="off" data-required="true" />
-                            <span class="error-msg" data-for="phone"></span>
+
+                        <input id="direction" type="hidden" name="direction" tabindex="-1">
+                        <input id="form_unique_id" type="text" name="form_unique_id" tabindex="-1">
+                        <input id="email_confirm" type="email" name="email_confirm" tabindex="-1">
+
+                        <div class=" form-row">
+                            <div class="form-group">
+                                <label for="company"><?php echo  $form ? esc_html($form['label_5']) : ''; ?></label>
+                                <input type="text" id="company" name="company" class="field" autocomplete="off" data-required="false" />
+                                <span class="error-msg" data-for="company"></span>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label class="required-star" for="email"><?php echo  $form ? esc_html($form['label_4']) : ''; ?></label>
-                            <input type="email" id="email" name="email" class="field" autocomplete="off" data-required="true" />
-                            <span class="error-msg" data-for="email"></span>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="required-star" for="message"><?php echo  $form ? esc_html($form['label_6']) : ''; ?></label>
+                                <input type="text" id="message" name="message" class="field" autocomplete="off" data-required="true" />
+                                <span class="error-msg" data-for="message"></span>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="company"><?php echo  $form ? esc_html($form['label_5']) : ''; ?></label>
-                            <input type="text" id="company" name="company" class="field" autocomplete="off" data-required="false" />
-                            <span class="error-msg" data-for="company"></span>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="required-star" for="source"><?php echo  $form ? esc_html($form['label_7']) : ''; ?></label>
+                                <input type="text" id="source" name="source" class="field" autocomplete="off" data-required="true" />
+                                <span class="error-msg" data-for="source"></span>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="required-star" for="message"><?php echo  $form ? esc_html($form['label_6']) : ''; ?></label>
-                            <input type="text" id="message" name="message" class="field" autocomplete="off" data-required="true" />
-                            <span class="error-msg" data-for="message"></span>
+                        <div class="form-text">
+                            <p>
+                                <?php echo  $form ? esc_html($form['text']) : ''; ?>
+                            </p>
                         </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="required-star" for="source"><?php echo  $form ? esc_html($form['label_7']) : ''; ?></label>
-                            <input type="text" id="source" name="source" class="field" autocomplete="off" data-required="true" />
-                            <span class="error-msg" data-for="source"></span>
-                        </div>
-                    </div>
-
-                    <div class="form-text">
-                        <p>
-                            <?php echo  $form ? esc_html($form['text']) : ''; ?>
-                        </p>
-                    </div>
 
 
 
-                    <button id="submitBtn" type="button" class="contacts-form-btn">
+                        <button id="contacts-form-btn-send" type="button" class="contacts-form-btn">
 
-                        <?php echo  $form ? esc_html($form['button']) : ''; ?>
+                            <?php echo  $form ? esc_html($form['button']) : ''; ?>
 
-                    </button>
+                        </button>
 
-                </form>
+
+
+                    </form>
+                </div>
             </div>
 
 
@@ -254,10 +271,8 @@ get_header();
 
 
 
-
-
-
 </main>
+
 
 
 

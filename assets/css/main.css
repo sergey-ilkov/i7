@@ -181,7 +181,8 @@ html {
 }
 
 body {
-    height: auto;
+    /* height: auto; */
+    height: 100%;
     width: 100%;
     /* overscroll-behavior: none; */
     /* overflow: clip; */
@@ -211,6 +212,12 @@ body.fixed {
 .wrapper {
     position: relative;
     overflow-x: clip;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+main {
+    flex: 1;
 }
 
 .container {
@@ -679,7 +686,7 @@ body.fixed {
     font-size: 40px;
     line-height: 100%;
     letter-spacing: -0.04em;
-    max-width: 280px;
+    max-width: 350px;
     padding-left: 70px;
 }
 .footer-list {
@@ -3070,6 +3077,7 @@ body.fixed {
 .solutions-camera__card:nth-child(2) {
     top: 56%;
     right: 6%;
+    z-index: 15;
 }
 .solutions-camera__card:nth-child(3) {
     top: 20%;
@@ -5426,13 +5434,18 @@ body.fixed {
         gap: 0px;
     }
 }
-
+.contacts-form-wrap {
+    max-width: 900px;
+    width: 100%;
+    position: relative;
+}
 .contacts-form {
     display: flex;
     flex-direction: column;
     gap: 32px;
+    width: 100%;
     border-radius: 60px;
-    max-width: 900px;
+
     padding: 40px;
     background: var(--form-bg);
 }
@@ -5441,6 +5454,7 @@ body.fixed {
     justify-content: space-between;
     gap: 20px;
 }
+
 .form-group {
     display: flex;
     flex-direction: column;
@@ -5470,6 +5484,7 @@ body.fixed {
     color: var(--color-red);
     font-size: 16px;
     font-weight: 400;
+    /* display: none; */
 }
 .form-text {
     font-weight: 300;
@@ -5488,6 +5503,9 @@ body.fixed {
     line-height: 110%;
     color: var(--color-white);
 }
+.contacts-form-btn[disabled] {
+    cursor: auto;
+}
 .field {
     border-radius: 20px;
     width: 100%;
@@ -5504,7 +5522,10 @@ body.fixed {
     border-color: grey;
 }
 
-.is-error {
+.form-group.is-error .error-msg {
+    display: block;
+}
+.form-group.is-error .field {
     border-color: var(--color-red);
 }
 @media (max-width: 1920px) {
@@ -5554,7 +5575,9 @@ body.fixed {
     }
 }
 
-/* ? legal-content */
+/* ? legal-content  and main-default-page and error-404-page*/
+.error-404-page,
+.main-default-page,
 .legal-content {
     font-family: 'Gilroy', sans-serif;
     font-weight: 400;
@@ -5563,75 +5586,161 @@ body.fixed {
     color: var(--color-black);
     padding: 160px 0 40px;
 }
+.main-default-page .container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+.error-404-page .container,
 .legal-content .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 24px;
 }
+.main-default-page h1,
 .legal-content h1 {
     font-size: 40px;
     font-weight: 500;
     margin-bottom: 40px;
 }
+.main-default-page h2,
 .legal-content h2 {
     font-size: 24px;
     font-weight: 500;
     margin: 30px 0 10px;
 }
+.main-default-page h3,
+.legal-content h3 {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 20px 0 10px;
+}
+
+.main-default-page p,
 .legal-content p {
     font-size: 18px;
     margin-bottom: 10px;
 }
+.main-default-page ul,
+.main-default-page ol,
 .legal-content ul,
 .legal-content ol {
     padding-left: 20px;
     margin-bottom: 20px;
 }
+.main-default-page ul,
+.main-default-page ul li,
 .legal-content ul,
 .legal-content ul li {
     list-style: disc;
 }
+.main-default-page ol,
+.main-default-page ol li,
 .legal-content ol,
 .legal-content ol li {
     list-style: decimal;
 }
+.main-default-page li,
 .legal-content li {
     margin-bottom: 10px;
 }
+.main-default-page li::marker,
 .legal-content li::marker {
     color: inherit;
     font-size: inherit;
 }
-
+.main-default-page a,
 .legal-content a {
     text-decoration: underline;
 }
+.main-default-page table,
 .legal-content table {
     margin-bottom: 20px;
 }
-
+.main-default-page img,
 .legal-content img {
     margin-bottom: 20px;
 }
+.main-default-page blockquote,
 .legal-content blockquote {
     border-left: 2px solid var(--color-black);
     font-style: italic;
     padding-left: 20px;
     margin: 10px 0;
 }
+.main-default-page strong,
 .legal-content strong {
     font-weight: 500;
 }
+.main-default-page em,
 .legal-content em {
     font-style: italic;
 }
 @media (max-width: 1920px) {
+    .error-404-page,
+    .main-default-page,
     .legal-content {
         padding-top: calc(90px + 50 * (100vw - 375px) / 1545);
+    }
+    .main-default-page .container {
+        padding-left: calc(20px + 20 * (100vw - 375px) / 1545);
+        padding-right: calc(20px + 20 * (100vw - 375px) / 1545);
     }
 }
 
 header,
 main {
     /* display: none; */
+}
+
+.contacts-form-message {
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 24px;
+    min-height: 25px;
+    color: var(--color-black);
+}
+.contacts-form-message.error {
+    color: var(--color-red);
+}
+.contacts-form-message.success {
+    color: #10b86a;
+}
+@media (max-width: 1920px) {
+    .contacts-form-message {
+        font-size: calc(16px + 8 * (100vw - 375px) / 1545);
+    }
+}
+
+#direction {
+    display: none;
+    visibility: hidden;
+}
+#form_unique_id,
+#email_confirm {
+    position: absolute;
+    left: -999px;
+    opacity: 0;
+    user-select: none;
+}
+
+/* ? error page */
+.error-404-page {
+    color: var(--color-black);
+}
+.error-title {
+    font-size: 90px;
+}
+.error-subtitle {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+.error-text {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+.error-link {
+    text-decoration: underline;
+    font-size: 16px;
+    color: var(--color-blue);
 }

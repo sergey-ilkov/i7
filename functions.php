@@ -112,12 +112,26 @@ function register_hero_slides_cpt()
 
     $args = array(
         'labels' => $labels,
-        'public' => true,
-        'has_archive' => false,
+
+        'public'              => true,  // Оставляем true, чтобы Polylang и Rank Math видели CPT
+        'publicly_queryable'  => false, // ГЛАВНОЕ: Запрещает просмотр отдельной страницы слайда (выдаст 404)
+        'exclude_from_search' => true,  // Убирает из внутреннего поиска по сайту
+        'has_archive'         => false, // Отключает страницу-архив (например, site.com/hero_slides/)
+        'show_in_nav_menus'   => false, // Чтобы случайно не добавить слайд в меню
+        'show_ui'             => true,  // Оставляем интерфейс в админке
+
         'menu_position' => 25,
         'menu_icon' => 'dashicons-images-alt2', // Иконка в меню
         'supports' => array('title'), // Нам нужно только название для удобства
     );
+    // $args = array(
+    //     'labels' => $labels,
+    //     'public' => true,
+    //     'has_archive' => false,
+    //     'menu_position' => 25,
+    //     'menu_icon' => 'dashicons-images-alt2', // Иконка в меню
+    //     'supports' => array('title'), // Нам нужно только название для удобства
+    // );
     register_post_type('hero_slides', $args);
 }
 add_action('init', 'register_hero_slides_cpt');
@@ -134,12 +148,25 @@ function register_specialist_slides_cpt()
 
     $args = array(
         'labels' => $labels,
-        'public' => true,
-        'has_archive' => false,
+        'public'              => true,
+        'publicly_queryable'  => false,
+        'exclude_from_search' => true,
+        'has_archive'         => false,
+        'show_in_nav_menus'   => false,
+        'show_ui'             => true,
+
         'menu_position' => 25,
         'menu_icon' => 'dashicons-groups', // Иконка в меню
         'supports' => array('title'), // Нам нужно только название для удобства
     );
+    // $args = array(
+    //     'labels' => $labels,
+    //     'public' => true,
+    //     'has_archive' => false,
+    //     'menu_position' => 25,
+    //     'menu_icon' => 'dashicons-groups', // Иконка в меню
+    //     'supports' => array('title'), // Нам нужно только название для удобства
+    // );
     register_post_type('specialist_slides', $args);
 }
 add_action('init', 'register_specialist_slides_cpt');
@@ -151,8 +178,12 @@ function register_portfolio_cpt()
     // 1. Сам Проект (Приложение)
     register_post_type('projects', array(
         'labels' => array('name' => 'Портфолио', 'singular_name' => 'Проект (projects)'),
-        'public' => true,
-        'has_archive' => false,
+        'public'              => true,  // Оставляем true, чтобы Polylang и Rank Math видели CPT
+        'publicly_queryable'  => false, // ГЛАВНОЕ: Запрещает просмотр отдельной страницы слайда (выдаст 404)
+        'exclude_from_search' => true,  // Убирает из внутреннего поиска по сайту
+        'has_archive'         => false, // Отключает страницу-архив (например, site.com/hero_slides/)
+        'show_in_nav_menus'   => false, // Чтобы случайно не добавить слайд в меню
+        'show_ui'             => true,  // Оставляем интерфейс в админке
         'menu_position' => 25,
         'menu_icon' => 'dashicons-portfolio',
         'supports' => array('title'),
@@ -160,12 +191,34 @@ function register_portfolio_cpt()
     // 2. Слайды для проектов
     register_post_type('project_slides', array(
         'labels' => array('name' => 'Слайды портфолио', 'singular_name' => 'Слайд (project_slides)'),
-        'public' => true,
-        'has_archive' => false,
+        'public'              => true,  // Оставляем true, чтобы Polylang и Rank Math видели CPT
+        'publicly_queryable'  => false, // ГЛАВНОЕ: Запрещает просмотр отдельной страницы слайда (выдаст 404)
+        'exclude_from_search' => true,  // Убирает из внутреннего поиска по сайту
+        'has_archive'         => false, // Отключает страницу-архив (например, site.com/hero_slides/)
+        'show_in_nav_menus'   => false, // Чтобы случайно не добавить слайд в меню
+        'show_ui'             => true,  // Оставляем интерфейс в админке
         'menu_position' => 25,
         'menu_icon' => 'dashicons-images-alt2',
         'supports' => array('title'),
     ));
+    // // 1. Сам Проект (Приложение)
+    // register_post_type('projects', array(
+    //     'labels' => array('name' => 'Портфолио', 'singular_name' => 'Проект (projects)'),
+    //     'public' => true,
+    //     'has_archive' => false,
+    //     'menu_position' => 25,
+    //     'menu_icon' => 'dashicons-portfolio',
+    //     'supports' => array('title'),
+    // ));
+    // // 2. Слайды для проектов
+    // register_post_type('project_slides', array(
+    //     'labels' => array('name' => 'Слайды портфолио', 'singular_name' => 'Слайд (project_slides)'),
+    //     'public' => true,
+    //     'has_archive' => false,
+    //     'menu_position' => 25,
+    //     'menu_icon' => 'dashicons-images-alt2',
+    //     'supports' => array('title'),
+    // ));
 }
 add_action('init', 'register_portfolio_cpt');
 
@@ -520,24 +573,6 @@ add_filter('nav_menu_link_attributes', function ($atts, $item, $args) {
 
 
 
-
-
-
-// Заменяем стандартный вывод пункта на чистую ссылку или обёртку
-// add_filter('walker_nav_menu_start_el', function ($item_output, $item, $depth, $args) {
-//     if (isset($args->theme_location) && $args->theme_location === 'footer_legal') {
-//         // если нужно только <a>
-//         // return '<a class="footer-list__item-link" href="' . esc_url($item->url) . '">' . esc_html($item->title) . '</a>';
-
-//         // если нужно обернуть в div
-//         return '<div class="footer-bottom__item"><a class="footer-list__item-link" href="' . esc_url($item->url) . '"'
-//             . (isset($item->attr_title) && $item->attr_title ? ' data-slider-id="' . esc_attr($item->attr_title) . '"' : '')
-//             . '>' . esc_html($item->title) . '</a></div>';
-//     }
-//     return $item_output;
-// }, 10, 4);
-
-
 class Walker_No_LI extends \Walker_Nav_Menu
 {
     public function start_lvl(&$output, $depth = 0, $args = array())
@@ -562,3 +597,87 @@ class Walker_No_LI extends \Walker_Nav_Menu
     { /* ничего */
     }
 }
+
+
+// ? Contacts form 7
+// Отключаем стили и скрипты CF7 по всему сайту
+add_filter('wpcf7_load_js', '__return_false');
+add_filter('wpcf7_load_css', '__return_false');
+
+
+
+
+// 1. Передаем данные в JS
+add_action('wp_enqueue_scripts', function () {
+    $form_messages = get_field('contacts_form_messages');
+    $messages = null;
+    $validation_phone_min = get_field('validation_phone_min');
+    if ($form_messages) {
+        $messages = [
+            'send' => $form_messages['message_send'],
+            'success' => $form_messages['message_success'],
+            'error' => $form_messages['message_error'],
+            'error_server' => $form_messages['message_server_error'],
+            'validation_required' => $form_messages['message_validation_required'],
+            'validation_email' => $form_messages['message_validation_email'],
+            'validation_phone' => $form_messages['message_validation_phone'],
+        ];
+    }
+
+    wp_localize_script('main-js', 'wp_data', [
+        'ajax_url' => admin_url('admin-ajax.php'),
+        // 'rest_url' => esc_url_raw(rest_url('contact-form-7/v1/contact-forms/ВАШ_ЧИСЛОВОЙ_ID/feedback')),
+        'rest_url' => esc_url_raw(rest_url('contact-form-7/v1/contact-forms/642/feedback')),
+        'nonce'    => wp_create_nonce('wp_rest'),
+        'messages' => $messages,
+        'validation_phone_min' => $validation_phone_min,
+    ]);
+});
+
+
+
+
+add_filter('wpcf7_skip_mail', 'custom_spam_silent_drop', 10, 2);
+
+function custom_spam_silent_drop($skip, $submission)
+{
+    // 1. Получаем экземпляр отправки
+    $submission = \WPCF7_Submission::get_instance();
+
+    $data = $submission->get_posted_data();
+
+    // 1. Проверка медовой ловушки (Honeypot)
+    if (!empty($data['email_confirm'])) {
+        return true; // Бот заполнил скрытое поле -> пропускаем отправку
+    }
+
+    // 2. Проверка временной метки (form_unique_id)
+    $obfuscated_id = isset($data['form_unique_id']) ? $data['form_unique_id'] : '';
+
+    // Очищаем от букв и тире, оставляем только цифры
+    $timestamp_str = preg_replace('/[^0-9]/', '', $obfuscated_id);
+    $submitted_time = intval(substr($timestamp_str, 0, 10)); // Берем первые 10 цифр
+
+    $current_time = time();
+    $diff = $current_time - $submitted_time;
+
+    // Если разница меньше 5 секунд — это бот
+    if ($diff < 5 || $submitted_time === 0) {
+        return true;
+    }
+
+    return $skip; // Если всё ок, возвращаем стандартное значение (false)
+}
+
+
+// ? 404
+add_action('init', function () {
+    if (function_exists('pll_register_string')) {
+        // Первый параметр: название для поиска (любое)
+        // Второй параметр: сама фраза
+        // Третий параметр: группа (например, 'Theme 404')
+        pll_register_string('404_title', 'Oops! Page not found', 'i7theme 404');
+        pll_register_string('404_text', "The link you followed may be broken", 'i7theme 404');
+        pll_register_string('404_link', 'Back to home', 'i7theme 404');
+    }
+});

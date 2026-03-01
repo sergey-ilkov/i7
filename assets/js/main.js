@@ -243,6 +243,7 @@ if (burgerMenu && headerMenu) {
     burgerMenu.addEventListener('click', () => {
         headerMenu.classList.add('open');
         toggleFixedBody();
+        lenis.stop();
 
     })
 
@@ -251,6 +252,7 @@ if (burgerMenu && headerMenu) {
     btnMenuClose.addEventListener('click', () => {
         headerMenu.classList.remove('open');
         toggleFixedBody();
+        lenis.start();
 
     })
 }
@@ -365,7 +367,7 @@ function initSmoothToDigitalPortfolio() {
 
     const portfolioLinks = document.querySelectorAll('a[data-slider-id]');
 
-    console.log('portfolioLinks ', portfolioLinks);
+    // console.log('portfolioLinks ', portfolioLinks);
     if (!portfolioLinks.length) return;
 
     portfolioLinks.forEach(link => {
@@ -5378,22 +5380,27 @@ function initContactsScript() {
 
         if (!form || !divSliderContacts || !slides.length) return;
 
-        const inputDirectionId = form.querySelector('#direction_id');
+        // const inputDirectionId = form.querySelector('#direction_id');
+        const inputDirection = form.querySelector('#direction');
 
         let currentActiveSlide = 1;
 
 
         function getDirectionSlide(i) {
-            const direction_id = slides[i].getAttribute('data-direction');
-            return direction_id;
+            const direction = slides[i].getAttribute('data-direction');
+            return direction;
+            // const direction_id = slides[i].getAttribute('data-direction-id');
+            // return direction_id;
 
         }
 
-        function setDirection(fun, id) {
-            if (inputDirectionId && id) {
-                inputDirectionId.value = id;
-
+        function setDirection(fun, direction) {
+            if (inputDirection && direction) {
+                inputDirection.value = direction;
             }
+            // if (inputDirectionId && id) {
+            //     inputDirectionId.value = id;
+            // }
         }
 
 
@@ -5407,14 +5414,29 @@ function initContactsScript() {
         if (durectionIdUrl) {
 
             slides.forEach((slide, index) => {
-                const slideDirectionId = slide.getAttribute('data-direction');
+                const slideDirectionId = slide.getAttribute('data-direction-id');
 
                 if (slideDirectionId == durectionIdUrl) {
                     currentActiveSlide = index;
 
-                    setDirection('url', slideDirectionId);
+                    const directionText = slide.getAttribute('data-direction');
+
+                    setDirection('url', directionText);
+                    // setDirection('url', slideDirectionId);
                     slideContactsChange(index);
                 }
+            })
+        } else {
+            slides.forEach((slide, index) => {
+
+                const activeSlide = slide.classList.contains('active');
+                if (activeSlide) {
+                    const direction = slide.getAttribute('data-direction');
+                    setDirection('defult', direction);
+                }
+                // console.log(activeSlide);
+
+
             })
         }
 
@@ -5438,10 +5460,14 @@ function initContactsScript() {
 
                         slideContactsChange(this.activeIndex);
 
-                        const directionId = getDirectionSlide(this.activeIndex);
-                        if (directionId) {
-                            setDirection('slideChange', directionId);
+                        const direction = getDirectionSlide(this.activeIndex);
+                        if (direction) {
+                            setDirection('slideChange', direction);
                         }
+                        // const directionId = getDirectionSlide(this.activeIndex);
+                        // if (directionId) {
+                        //     setDirection('slideChange', directionId);
+                        // }
 
 
                     },
@@ -5502,7 +5528,7 @@ function initContactsScript() {
                 }
             })
 
-            const bgColor = slides[activeIndex].style.getPropertyValue('--contact-color').trim();;
+            const bgColor = slides[activeIndex].style.getPropertyValue('--contact-color').trim();
 
             if (bgColor) {
                 form.style.setProperty('--form-bg', bgColor);
@@ -5511,12 +5537,343 @@ function initContactsScript() {
     }
 
 
-    function initContactsForm() {
-        console.log('initContactsForm: send data');
-    }
+    // function initContactsForm() {
+    //     console.log('initContactsForm: send data');
+    // }
     // ? init script
     initContactsSlider();
 
     initContactsForm();
+
+}
+
+
+function generationUniqueId() {
+    const ts = Math.floor(Date.now() / 1000).toString().padStart(10, '0');
+    const letters = 'abcdef';
+    const randChar = () => letters[Math.floor(Math.random() * letters.length)];
+    const patternGroups = [8, 4, 4, 4];
+    let digitIndex = 0;
+    const tsDigits = ts.split(''); // массив цифр
+    const groups = patternGroups.map(groupLen => {
+        let group = '';
+        for (let i = 0; i < groupLen; i++) {
+
+            const takeDigit = digitIndex < tsDigits.length && Math.random() < 0.45;
+            if (takeDigit) {
+                group += tsDigits[digitIndex++];
+            } else {
+
+                group += randChar();
+            }
+        }
+        return group;
+    });
+
+
+    const numLastGroup = 12 - (ts.length - digitIndex);
+
+
+    let lastGroup = '';
+    if (digitIndex < tsDigits.length) {
+
+        for (let i = digitIndex; i < tsDigits.length; i++) {
+            lastGroup += tsDigits[digitIndex++];
+        }
+    }
+
+    const lettersNums = 'abcdef0123456789';
+    for (let i = 0; i < numLastGroup; i++) {
+
+        const randomLetter = Math.random() < 0.45;
+        if (randomLetter) {
+            lastGroup += letters[Math.floor(Math.random() * letters.length)];
+        } else {
+            lastGroup += lettersNums[Math.floor(Math.random() * lettersNums.length)];
+        }
+
+    }
+
+    groups.push(lastGroup);
+
+    return groups.join('-');
+}
+
+// Функция обфускации метки времени
+const getObfuscatedTimestamp = () => {
+    const ts = Math.floor(Date.now() / 1000).toString().padStart(10, '0'); // 10 цифр
+    // const letters = 'abcdef0123456789'; // набор символов для "UUID-подобия" (hex-подобные буквы)
+    const letters = 'abcdef'; // набор символов для "UUID-подобия" (hex-подобные буквы)
+    // const lettersNums = 'abcdef0123456789';
+    console.log('ts ', ts);
+    // Функция для случайной буквы
+    const randChar = () => letters[Math.floor(Math.random() * letters.length)];
+
+    // Вставляем цифры ts в структуры похожую на UUID: 8-4-4-4-12 (всего 32 символа без дефисов).
+    // Мы пройдём по "слотам" и подставим цифры по порядку, остальные слоты заполним случайными буквами.
+    const patternGroups = [8, 4, 4, 4];
+    let digitIndex = 0;
+    const tsDigits = ts.split(''); // массив цифр
+    const groups = patternGroups.map(groupLen => {
+        let group = '';
+        for (let i = 0; i < groupLen; i++) {
+            // Решаем: либо вставляем следующую цифру из ts (если остались), либо случайный символ.
+            // Чтобы распределение было более равномерным, вставляем цифру примерно 1 из 3 позиций.
+            const takeDigit = digitIndex < tsDigits.length && Math.random() < 0.45;
+            if (takeDigit) {
+                group += tsDigits[digitIndex++];
+            } else {
+                // добавляем случайный буквенно-цифровой символ (чтобы похож на hex)
+                group += randChar();
+            }
+        }
+        return group;
+    });
+
+    console.log('digitIndex ', digitIndex);
+    console.log('ts length ', ts.length);
+    const numLastGroup = 12 - (ts.length - digitIndex);
+    console.log('numLastGroup ', numLastGroup);
+
+    let lastGroup = '';
+    if (digitIndex < tsDigits.length) {
+
+        for (let i = digitIndex; i < tsDigits.length; i++) {
+
+            console.log('add tsDigits ', tsDigits[i]);
+            lastGroup += tsDigits[digitIndex++];
+            // digitIndex++;
+
+        }
+    }
+    console.log('lastGroup ', lastGroup);
+    console.log('digitIndex ', digitIndex);
+
+    const lettersNums = 'abcdef0123456789';
+
+    for (let i = 0; i < numLastGroup; i++) {
+
+        const randomLetter = Math.random() < 0.45;
+        if (randomLetter) {
+            lastGroup += letters[Math.floor(Math.random() * letters.length)];
+        } else {
+            lastGroup += lettersNums[Math.floor(Math.random() * lettersNums.length)];
+        }
+
+    }
+
+    groups.push(lastGroup);
+    console.log(lastGroup);
+
+
+
+    return groups.join('-');
+};
+
+function initContactsForm() {
+
+    const form = document.querySelector('#contacts-form');
+    if (!form) return;
+
+    const btn = form.querySelector('#contacts-form-btn-send');
+    const btnText = btn.textContent;
+
+    const formGroup = form.querySelectorAll('.form-group');
+    const inputs = form.querySelectorAll('input');
+    const inputUniqueId = form.querySelector('#form_unique_id');
+
+    const divMessage = document.querySelector('#contacts-form-message');
+
+    const inputDirection = form.querySelector('#direction');
+
+
+
+    if (typeof wp_data === 'undefined' || !wp_data.messages) {
+        btn.disabled = true;
+        return;
+    }
+
+    // console.log('wp_data: ', wp_data);
+
+    const messages = {};
+
+    if (wp_data.messages) {
+        Object.assign(messages, wp_data.messages);
+    }
+    // console.log(messages);
+
+
+    let isUniceId = null;
+
+    let currentDirection = null;
+
+    const minPhone = wp_data.validation_phone_min ? wp_data.validation_phone_min : 10;
+
+
+
+
+    const validateEmail = (email) => {
+        return String(email).toLowerCase().match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+    };
+
+    const validatePhone = (value, min) => {
+        if (typeof value !== 'string') return false;
+        const v = value.trim();
+        // допускаем опциональный ведущий '+' и затем цифры
+        if (!/^[+]?\d+$/.test(v)) return false;
+        // посчитать цифры (убираем плюс)
+        const digits = v.startsWith('+') ? v.slice(1) : v;
+        return digits.length >= min;
+    }
+
+    inputs.forEach(input => {
+        input.addEventListener('input', () => {
+            if (!isUniceId) {
+                isUniceId = generationUniqueId();
+                inputUniqueId.value = isUniceId;
+            }
+
+            if (input.type == 'tel') {
+                // сохраняем позицию курсора
+                const start = input.selectionStart;
+                const end = input.selectionEnd;
+
+                // допускаем только цифры и один ведущий плюс
+                let v = input.value;
+
+                // разрешить только один ведущий '+'
+                if (v.startsWith('+')) {
+                    v = '+' + v.slice(1).replace(/\D/g, '');
+                } else {
+                    v = v.replace(/\D/g, '');
+                }
+
+                input.value = v;
+
+                // восстанавливаем позицию курсора (примерно)
+                input.setSelectionRange(start, end);
+            }
+        })
+    })
+
+    const sendForm = async () => {
+
+
+
+
+        const formData = new FormData(form);
+
+
+        formData.append('_wpcf7_unit_tag', 'custom-tag'); // нужно для CF7
+
+        // Сбрасываем ошибки
+        formGroup.forEach(el => {
+            el.classList.remove('is-error');
+            const errorMsg = el.querySelector('.error-msg');
+            if (errorMsg) {
+                errorMsg.innerHTML = '';
+            }
+        });
+
+
+        // Валидация
+        let hasError = false;
+        form.querySelectorAll('.field').forEach(input => {
+            const isRequired = input.getAttribute('data-required') === 'true';
+            const value = input.value.trim();
+            const parent = input.closest('.form-group');
+            const errorMsg = parent.querySelector('.error-msg');
+
+            if (isRequired && value.length == 0) {
+                hasError = true;
+                parent.classList.add('is-error');
+                errorMsg.textContent = messages.validation_required;
+            }
+
+            if (input.type === 'email' && value.length > 0 && !validateEmail(value)) {
+                hasError = true;
+                parent.classList.add('is-error');
+                errorMsg.textContent = messages.validation_email;
+            }
+            if (input.type === 'tel' && !validatePhone(value, minPhone)) {
+                hasError = true;
+                parent.classList.add('is-error');
+                errorMsg.textContent = messages.validation_phone;
+            }
+        });
+
+
+        if (hasError) return;
+
+        btn.disabled = true;
+        btn.textContent = messages.send;
+
+        currentDirection = inputDirection.value;
+
+        console.log('formData ', Object.fromEntries(formData));
+        // return;
+
+        try {
+            const response = await fetch(wp_data.rest_url, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-WP-Nonce': wp_data.nonce
+                }
+            });
+
+            const result = await response.json();
+
+            if (result.status === 'mail_sent') {
+
+                showMessage(messages.success, 'success');
+                form.reset();
+                inputDirection.value = currentDirection;
+                isUniceId = null;
+                SmothScroll();
+            } else {
+
+                showMessage(messages.error, 'error');
+                SmothScroll();
+            }
+        } catch (error) {
+
+            showMessage(messages.error_server, 'error');
+            SmothScroll();
+        } finally {
+            btn.disabled = false;
+            btn.textContent = btnText;
+        }
+    };
+
+    function showMessage(text, res = null) {
+        divMessage.classList.remove('error');
+        divMessage.classList.remove('success');
+
+        if (res) {
+            divMessage.classList.add(res);
+        }
+        divMessage.textContent = text;
+    }
+
+    function SmothScroll() {
+
+
+        if (form.getBoundingClientRect().top > 100) return;
+        const y = form.getBoundingClientRect().top + window.pageYOffset - 100;
+        gsap.to(window, {
+            duration: 0.8,
+            scrollTo: { y: y, autoKill: false },
+            ease: 'power2.inOut',
+            onComplete() {
+                // обязательно обновить триггеры после перемещения
+                ScrollTrigger.refresh();
+
+            }
+        });
+    }
+
+    btn.addEventListener('click', sendForm);
+
 
 }
