@@ -438,90 +438,28 @@ function get_site_settings_id()
 
 
 
-/**
- * Получить URL страницы по шаблону с учётом локали.
- *
- * @param string $template Путь к шаблону, например 'page-templates/tpl-digital.php'
- * @param array $args Опции выбора:
- *   - 'posts_per_page' (int|'first'|'last') по умолчанию 1 (первый)
- *   - 'order' ('ASC'|'DESC') порядок сортировки по menu_order (по умолчанию 'ASC')
- *   - 'orderby' (string) поле сортировки (по умолчанию 'menu_order')
- *   - 'meta_query' (array) дополнительный meta_query для WP_Query
- *   - 'fallback' (int|null) ID страницы, возвращаемый при отсутствии совпадений
- * @return string|null URL или null/fallback
- */
-function get_page_url_by_template($template, $args = array())
+
+/* Получить URL страницы по названию файла шаблона с учетом языка */
+function get_url_by_template($template_name)
 {
-    $defaults = array(
+    $args = [
+        'post_type'  => 'page',
+        'fields'     => 'ids',
+        'nopaging'   => true,
+        'meta_key'   => '_wp_page_template',
+        'meta_value' => $template_name,
         'posts_per_page' => 1,
-        'order'          => 'ASC',
-        'orderby'        => 'menu_order',
-        'meta_query'     => array(),
-        'fallback'       => null,
-    );
-    $opt = wp_parse_args($args, $defaults);
+        'suppress_filters' => false, // ВАЖНО: это заставляет Polylang фильтровать результат по текущему языку
+    ];
 
-    // Постраничный параметр: если явно 'first' или 'last'
-    $ppp = is_int($opt['posts_per_page']) ? $opt['posts_per_page'] : 1;
-    if ($opt['posts_per_page'] === 'first') {
-        $ppp = 1;
-        $opt['order'] = 'ASC';
-    } elseif ($opt['posts_per_page'] === 'last') {
-        $ppp = 1;
-        $opt['order'] = 'DESC';
+    $pages = get_posts($args);
+
+    if (!empty($pages)) {
+        return get_permalink($pages[0]);
     }
 
-    $query_args = array(
-        'post_type'      => 'page',
-        'post_status'    => 'publish',
-        'meta_key'       => '_wp_page_template',
-        'meta_value'     => $template,
-        'posts_per_page' => $ppp,
-        'order'          => $opt['order'],
-        'orderby'        => $opt['orderby'],
-        'meta_query'     => $opt['meta_query'],
-    );
-
-    $q = new \WP_Query($query_args);
-    if (! $q->have_posts()) {
-        wp_reset_postdata();
-        if (! empty($opt['fallback'])) {
-            return get_permalink($opt['fallback']);
-        }
-        return null;
-    }
-
-    // Берём первую найденную запись (в зависимости от order это может быть "первый" или "последний")
-    $page = $q->posts[0];
-    $page_id = $page->ID;
-
-    // Поддержка WPML
-    if (function_exists('icl_object_id')) {
-        // Получаем текущую языковую метку через фильтр WPML (безопасно)
-        $current_lang = apply_filters('wpml_current_language', null);
-        $translated = icl_object_id($page_id, 'page', false, $current_lang);
-        if ($translated) {
-            $page_id = $translated;
-        }
-    }
-
-    // Поддержка Polylang
-    if (function_exists('pll_get_post')) {
-        $pll_lang = function_exists('pll_current_language') ? pll_current_language() : null;
-        $pll_id = pll_get_post($page_id, $pll_lang);
-        if ($pll_id) {
-            $page_id = $pll_id;
-        }
-    }
-
-    $url = get_permalink($page_id);
-    wp_reset_postdata();
-    return $url ? esc_url_raw($url) : null;
+    return home_url('/'); // Если страница не найдена, вернем ссылку на главную
 }
-
-
-
-
 
 
 
@@ -530,7 +468,6 @@ function my_theme_menus()
 {
     register_nav_menus(array(
         'header_menu' => 'Меню в шапке',
-        // 'footer_menu' => 'Меню в подвале',
 
         'footer_company'  => 'Футер: Компания',
         'footer_services' => 'Футер: Услуги',
@@ -543,12 +480,6 @@ add_action('after_setup_theme', 'my_theme_menus');
 add_filter('wp_nav_menu_objects', function ($items, $args) {
     foreach ($items as $item) {
 
-
-
-        // if (isset($args->theme_location) && $args->theme_location === 'header_menu') {
-
-        //     $item->classes[] = 'header-menu__item';
-        // }
 
         if (isset($args->theme_location)) {
 
@@ -718,4 +649,10 @@ add_action('init', function () {
         pll_register_string('404_text', "The link you followed may be broken", 'i7theme 404');
         pll_register_string('404_link', 'Back to home', 'i7theme 404');
     }
+});
+
+
+// ? title tag
+add_action('after_setup_theme', function () {
+    add_theme_support('title-tag');
 });

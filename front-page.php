@@ -632,12 +632,16 @@ get_header();
 
                                 <?php
 
+
+
                                 $i = 0;
                                 foreach ($prepared_projects as $item) :
 
 
 
-                                    $digital_url = get_page_url_by_template('page-templates/tpl-digital.php');
+                                    // $digital_url = get_page_url_by_template('page-templates/tpl-digital.php');
+                                    $digital_url = get_url_by_template('page-templates/tpl-digital.php');
+
                                     if (!$digital_url) {
                                         $digital_url = home_url('/');
                                     }
