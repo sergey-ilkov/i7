@@ -49,7 +49,8 @@
                 }
             }
 
-            $contacts_url = get_url_by_page_template('tpl-contacts.php');
+            $contacts_url = get_page_url_by_template('page-templates/tpl-contacts.php');
+
             if (!$contacts_url) {
                 $contacts_url = home_url('/');
             }
@@ -183,9 +184,9 @@
 
 <?php if (is_page_template(array('page-templates/tpl-solutions.php'))): ?>
 
-<div id="custom-cursor" class="custom-cursor" aria-hidden="true">
-    <img width="190" hidden="190" src="<?php echo get_template_directory_uri(); ?>/assets/images/solutions/cursor.png" alt="">
-</div>
+    <div id="custom-cursor" class="custom-cursor" aria-hidden="true">
+        <img width="190" hidden="190" src="<?php echo get_template_directory_uri(); ?>/assets/images/solutions/cursor.png" alt="">
+    </div>
 
 <?php endif; ?>
 

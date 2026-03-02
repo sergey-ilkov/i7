@@ -631,11 +631,13 @@ get_header();
                             <div class="swiper-wrapper">
 
                                 <?php
+
                                 $i = 0;
                                 foreach ($prepared_projects as $item) :
 
 
-                                    $digital_url = get_url_by_page_template('tpl-digital.php');
+
+                                    $digital_url = get_page_url_by_template('page-templates/tpl-digital.php');
                                     if (!$digital_url) {
                                         $digital_url = home_url('/');
                                     }
@@ -644,6 +646,9 @@ get_header();
 
                                     $index = $i;
                                     $i++;
+
+
+
                                 ?>
 
 
