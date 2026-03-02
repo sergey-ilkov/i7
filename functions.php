@@ -400,20 +400,34 @@ add_action('admin_head', 'hide_delete_link_css');
 // ? Get Site Settings
 function get_site_settings_id()
 {
-    $id = get_transient('site_settings_single_id');
-    if ($id !== false) return $id;
+    // $id = get_transient('site_settings_single_id');
+    // if ($id !== false) return $id;
 
-    $posts = get_posts(array(
-        'post_type'   => 'site_settings',
-        'post_status' => 'publish',
-        'numberposts' => 1, // одна запись настроек
-        'fields'      => 'ids',
-    ));
+    // $posts = get_posts(array(
+    //     'post_type'   => 'site_settings',
+    //     'post_status' => 'publish',
+    //     'numberposts' => 1, // одна запись настроек
+    //     'fields'      => 'ids',
+    // ));
 
-    if (empty($posts)) return false;
-    $id = $posts[0];
-    set_transient('site_settings_single_id', $id, HOUR_IN_SECONDS);
-    return $id;
+    // if (empty($posts)) return false;
+    // $id = $posts[0];
+    // set_transient('site_settings_single_id', $id, HOUR_IN_SECONDS);
+    // return $id;
+
+    // 1. Пытаемся получить пост настроек для текущего языка
+    $settings = get_posts([
+        'post_type'      => 'site_settings',
+        'posts_per_page' => 1,
+        'post_status'    => 'publish',
+        'suppress_filters' => false, // ВАЖНО: это позволяет Polylang вмешаться и отфильтровать по языку
+    ]);
+
+    if (!empty($settings)) {
+        return $settings[0]->ID;
+    }
+
+    return null;
 }
 
 

@@ -31,6 +31,11 @@ if ($settings_id) {
     }
 }
 
+
+$section = get_field('section_specialist', $settings_id);
+
+echo $settings_id;
+
 ?>
 
 
@@ -59,14 +64,14 @@ if ($settings_id) {
             ?>
 
 
-                    <li class="appointment__item" style="--contact-color: <?php echo $color ? esc_attr($color) : '#0088ff'; ?>">
+            <li class="appointment__item" style="--contact-color: <?php echo $color ? esc_attr($color) : '#0088ff'; ?>">
 
-                        <a class="appointment__link" href="<?php echo $full_url; ?>">
+                <a class="appointment__link" href="<?php echo $full_url; ?>">
 
-                            <?php echo  $direction_text ? esc_html($direction_text) : ''; ?>
+                    <?php echo  $direction_text ? esc_html($direction_text) : ''; ?>
 
-                        </a>
-                    </li>
+                </a>
+            </li>
 
             <?php endwhile;
                 wp_reset_postdata();
@@ -97,11 +102,11 @@ if ($settings_id) {
 
 
 
-                    <div class="swiper-slide">
-                        <div class="appointment-slide" style="--contact-color: <?php echo $color ? esc_attr($color) : '#0088ff'; ?>">
-                            <div class="appointment-slide-images">
+            <div class="swiper-slide">
+                <div class="appointment-slide" style="--contact-color: <?php echo $color ? esc_attr($color) : '#0088ff'; ?>">
+                    <div class="appointment-slide-images">
 
-                                <?php
+                        <?php
 
 
                                 if ($photo_left_id) {
@@ -120,15 +125,15 @@ if ($settings_id) {
 
                                 ?>
 
-                            </div>
-
-                            <a class="appointment-slide__link" href="<?php echo $full_url; ?>">
-
-                                <?php echo  $direction_text ? esc_html($direction_text) : ''; ?>
-
-                            </a>
-                        </div>
                     </div>
+
+                    <a class="appointment-slide__link" href="<?php echo $full_url; ?>">
+
+                        <?php echo  $direction_text ? esc_html($direction_text) : ''; ?>
+
+                    </a>
+                </div>
+            </div>
 
 
             <?php endwhile;
