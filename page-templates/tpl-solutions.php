@@ -19,38 +19,12 @@ get_header();
 
 <?php
 
-// $solutions_title = get_field('solutions_title');
-// $solutions_desc = get_field('solutions_desc');
-// $solutions_poster = get_field('solutions_poster');
-// $solutions_video  = get_field('solutions_video');
-
-
-
-
 
 global $post;
 $post_id = $post->ID;
-$fields = get_fields($post_id); // вернёт ассоц. массив полей ACF для указанного поста
+$fields = get_fields($post_id);
 
 ?>
-
-
-
-<!-- <section class="query" style="color:#000;">
-
-    <?php
-
-    echo '<br><br>';
-    echo '<pre>';
-
-    var_dump($fields);
-
-    echo '</pre>';
-    echo '<br><br>';
-
-    ?>
-
-</section> -->
 
 
 
@@ -295,7 +269,7 @@ $fields = get_fields($post_id); // вернёт ассоц. массив пол�
     </section>
 
 
-    <!-- ? Network solutions -->
+
     <section class="solutions-network section-pin section-bg" style="--section-bg: #252526;">
 
         <div class="solutions-network-btn-wrap">
@@ -323,9 +297,9 @@ $fields = get_fields($post_id); // вернёт ассоц. массив пол�
 
 
         <div class="solutions-network-coordinate-wrap">
-            <!-- ? video -->
+
             <video id="solutions-network-video" class="solutions-network-video" playsinline webkit-playsinline muted data-src="<?php echo get_template_directory_uri(); ?>/assets/animations/network.mp4"></video>
-            <!-- ? lottie -->
+
             <div id="solutions-network-lottie" class="solutions-network-lottie"></div>
 
             <div class="solutions-network-dots">
@@ -444,16 +418,6 @@ $fields = get_fields($post_id); // вернёт ассоц. массив пол�
     </section>
 
 
-
-
-
-
-
-
-
-
-
-    <!-- ? solutions-automation -->
 
 
 
@@ -638,7 +602,7 @@ $fields = get_fields($post_id); // вернёт ассоц. массив пол�
 
 
 
-    <!-- ? fire-systems -->
+
     <section class="fire-systems section-bg" style="--section-bg: #0088ff;">
 
 
@@ -652,7 +616,7 @@ $fields = get_fields($post_id); // вернёт ассоц. массив пол�
         </div>
 
 
-        <!-- ? fire-systems-wrap -->
+
         <div class="fire-systems-scroll">
 
             <div class="fire-systems-sticky-wrap">
@@ -913,8 +877,6 @@ $fields = get_fields($post_id); // вернёт ассоц. массив пол�
 
 
 
-
-    <!-- ? appointment -->
     <section class="appointment section-bg" style="--section-bg: #fff;">
 
 

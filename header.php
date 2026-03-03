@@ -8,21 +8,7 @@
 
 
     <style>
-    <?php // Общий критический CSS (сетка, хедер)
-    echo file_get_contents(get_template_directory() . '/assets/css/critical-common.css');
-
-    // Специфический критический CSS для страницы
-    // if (is_front_page()) {
-    //     echo file_get_contents(get_template_directory() . '/assets/css/critical-home.css');
-    // }
-
-    // elseif (is_page_template('tpl-digital.php')) {
-    //     echo file_get_contents(get_template_directory() . '/assets/css/critical-digital.css');
-    // }
-    // if (is_page_template('page-templates/tpl-digital.php')) {
-    //     echo file_get_contents(get_template_directory() . '/assets/css/critical-digital.css');
-    // }
-
+    <?php echo file_get_contents(get_template_directory() . '/assets/css/critical-common.css');
 
     ?>
     </style>
@@ -33,11 +19,6 @@
 
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
-
-
-
-
-
 
 
 
@@ -82,29 +63,14 @@
                         <div class="lang-box">
                             <?php
 
-                            // echo '<pre>';
-                            // var_dump($languages['en']);
-                            // echo '</pre>';
-                            // Получаем массив языков
-
                             $languages = pll_the_languages(array('raw' => 1));
 
-
-
-
-                            // echo '<pre>';
-                            // var_dump(pll_languages_list());
-                            // echo '</pre>';
 
                             if (!empty($languages)) :
                                 foreach ($languages as $lang) :
 
-                                    // Проверяем, текущий ли это язык
                                     $is_current = $lang['current_lang'];
 
-                                    // Определяем классы (например, lang-item--active)
-
-                                    // $class = 'lang' . ($is_current ? '' : ' lang-link');
                             ?>
 
 
@@ -130,15 +96,8 @@
                             ?>
 
 
-                            <!-- <span class="lang">RU</span>
-                            <a class="lang lang-link" href="#">EN</a> -->
                         </div>
 
-
-                        <!-- <div class="lang-box">
-                            <span class="lang">RU</span>
-                            <a class="lang lang-link" href="#">EN</a>
-                        </div> -->
 
                         <button id="burger-menu" class="burger-menu" type="button" aria-label="Open menu">
                             <span></span>
@@ -151,7 +110,7 @@
 
 
 
-                    <!-- ? header-menu -->
+
                     <div id="header-menu" class="header-menu">
 
                         <div class="header-menu-body">
@@ -169,16 +128,14 @@
                             <?php
                             wp_nav_menu(array(
                                 'theme_location' => 'header_menu',
-                                'container'      => 'nav',               // Тег-обертка
-                                'container_class' => 'nav-menu',       // Класс обертки
-                                'menu_class'     => 'header-menu-list', // Класс для <ul>
-                                'fallback_cb'    => false                // Если меню не создано, ничего не выводить
+                                'container'      => 'nav',
+                                'container_class' => 'nav-menu',
+                                'menu_class'     => 'header-menu-list',
+                                'fallback_cb'    => false
                             ));
 
 
                             ?>
-
-
 
 
 

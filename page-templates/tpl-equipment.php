@@ -21,41 +21,22 @@ get_header();
 
 
 
+<?php
+
+global $post;
+$post_id = $post->ID;
+$fields = get_fields($post_id);
 
 
 
-
-
-
-<!-- <section class="query" style="color:#000;">
-
-    <?php
-
-    global $post;
-    $post_id = $post->ID;
-    $fields = get_fields($post_id); // вернёт ассоц. массив полей ACF для указанного поста
-
-    echo '<br><br>';
-    echo '<pre>';
-
-    var_dump($fields);
-
-    echo '</pre>';
-    echo '<br><br>';
-
-    ?>
-
-</section> -->
-
-
-
+?>
 
 
 <main>
 
 
 
-    <!-- ? equipment-pin-wrap -->
+
     <div class="equipment-pin-wrap section-bg" style="--section-bg: #0088ff;">
 
         <div class="video-sticky-wrap">
@@ -168,10 +149,6 @@ get_header();
                                 <span class="scanner-bg"></span>
                             </div>
                         </div>
-
-
-
-
 
 
                     </div>
@@ -288,7 +265,7 @@ get_header();
 
 
 
-                        <!-- ? total -->
+
                         <div class="receipt-item">
                             <div class="receipt-item-total">
                                 <span class="receipt-text"><?php echo $receipt_group_6 ? esc_html($receipt_group_6['text_1']) : ''; ?></span>
@@ -299,7 +276,7 @@ get_header();
                             </div>
 
                         </div>
-                        <!-- ? info -->
+
                         <div class="receipt-item">
 
                             <span class="receipt-text"><?php echo $receipt_group_7 ? esc_html($receipt_group_7['text_1']) : ''; ?></span>
@@ -331,14 +308,6 @@ get_header();
 
 
 
-
-
-
-
-
-
-
-    <!-- ? appointment -->
     <section class="appointment section-bg" style="--section-bg: #fff;">
 
 

@@ -20,22 +20,21 @@ get_header();
 
 
 <?php
-// ? sliders and slides
-// 1. Получаем все проекты
+
 $projects_posts = get_posts([
     'post_type'      => 'projects',
     'posts_per_page' => -1,
-    'suppress_filters' => false, // Чтобы Polylang отфильтровал по языку
-    'meta_key'       => 'project_sort', // Ключ поля, по которому сортируем
-    // Сортируем как числа (а не как текст!)
+    'suppress_filters' => false,
+    'meta_key'       => 'project_sort',
+
     'orderby'        => [
         'meta_value_num' => 'ASC',
-        'title'          => 'ASC' // Если цифры равны, сортируй по алфавиту
+        'title'          => 'ASC'
     ],
-    'order'          => 'ASC',            // От меньшего к большему (1, 2, 3...)
+    'order'          => 'ASC',
 ]);
 
-// 2. Получаем ВСЕ слайды одним махом
+
 $all_slides_posts = get_posts([
     'post_type'      => 'project_slides',
     'posts_per_page' => -1,
@@ -43,12 +42,12 @@ $all_slides_posts = get_posts([
     'meta_key'       => 'slide_sort',
     'orderby'        => [
         'meta_value_num' => 'ASC',
-        'title'          => 'ASC' // Если цифры равны, сортируй по алфавиту
+        'title'          => 'ASC'
     ],
     'order'          => 'ASC',
 ]);
 
-// Группируем слайды по ID родительского проекта для быстрого доступа
+
 $slides_by_project = [];
 foreach ($all_slides_posts as $slide) {
     $parent_id = get_field('parent_project', $slide->ID);
@@ -57,12 +56,11 @@ foreach ($all_slides_posts as $slide) {
     }
 }
 
-// 3. Собираем финальный массив только с теми проектами, у которых есть слайды
+
 $prepared_projects = [];
 foreach ($projects_posts as $project) {
     $p_id = $project->ID;
 
-    // Проверка: есть ли у этого проекта слайды?
     if (isset($slides_by_project[$p_id]) && !empty($slides_by_project[$p_id])) {
 
         $slider = get_field('portfolio_slider', $p_id);
@@ -87,39 +85,19 @@ $color_def = '#1b1b1b';
 
 
 
+<?php
+
+global $post;
+$post_id = $post->ID;
+$fields = get_fields($post_id);
 
 
 
-
-<!-- 
-// ? All Fields
-<section class="query" style="color:#000; position: absolute; z-Index: 5000;">
-
-    <?php
-
-    global $post;
-    $post_id = $post->ID;
-    $fields = get_fields($post_id); // вернёт ассоц. массив полей ACF для указанного поста
-
-    echo '<br><br>';
-    echo '<pre>';
-
-    var_dump($fields);
-
-    echo '</pre>';
-    echo '<br><br>';
-
-    ?>
-
-</section>
- -->
-
-
+?>
 
 
 
 <main>
-
 
 
 
@@ -227,7 +205,7 @@ $color_def = '#1b1b1b';
 
                                             $image_desktop = wp_get_attachment_url($image_desktop_id);
                                             $image_alt = get_post_meta($image_desktop_id, '_wp_attachment_image_alt', true);
-                                            // Ширина и высота оригинала
+
                                             $image_meta = wp_get_attachment_metadata($image_desktop_id);
                                             $width  = isset($image_meta['width']) ? $image_meta['width'] : null;
                                             $height = isset($image_meta['height']) ? $image_meta['height'] : null;
@@ -250,8 +228,6 @@ $color_def = '#1b1b1b';
 
 
                                 <?php endforeach; ?>
-
-
 
 
 
@@ -327,12 +303,12 @@ $color_def = '#1b1b1b';
                             <h3 class="portfolio-slide-title">
 
                                 <?php echo get_field('slide_title', $slide->ID); ?>
-                                <!-- Интернет-магазин одежды, обуви и аксессуаров -->
+
 
                             </h3>
                             <p class="portfolio-slide-desc">
                                 <?php echo get_field('slide_desc', $slide->ID); ?>
-                                <!-- цифровизация вашего бизнеса -->
+
                             </p>
                         </div>
 
@@ -345,28 +321,10 @@ $color_def = '#1b1b1b';
 
                     <?php endforeach; ?>
 
-
-
-
-
-
-
-
-
                 </div>
 
 
-
-
-
-
-
                 <div class="portfolio-control-menu">
-
-
-
-
-
 
                     <div class="swiper portfolio-menu-slider">
                         <div class="swiper-wrapper">
@@ -411,7 +369,6 @@ $color_def = '#1b1b1b';
 
 
 
-
                             <div class="swiper-slide">
                                 <div class="portfolio-menu-btn" data-index="<?php echo $index; ?>">
 
@@ -424,19 +381,8 @@ $color_def = '#1b1b1b';
                             <?php endforeach; ?>
 
 
-
-
-
-
-
                         </div>
                     </div>
-
-
-
-
-
-
 
 
                 </div>
@@ -451,14 +397,6 @@ $color_def = '#1b1b1b';
 
 
 
-
-
-
-
-
-
-
-    <!-- ? appointment -->
     <section class="appointment section-bg" style="--section-bg: #fff;">
 
 

@@ -6,65 +6,49 @@
 
 function my_theme_scripts()
 {
-    // 1. Подключаем стили
-    // get_template_directory_uri() выдает путь до папки твоей темы
 
     wp_enqueue_style('swiper-style', get_template_directory_uri() . '/assets/libs/swiper-bundle.min.css', array(), '12.1.2');
 
     wp_enqueue_style('main-style', get_template_directory_uri() . '/assets/css/main.css', array('swiper-style'), '1.0.0');
 
-    // 2. Подключаем сторонние библиотеки (libs)
-    // Важно: указываем 'gsap' как имя, чтобы потом использовать его как зависимость
+
     wp_enqueue_script('gsap', get_template_directory_uri() . '/assets/libs/gsap.min.js', array(), null, true);
     wp_enqueue_script('gsap-scroll-trigger', get_template_directory_uri() . '/assets/libs/ScrollTrigger.min.js', array('gsap'), null, true);
     wp_enqueue_script('gsap-scroll-to', get_template_directory_uri() . '/assets/libs/ScrollToPlugin.min.js', array('gsap'), null, true);
     wp_enqueue_script('gsap-split-text', get_template_directory_uri() . '/assets/libs/SplitText.min.js', array('gsap'), null, true);
-    // wp_enqueue_script('gsap-motion-path', get_template_directory_uri() . '/assets/libs/MotionPathPlugin.min.js', array('gsap'), null, true);
 
 
     wp_enqueue_script('lenis', get_template_directory_uri() . '/assets/libs/lenis.min.js', array('gsap'), null, true);
 
-    // Если есть Swiper или другие
+
     wp_enqueue_script('swiper', get_template_directory_uri() . '/assets/libs/swiper-bundle.min.js', array(), null, true);
 
-    // wp_enqueue_script('lottie', get_template_directory_uri() . '/assets/libs/lottie.min.js', array(), null, true);
 
-
-    // Подключаем Lottie только там, где нужен
     if (is_page_template(array('page-templates/tpl-branding.php', 'page-templates/tpl-solutions.php'))) {
         wp_enqueue_script('lottie', get_template_directory_uri() . '/assets/libs/lottie.min.js', array(), null, true);
     }
 
-    // Подключаем MotionPathPlugin только там, где нужен
+
     if (is_page_template(array('page-templates/tpl-solutions.php'))) {
         wp_enqueue_script('gsap-motion-path', get_template_directory_uri() . '/assets/libs/MotionPathPlugin.min.js', array('gsap'), null, true);
     }
 
-    // 3. Твой основной файл скриптов (main.js)
-    // В массиве array('gsap', 'gsap-scroll-trigger', 'gsap-scroll-to', 'gsap-split-text', 'gsap-motion-path', 'lenis', 'swiper', 'lottie') 
-    // мы говорим: "Не загружай этот файл, пока не загрузятся GSAP Plugins Swiper Lottie Lenis"
+
     wp_enqueue_script('main-js', get_template_directory_uri() . '/assets/js/main.js', array(), '1.0.0', true);
-    // wp_enqueue_script(
-    //     'main-js',
-    //     get_template_directory_uri() . '/assets/js/main.js',
-    //     array('gsap', 'gsap-scroll-trigger', 'gsap-scroll-to', 'gsap-split-text', 'gsap-motion-path', 'lenis', 'swiper', 'lottie'),
-    //     '1.0.0',
-    //     true
-    // );
+
 
     wp_localize_script('main-js', 'themeData', array(
         'templateUrl' => get_template_directory_uri()
     ));
 }
 
-// Привязываем функцию к "крючку" wp_enqueue_scripts
+
 add_action('wp_enqueue_scripts', 'my_theme_scripts');
 
 
 function add_defer_attribute($tag, $handle)
 {
 
-    // Список скриптов, которым нужен defer
     $scripts_to_defer = array('gsap', 'gsap-scroll-trigger', 'gsap-scroll-to', 'gsap-split-text', 'gsap-motion-path', 'lenis', 'swiper', 'lottie', 'main-js');
 
     foreach ($scripts_to_defer as $defer_script) {
@@ -86,10 +70,7 @@ remove_action('wp_head', 'wp_generator');
 
 // ? acf-json
 add_filter('acf/settings/save_json', function ($path) {
-    if (defined('WP_ENV') && WP_ENV === 'production') {
-        // не сохранять JSON на проде — вернуть дефолтный путь или существующий
-        return $path;
-    }
+
     return get_stylesheet_directory() . '/acf-json';
 });
 
@@ -97,7 +78,6 @@ add_filter('acf/settings/load_json', function ($paths) {
     $paths[] = get_stylesheet_directory() . '/acf-json';
     return $paths;
 });
-
 
 
 
@@ -112,26 +92,17 @@ function register_hero_slides_cpt()
 
     $args = array(
         'labels' => $labels,
-
-        'public'              => true,  // Оставляем true, чтобы Polylang и Rank Math видели CPT
-        'publicly_queryable'  => false, // ГЛАВНОЕ: Запрещает просмотр отдельной страницы слайда (выдаст 404)
-        'exclude_from_search' => true,  // Убирает из внутреннего поиска по сайту
-        'has_archive'         => false, // Отключает страницу-архив (например, site.com/hero_slides/)
-        'show_in_nav_menus'   => false, // Чтобы случайно не добавить слайд в меню
-        'show_ui'             => true,  // Оставляем интерфейс в админке
-
+        'public'              => true,
+        'publicly_queryable'  => false,
+        'exclude_from_search' => true,
+        'has_archive'         => false,
+        'show_in_nav_menus'   => false,
+        'show_ui'             => true,
         'menu_position' => 25,
-        'menu_icon' => 'dashicons-images-alt2', // Иконка в меню
-        'supports' => array('title'), // Нам нужно только название для удобства
+        'menu_icon' => 'dashicons-images-alt2',
+        'supports' => array('title'),
     );
-    // $args = array(
-    //     'labels' => $labels,
-    //     'public' => true,
-    //     'has_archive' => false,
-    //     'menu_position' => 25,
-    //     'menu_icon' => 'dashicons-images-alt2', // Иконка в меню
-    //     'supports' => array('title'), // Нам нужно только название для удобства
-    // );
+
     register_post_type('hero_slides', $args);
 }
 add_action('init', 'register_hero_slides_cpt');
@@ -156,17 +127,10 @@ function register_specialist_slides_cpt()
         'show_ui'             => true,
 
         'menu_position' => 25,
-        'menu_icon' => 'dashicons-groups', // Иконка в меню
-        'supports' => array('title'), // Нам нужно только название для удобства
+        'menu_icon' => 'dashicons-groups',
+        'supports' => array('title'),
     );
-    // $args = array(
-    //     'labels' => $labels,
-    //     'public' => true,
-    //     'has_archive' => false,
-    //     'menu_position' => 25,
-    //     'menu_icon' => 'dashicons-groups', // Иконка в меню
-    //     'supports' => array('title'), // Нам нужно только название для удобства
-    // );
+
     register_post_type('specialist_slides', $args);
 }
 add_action('init', 'register_specialist_slides_cpt');
@@ -178,12 +142,12 @@ function register_portfolio_cpt()
     // 1. Сам Проект (Приложение)
     register_post_type('projects', array(
         'labels' => array('name' => 'Портфолио', 'singular_name' => 'Проект (projects)'),
-        'public'              => true,  // Оставляем true, чтобы Polylang и Rank Math видели CPT
-        'publicly_queryable'  => false, // ГЛАВНОЕ: Запрещает просмотр отдельной страницы слайда (выдаст 404)
-        'exclude_from_search' => true,  // Убирает из внутреннего поиска по сайту
-        'has_archive'         => false, // Отключает страницу-архив (например, site.com/hero_slides/)
-        'show_in_nav_menus'   => false, // Чтобы случайно не добавить слайд в меню
-        'show_ui'             => true,  // Оставляем интерфейс в админке
+        'public'              => true,
+        'publicly_queryable'  => false,
+        'exclude_from_search' => true,
+        'has_archive'         => false,
+        'show_in_nav_menus'   => false,
+        'show_ui'             => true,
         'menu_position' => 25,
         'menu_icon' => 'dashicons-portfolio',
         'supports' => array('title'),
@@ -191,34 +155,16 @@ function register_portfolio_cpt()
     // 2. Слайды для проектов
     register_post_type('project_slides', array(
         'labels' => array('name' => 'Слайды портфолио', 'singular_name' => 'Слайд (project_slides)'),
-        'public'              => true,  // Оставляем true, чтобы Polylang и Rank Math видели CPT
-        'publicly_queryable'  => false, // ГЛАВНОЕ: Запрещает просмотр отдельной страницы слайда (выдаст 404)
-        'exclude_from_search' => true,  // Убирает из внутреннего поиска по сайту
-        'has_archive'         => false, // Отключает страницу-архив (например, site.com/hero_slides/)
-        'show_in_nav_menus'   => false, // Чтобы случайно не добавить слайд в меню
-        'show_ui'             => true,  // Оставляем интерфейс в админке
+        'public'              => true,
+        'publicly_queryable'  => false,
+        'exclude_from_search' => true,
+        'has_archive'         => false,
+        'show_in_nav_menus'   => false,
+        'show_ui'             => true,
         'menu_position' => 25,
         'menu_icon' => 'dashicons-images-alt2',
         'supports' => array('title'),
     ));
-    // // 1. Сам Проект (Приложение)
-    // register_post_type('projects', array(
-    //     'labels' => array('name' => 'Портфолио', 'singular_name' => 'Проект (projects)'),
-    //     'public' => true,
-    //     'has_archive' => false,
-    //     'menu_position' => 25,
-    //     'menu_icon' => 'dashicons-portfolio',
-    //     'supports' => array('title'),
-    // ));
-    // // 2. Слайды для проектов
-    // register_post_type('project_slides', array(
-    //     'labels' => array('name' => 'Слайды портфолио', 'singular_name' => 'Слайд (project_slides)'),
-    //     'public' => true,
-    //     'has_archive' => false,
-    //     'menu_position' => 25,
-    //     'menu_icon' => 'dashicons-images-alt2',
-    //     'supports' => array('title'),
-    // ));
 }
 add_action('init', 'register_portfolio_cpt');
 
@@ -238,15 +184,15 @@ function register_site_settings_cpt()
     $args = array(
         'labels' => $labels,
 
-        'public' => true,      // Делаем публичным, чтобы Polylang его увидел
-        'publicly_queryable' => false, // Но нельзя открыть по прямой ссылке
-        'exclude_from_search' => true,  // И не будет в поиске по сайту
-        'show_in_nav_menus'  => false, // И нельзя добавить в меню
-        'show_ui' => true,      // Показать в админке
+        'public' => true,
+        'publicly_queryable' => false,
+        'exclude_from_search' => true,
+        'show_in_nav_menus'  => false,
+        'show_ui' => true,
         'has_archive' => false,
         'menu_position' => 25,
         'menu_icon' => 'dashicons-admin-generic',
-        'supports' => array('title'), // Нам нужно только поле заголовка
+        'supports' => array('title'),
         'show_in_rest' => false,
     );
     register_post_type('site_settings', $args);
@@ -258,20 +204,20 @@ add_action('init', 'register_site_settings_cpt');
 // ? unique value direction_id
 function validate_unique_direction_id($valid, $value, $field, $input)
 {
-    // Если значение уже невалидно, выходим
+
     if (!$valid) return $valid;
 
-    // Получаем ID текущего поста, который редактируем
+
     $post_id = isset($_POST['post_ID']) ? $_POST['post_ID'] : 0;
 
-    // Ищем другие посты этого же типа с таким же значением поля direction_id
+
     $args = array(
-        'post_type'  => 'specialist_slides', // Твой CPT специалистов
+        'post_type'  => 'specialist_slides',
         'post_status' => array('publish', 'draft', 'pending'),
-        'post__not_in' => array($post_id), // Исключаем текущий пост из поиска
+        'post__not_in' => array($post_id),
         'meta_query' => array(
             array(
-                'key'     => 'direction_id', // Имя поля в ACF
+                'key'     => 'direction_id',
                 'value'   => $value,
                 'compare' => '=',
             )
@@ -287,34 +233,31 @@ function validate_unique_direction_id($valid, $value, $field, $input)
     return $valid;
 }
 
-// Привязываем валидацию к конкретному полю по его имени
 add_filter('acf/validate_value/name=direction_id', 'validate_unique_direction_id', 10, 4);
 
 
 
 
-// 1. Удаляем пункт "Добавить" из бокового меню и из верхнего админ-бара
 function remove_site_settings_add_menus()
 {
-    // Удаляем из бокового меню
+
     remove_submenu_page('edit.php?post_type=site_settings', 'post-new.php?post_type=site_settings');
 }
 add_action('admin_menu', 'remove_site_settings_add_menus', 999);
 
-// 2. Удаляем из кнопки "+ Добавить" в верхней панели
+
 function remove_site_settings_admin_bar($wp_admin_bar)
 {
     $wp_admin_bar->remove_node('new-site_settings');
 }
 add_action('admin_bar_menu', 'remove_site_settings_admin_bar', 999);
 
-// 3. Скрываем кнопку внутри самого списка и в редакторе (через CSS для надежности)
+
 function hide_add_new_completely()
 {
     global $pagenow;
     if (get_post_type() == 'site_settings') {
-        // Проверяем количество постов. 
-        // Мы разрешаем добавление, только если постов МЕНЬШЕ, чем количество языков.
+
         $count_posts = wp_count_posts('site_settings')->publish;
         $languages = (function_exists('pll_languages_list')) ? count(pll_languages_list()) : 1;
 
@@ -333,16 +276,15 @@ add_action('admin_head', 'hide_add_new_completely');
 
 
 
-// Скрываем кнопку "Добавить новую" для Настроек сайта
 function hide_add_new_settings_button()
 {
     global $pagenow;
     if (($pagenow == 'edit.php' || $pagenow == 'post.php' || $pagenow == 'post-new.php') && get_post_type() == 'site_settings') {
-        // Считаем количество записей (без учета языка пока что)
+
         $count_posts = wp_count_posts('site_settings');
         $published_posts = $count_posts->publish;
 
-        // Если есть хотя бы одна запись, скрываем кнопку добавления через CSS
+
         if ($published_posts >= 1 && $pagenow != 'post.php') {
             echo '<style>.page-title-action { display:none !important; }</style>';
         }
@@ -350,11 +292,11 @@ function hide_add_new_settings_button()
 }
 add_action('admin_head', 'hide_add_new_settings_button');
 
-// Убираем кнопку «Добавить» внутри самого редактора
+
 function hide_add_new_inside_post()
 {
     $screen = get_current_screen();
-    // Проверяем, что мы в редакторе нашего CPT
+
     if ($screen->post_type == 'site_settings') {
         echo '<style>
             /* Скрываем кнопку в обычном редакторе */
@@ -369,16 +311,16 @@ function hide_add_new_inside_post()
 }
 add_action('admin_head', 'hide_add_new_inside_post');
 
-// Запрет на удаление (Защитный замок)
+
 function restrict_site_settings_deletion($caps, $cap, $user_id, $args)
 {
-    // Проверяем, пытаются ли удалить пост
+
     if ($cap === 'delete_post' || $cap === 'delete_posts') {
-        // Если аргументы есть, проверяем тип поста
+
         if (isset($args[0])) {
             $post = get_post($args[0]);
             if ($post && $post->post_type === 'site_settings') {
-                $caps[] = 'do_not_allow'; // Запрещаем действие
+                $caps[] = 'do_not_allow';
             }
         }
     }
@@ -386,7 +328,7 @@ function restrict_site_settings_deletion($caps, $cap, $user_id, $args)
 }
 add_filter('user_has_cap', 'restrict_site_settings_deletion', 10, 4);
 
-// Также скроем саму ссылку "Удалить" (В корзину) в списке и в редакторе через CSS
+
 function hide_delete_link_css()
 {
     if (get_post_type() == 'site_settings') {
@@ -400,27 +342,12 @@ add_action('admin_head', 'hide_delete_link_css');
 // ? Get Site Settings
 function get_site_settings_id()
 {
-    // $id = get_transient('site_settings_single_id');
-    // if ($id !== false) return $id;
 
-    // $posts = get_posts(array(
-    //     'post_type'   => 'site_settings',
-    //     'post_status' => 'publish',
-    //     'numberposts' => 1, // одна запись настроек
-    //     'fields'      => 'ids',
-    // ));
-
-    // if (empty($posts)) return false;
-    // $id = $posts[0];
-    // set_transient('site_settings_single_id', $id, HOUR_IN_SECONDS);
-    // return $id;
-
-    // 1. Пытаемся получить пост настроек для текущего языка
     $settings = get_posts([
         'post_type'      => 'site_settings',
         'posts_per_page' => 1,
         'post_status'    => 'publish',
-        'suppress_filters' => false, // ВАЖНО: это позволяет Polylang вмешаться и отфильтровать по языку
+        'suppress_filters' => false,
     ]);
 
     if (!empty($settings)) {
@@ -431,15 +358,6 @@ function get_site_settings_id()
 }
 
 
-
-
-
-
-
-
-
-
-/* Получить URL страницы по названию файла шаблона с учетом языка */
 function get_url_by_template($template_name)
 {
     $args = [
@@ -449,7 +367,7 @@ function get_url_by_template($template_name)
         'meta_key'   => '_wp_page_template',
         'meta_value' => $template_name,
         'posts_per_page' => 1,
-        'suppress_filters' => false, // ВАЖНО: это заставляет Polylang фильтровать результат по текущему языку
+        'suppress_filters' => false,
     ];
 
     $pages = get_posts($args);
@@ -458,9 +376,8 @@ function get_url_by_template($template_name)
         return get_permalink($pages[0]);
     }
 
-    return home_url('/'); // Если страница не найдена, вернем ссылку на главную
+    return home_url('/');
 }
-
 
 
 // ? Menu 
@@ -504,11 +421,8 @@ add_filter('nav_menu_link_attributes', function ($atts, $item, $args) {
     if ($args->theme_location === 'header_menu') {
         $atts['class'] = 'header-menu__link';
         if (strpos($item->url, '#') !== false) {
-            // Получаем домашний URL для текущего языка (или обычный, если плагин отключен)
-            $home_url = function_exists('pll_home_url') ? pll_home_url() : home_url('/');
 
-            // Очищаем ссылку от лишних слешей и склеиваем
-            // rtrim убирает слеш у home_url, а ltrim у ссылки, чтобы не было //
+            $home_url = function_exists('pll_home_url') ? pll_home_url() : home_url('/');
 
             $anchor = ltrim($item->url, '/');
             $atts['href'] = rtrim($home_url, '/') . '/' . $anchor;
@@ -519,7 +433,7 @@ add_filter('nav_menu_link_attributes', function ($atts, $item, $args) {
         if ($item->object === 'page' && $item->object_id) {
             $post = get_post((int) $item->object_id);
             if ($post) {
-                $template = get_page_template_slug($post); // возвращает имя файла шаблона или пусто
+                $template = get_page_template_slug($post);
 
                 if ($template === 'page-templates/tpl-digital.php') {
                     $atts['data-slider-id'] = '0';
@@ -531,29 +445,20 @@ add_filter('nav_menu_link_attributes', function ($atts, $item, $args) {
     }
 
 
-
-
-
     return $atts;
 }, 10, 3);
 
 
 
 
-
-
 class Walker_No_LI extends \Walker_Nav_Menu
 {
-    public function start_lvl(&$output, $depth = 0, $args = array())
-    { /* ничего */
-    }
-    public function end_lvl(&$output, $depth = 0, $args = array())
-    { /* ничего */
-    }
+    public function start_lvl(&$output, $depth = 0, $args = array()) {}
+    public function end_lvl(&$output, $depth = 0, $args = array()) {}
 
     public function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0)
     {
-        // формируем ссылку/обёртку без <li>
+
         $title = apply_filters('the_title', $item->title, $item->ID);
         $url   = $item->url ? esc_url($item->url) : '';
         $atts  = ' class="footer-bottom__link"';
@@ -562,21 +467,18 @@ class Walker_No_LI extends \Walker_Nav_Menu
         $output .= '<div class="footer-bottom__item">' . $link . '</div>';
     }
 
-    public function end_el(&$output, $item, $depth = 0, $args = array())
-    { /* ничего */
-    }
+    public function end_el(&$output, $item, $depth = 0, $args = array()) {}
 }
 
 
 // ? Contacts form 7
-// Отключаем стили и скрипты CF7 по всему сайту
 add_filter('wpcf7_load_js', '__return_false');
 add_filter('wpcf7_load_css', '__return_false');
 
 
 
 
-// 1. Передаем данные в JS
+
 add_action('wp_enqueue_scripts', function () {
     $form_messages = get_field('contacts_form_messages');
     $messages = null;
@@ -595,7 +497,6 @@ add_action('wp_enqueue_scripts', function () {
 
     wp_localize_script('main-js', 'wp_data', [
         'ajax_url' => admin_url('admin-ajax.php'),
-        // 'rest_url' => esc_url_raw(rest_url('contact-form-7/v1/contact-forms/ВАШ_ЧИСЛОВОЙ_ID/feedback')),
         'rest_url' => esc_url_raw(rest_url('contact-form-7/v1/contact-forms/642/feedback')),
         'nonce'    => wp_create_nonce('wp_rest'),
         'messages' => $messages,
@@ -610,41 +511,37 @@ add_filter('wpcf7_skip_mail', 'custom_spam_silent_drop', 10, 2);
 
 function custom_spam_silent_drop($skip, $submission)
 {
-    // 1. Получаем экземпляр отправки
+
     $submission = \WPCF7_Submission::get_instance();
 
     $data = $submission->get_posted_data();
 
-    // 1. Проверка медовой ловушки (Honeypot)
+
     if (!empty($data['email_confirm'])) {
-        return true; // Бот заполнил скрытое поле -> пропускаем отправку
+        return true;
     }
 
-    // 2. Проверка временной метки (form_unique_id)
     $obfuscated_id = isset($data['form_unique_id']) ? $data['form_unique_id'] : '';
 
-    // Очищаем от букв и тире, оставляем только цифры
     $timestamp_str = preg_replace('/[^0-9]/', '', $obfuscated_id);
-    $submitted_time = intval(substr($timestamp_str, 0, 10)); // Берем первые 10 цифр
+    $submitted_time = intval(substr($timestamp_str, 0, 10));
 
     $current_time = time();
     $diff = $current_time - $submitted_time;
 
-    // Если разница меньше 5 секунд — это бот
+
     if ($diff < 5 || $submitted_time === 0) {
         return true;
     }
 
-    return $skip; // Если всё ок, возвращаем стандартное значение (false)
+    return $skip;
 }
 
 
 // ? 404
 add_action('init', function () {
     if (function_exists('pll_register_string')) {
-        // Первый параметр: название для поиска (любое)
-        // Второй параметр: сама фраза
-        // Третий параметр: группа (например, 'Theme 404')
+
         pll_register_string('404_title', 'Oops! Page not found', 'i7theme 404');
         pll_register_string('404_text', "The link you followed may be broken", 'i7theme 404');
         pll_register_string('404_link', 'Back to home', 'i7theme 404');

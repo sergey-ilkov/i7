@@ -17,28 +17,16 @@ get_header();
 ?>
 
 
-<!-- 
-// ? All Fields
-<section class="query" style="color:#000;">
 
-    <?php
+<?php
 
-    global $post;
-    $post_id = $post->ID;
-    $fields = get_fields($post_id); // вернёт ассоц. массив полей ACF для указанного поста
+global $post;
+$post_id = $post->ID;
+$fields = get_fields($post_id);
 
-    echo '<br><br>';
-    echo '<pre>';
 
-    var_dump($fields);
+?>
 
-    echo '</pre>';
-    echo '<br><br>';
-
-    ?>
-
-</section>
- -->
 
 
 <main>
@@ -90,16 +78,10 @@ get_header();
     <?php
 
 
-
     $branding_card_1 = $fields['branding_card_1'];
     $branding_card_2 = $fields['branding_card_2'];
     $branding_card_3 = $fields['branding_card_3'];
     $branding_card_4 = $fields['branding_card_4'];
-
-
-
-
-
 
 
     ?>
@@ -107,7 +89,7 @@ get_header();
 
 
     <section id="branding" class="branding section-bg" style="--section-bg: #0088ff;">
-        <!-- container-max -->
+
         <div class="container">
 
             <div class="branding-wrap">
@@ -197,7 +179,7 @@ get_header();
 
 
 
-    <!-- ? appointment -->
+
     <section class="appointment section-bg" style="--section-bg: #fff;">
 
         <?php get_template_part('template-parts/section', 'specialists'); ?>

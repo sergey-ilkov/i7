@@ -1,7 +1,6 @@
-<!-- ? appointment -->
 <?php
 
-// Запрашиваем слайды
+
 $slides = new \WP_Query(array(
     'post_type' => 'specialist_slides',
     'posts_per_page' => 4,
@@ -13,13 +12,13 @@ $slides = new \WP_Query(array(
 
 <?php
 
-$contacts_url = get_url_by_template('page-templates/tpl-contacts.php'); // или 'contacts' / 'contacts.php'
+$contacts_url = get_url_by_template('page-templates/tpl-contacts.php');
 
 
 if (!$contacts_url) {
     $contacts_url = home_url('/');
 }
-$direction = 1; // дефолт
+$direction = 1;
 
 
 $section_specialist_title = null;
@@ -37,8 +36,6 @@ $section = get_field('section_specialist', $settings_id);
 echo $settings_id;
 
 ?>
-
-
 
 
 
@@ -90,8 +87,8 @@ echo $settings_id;
 
 
             <?php if ($slides->have_posts()): while ($slides->have_posts()): $slides->the_post();
-                    $photo_left_id = get_field('photo_left'); // Это теперь ID (число), а не ссылка
-                    $photo_front_id = get_field('photo_front'); // Это теперь ID (число), а не ссылка
+                    $photo_left_id = get_field('photo_left');
+                    $photo_front_id = get_field('photo_front');
 
                     $direction_id = get_field('direction_id');
                     $direction_text = get_field('direction_text');
@@ -111,8 +108,8 @@ echo $settings_id;
 
                                 if ($photo_left_id) {
                                     echo wp_get_attachment_image($photo_left_id, 'full', false, array(
-                                        'class' => 'specialist-card__img', // Твой класс для стилей
-                                        'loading' => 'lazy'               // Нативная ленивая загрузка
+                                        'class' => 'specialist-card__img',
+                                        'loading' => 'lazy'
                                     ));
                                 }
                                 if ($photo_front_id) {

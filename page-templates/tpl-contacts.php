@@ -17,28 +17,18 @@ get_header();
 
 ?>
 
-<!-- 
-// ? All Fields
-<section class="query" style="color:#000;">
 
-    <?php
 
-    global $post;
-    $post_id = $post->ID;
-    $fields = get_fields($post_id); // вернёт ассоц. массив полей ACF для указанного поста
+<?php
 
-    echo '<br><br>';
-    echo '<pre>';
+global $post;
+$post_id = $post->ID;
+$fields = get_fields($post_id);
 
-    var_dump($fields);
 
-    echo '</pre>';
-    echo '<br><br>';
+?>
 
-    ?>
 
-</section>
- -->
 
 
 <main>
@@ -80,7 +70,7 @@ get_header();
 
                 <?php
 
-                $direction = 2; // дефолт
+                $direction = 2;
                 $direction_text = null;
 
                 ?>
@@ -91,7 +81,7 @@ get_header();
 
                         <?php
 
-                        // Запрашиваем слайды
+
                         $slides = new \WP_Query(array(
                             'post_type' => 'specialist_slides',
                             'posts_per_page' => 4,
@@ -101,8 +91,8 @@ get_header();
 
 
                         if ($slides->have_posts()): while ($slides->have_posts()): $slides->the_post();
-                                $photo_left_id = get_field('photo_left'); // Это теперь ID (число), а не ссылка
-                                $photo_front_id = get_field('photo_front'); // Это теперь ID (число), а не ссылка
+                                $photo_left_id = get_field('photo_left');
+                                $photo_front_id = get_field('photo_front');
 
                                 $direction_id = intval(get_field('direction_id')) ?? $direction;
                                 $direction_text = get_field('direction_text');
@@ -125,11 +115,11 @@ get_header();
 
                         ?>
 
-                                <div class="swiper-slide">
-                                    <div class="contacts-slide <?php echo esc_attr($class); ?>" style="--contact-color:  <?php echo $color ? esc_attr($color) : '#0088ff'; ?>" data-direction-id="<?php echo esc_attr($direction_id); ?>" data-direction="<?php echo $direction_text ? esc_attr($direction_text) : ''; ?>">
-                                        <div class="contacts-slide-images">
+                        <div class="swiper-slide">
+                            <div class="contacts-slide <?php echo esc_attr($class); ?>" style="--contact-color:  <?php echo $color ? esc_attr($color) : '#0088ff'; ?>" data-direction-id="<?php echo esc_attr($direction_id); ?>" data-direction="<?php echo $direction_text ? esc_attr($direction_text) : ''; ?>">
+                                <div class="contacts-slide-images">
 
-                                            <?php
+                                    <?php
 
                                             if ($photo_left_id) {
                                                 echo wp_get_attachment_image($photo_left_id, 'full', false, array(
@@ -147,15 +137,15 @@ get_header();
 
                                             ?>
 
-                                        </div>
-
-                                        <span class="contacts-slide__title">
-
-                                            <?php echo  $direction_text ? esc_html($direction_text) : ''; ?>
-
-                                        </span>
-                                    </div>
                                 </div>
+
+                                <span class="contacts-slide__title">
+
+                                    <?php echo  $direction_text ? esc_html($direction_text) : ''; ?>
+
+                                </span>
+                            </div>
+                        </div>
 
                         <?php endwhile;
                             wp_reset_postdata();
