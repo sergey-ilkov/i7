@@ -546,9 +546,7 @@ main {
         width: calc(48px + 72 * (100vw - 375px) / 1545);
         height: calc(48px + 72 * (100vw - 375px) / 1545);
     }
-    .header {
-        padding-top: calc(20px + 20 * (100vw - 375px) / 1545);
-    }
+
     .hero-logo-svg {
         width: calc(64px + 20 * (100vw - 375px) / 1545);
     }
@@ -1344,6 +1342,8 @@ main {
 /* ? hero */
 .hero {
     position: relative;
+
+    background: var(--color-blue);
 }
 .hero-inner {
     height: calc(var(--vh, 1vh) * 100);
@@ -2333,8 +2333,8 @@ main {
 
 .digital-pin-wrap {
     height: 200vh;
-
     height: 300vh;
+    background: var(--color-blue);
 }
 
 .hero-digital {

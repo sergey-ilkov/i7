@@ -345,20 +345,64 @@ function initSmoothToHomePortfolioHash() {
     })
 
 
+    const preloader = document.querySelector('#preloader');
+
+    const tl = gsap.timeline();
+    if (preloader) {
+        tl.to(preloader, { xPercent: -100, duration: 1 }, '+=0.8')
+            .set(preloader, { display: 'none', zIndex: -10, });
+    }
 
     const scrollToSection = sessionStorage.getItem('scrollToSection');
+
+
     // const scrollToSection = sessionStorage.getItem('scrollToSection') || (location.hash === '#home-portfolio' ? '#home-portfolio' : null);
     // console.log('scrollToSection ', scrollToSection);
     if (scrollToSection) {
 
-        // history.replaceState(null, '', location.pathname + location.search);
-
         sessionStorage.removeItem('scrollToSection');
+        // history.replaceState(null, '', location.pathname + location.search);
+        let = timerId = null;
+
+
+        if (preloader) {
+
+            // tl.add(smoothToHomePortfolio());
+            tl.call(() => {
+                // console.log('start');
+                smoothToHomePortfolio()
+            })
+
+            // tl.add(() => {
+            //     console.log('start add');
+            // })
+
+
+            // preloader.addEventListener('animationend', () => {
+            //     console.log('Анимация завершена!');
+            //     // Ваш код, который должен выполниться после анимации
+
+            //     // smoothToHomePortfolio();
+            //     // setTimeout(() => {
+            //     //     smoothToHomePortfolio();
+            //     // }, 2000);
+            // });
+        }
+        else {
+            timerId = setTimeout(() => {
+                clearTimeout(timerId);
+                smoothToHomePortfolio();
+            }, 100);
+
+        }
+
+
+        // sessionStorage.removeItem('scrollToSection');
         // Даём время на layout и расчёт пинов, затем скроллим
         // небольшой таймаут + ScrollTrigger.refresh()
-        setTimeout(() => {
-            smoothToHomePortfolio();
-        }, 60); // 60–200ms в зависимости от тяжести страницы; при SPA можно замерить готовность
+        // setTimeout(() => {
+        //     smoothToHomePortfolio();
+        // }, time); // 60–200ms в зависимости от тяжести страницы; при SPA можно замерить готовность
     }
 }
 

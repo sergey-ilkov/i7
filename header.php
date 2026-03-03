@@ -12,16 +12,16 @@
     echo file_get_contents(get_template_directory() . '/assets/css/critical-common.css');
 
     // Специфический критический CSS для страницы
-    if (is_front_page()) {
-        echo file_get_contents(get_template_directory() . '/assets/css/critical-home.css');
-    }
+    // if (is_front_page()) {
+    //     echo file_get_contents(get_template_directory() . '/assets/css/critical-home.css');
+    // }
 
     // elseif (is_page_template('tpl-digital.php')) {
     //     echo file_get_contents(get_template_directory() . '/assets/css/critical-digital.css');
     // }
-    if (is_page_template('page-templates/tpl-digital.php')) {
-        echo file_get_contents(get_template_directory() . '/assets/css/critical-digital.css');
-    }
+    // if (is_page_template('page-templates/tpl-digital.php')) {
+    //     echo file_get_contents(get_template_directory() . '/assets/css/critical-digital.css');
+    // }
 
 
     ?>
@@ -37,7 +37,7 @@
 
 
 
-    <?php get_template_part('template-parts/header', 'preloader'); ?>
+
 
 
 

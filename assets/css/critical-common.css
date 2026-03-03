@@ -156,20 +156,20 @@ body.fixed {
     align-items: center;
     padding: 0 20px;
     z-index: 500;
-    animation: preloader-hidden 0.2s ease 0.8s forwards;
+    /* animation: preloader-hidden 0.6s ease 1.4s forwards; */
 }
 
 @keyframes preloader-hidden {
     0% {
-        opacity: 1;
+        transform: translateX(0);
     }
 
     99% {
-        opacity: 0;
+        transform: translateX(-110%);
     }
 
     100% {
-        opacity: 0;
+        transform: translateX(-110%);
         display: none;
         z-index: -10;
     }
@@ -202,16 +202,23 @@ body.fixed {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    animation: fillText 0.7s forwards ease;
+    animation: fillText 1.2s forwards 0.2s ease;
 }
 
 @keyframes fillText {
-    from {
+    0% {
         background-position: 100% 0;
+        opacity: 0;
     }
 
-    to {
+    20% {
+        background-position: 100% 0;
+        opacity: 1;
+    }
+
+    100% {
         background-position: 0% 0;
+        opacity: 1;
     }
 }
 
